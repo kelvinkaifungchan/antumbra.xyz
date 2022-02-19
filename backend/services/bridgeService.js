@@ -2,11 +2,11 @@ class BridgeService {
     constructor(knex) {
         this.knex = knex;
     }
-    async addTag(articleId, tagBody) {
+    async addTag(articleId, tag) {
         console.log("Adding new tag to article");
 
         const tag = await this.knex("tag").where({
-            tag: tagBody
+            tag: tag
         })
 
         return this.knex("article_tag")
@@ -16,11 +16,11 @@ class BridgeService {
             })
     }
 
-    async deleteTag(articleId, tagBody) {
+    async deleteTag(articleId, tag) {
         console.log("Deleting tag from article");
 
         const tag = await this.knex("tag").where({
-            tag: tagBody
+            tag: tag
         })
 
         return this.knex("article_tag")

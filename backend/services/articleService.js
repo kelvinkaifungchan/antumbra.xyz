@@ -2,30 +2,30 @@ class ArticleService {
     constructor(knex) {
         this.knex = knex;
     }
-    add(type, author, title, subtitle, datePublished) {
+    add(body) {
         console.log("Adding new article");
 
         return this.knex
             .insert({
-                type: type,
-                author: author,
-                title: title,
-                subtitle: subtitle,
-                datePublished: datePublished,
+                type: body.type,
+                author: body.author,
+                title: body.title,
+                subtitle: body.subtitle,
+                datePublished: body.datePublished,
             })
             .into("card")
             .returning("id")
     }
 
-    edit(articleId, author, title, subtitle, datePublished) {
+    edit(body) {
         console.log("editing card")
         return this.knex("card")
             .where("id", articleId)
             .update({
-                author: author,
-                title: title,
-                subtitle: subtitle,
-                datePublished: datePublished
+                author: body.author,
+                title: body.title,
+                subtitle: body.subtitle,
+                datePublished: body.datePublished
             })
             .returning("id")
     }
