@@ -18,7 +18,7 @@ const bridgeService = new BridgeService(knex)
 const AArchitectureRouter = require("./routers/aarchitectureRouter");
 app.use("/api/aarchitecture", new AArchitectureRouter(aarchitectureService).router());
 const AdminRouter = require("./routers/adminRouter");
-app.use("/api/admin", new AdminRouter(articleService, bridgeService).router());
+app.use("/api/admin", new AdminRouter(aarchitectureService, articleService, bridgeService).router());
 
 //Setup Server
 http.listen(8080, () => {
