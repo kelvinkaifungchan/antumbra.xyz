@@ -7,7 +7,7 @@ exports.up = function (knex) {
     .createTable("article", (table) => {
       table.increments("id").primary();
       table.string("type");
-      table.string("authour");
+      table.string("author");
       table.string("title");
       table.string("subtitle");
       table.string("datePublished");

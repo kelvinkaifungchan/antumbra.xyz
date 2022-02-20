@@ -3,25 +3,25 @@ exports.seed = function (knex) {
     .then(async()=>{
         return knex("article").insert([{
             type: "text",
-            authour: "Kevline Cosnor",
+            author: "Kevline Cosnor",
             title: "Dances with Wolfs",
             subtitle: "it dance with wolfs lol",
             datePublished: "today lor"
         },{
             type: "text",
-            authour: "Kevline Cosnor",
+            author: "Kevline Cosnor",
             title: "Dances with Wolfs",
             subtitle: "it dance with wolfs lol",
             datePublished: "today lor"
         },{
             type: "text",
-            authour: "Kevline Cosnor",
+            author: "Kevline Cosnor",
             title: "Dances with Wolfs",
             subtitle: "it dance with wolfs lol",
             datePublished: "today lor"
         },{
             type: "text",
-            authour: "Kevline Cosnor",
+            author: "Kevline Cosnor",
             title: "Dances with Wolfs",
             subtitle: "it dance with wolfs lol",
             datePublished: "today lor"
