@@ -10,12 +10,15 @@ exports.up = function (knex) {
       table.string("author");
       table.string("title");
       table.string("subtitle");
+      table.string("moduleType");
+      table.string("heroImage");
       table.string("datePublished");
       table.timestamp("created_at").defaultTo(knex.fn.now());
     })
     .createTable("attachment", (table) => {
       table.increments("id").primary();
       table.integer('article_id').unsigned().references('id').inTable('article');
+      table.string("attachmentType");
       table.string("attachmentLink");
       table.timestamp("created_at").defaultTo(knex.fn.now());
     })
