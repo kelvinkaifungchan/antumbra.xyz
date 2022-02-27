@@ -31,13 +31,14 @@ class BridgeService {
             .del()
     }
 
-    addAttachment(articleId, attachment) {
+    addAttachment(articleId, attachment, attachmentType) {
         console.log("Adding new attachment to article");
 
         return this.knex("attachment")
             .insert({
                 article_id: articleId,
-                attachmentLink: attachment
+                attachmentLink: attachment,
+                attachmentType: attachmentType
             })
     }
 

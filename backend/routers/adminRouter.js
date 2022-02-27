@@ -28,7 +28,7 @@ class AdminRouter {
             .then(() => {
                 req.body.attachments.map((attachment) => {
                     return this.articleService
-                    .addAttachment(req.body.articleId, attachment.attachmentLink)
+                    .addAttachment(req.body.articleId, attachment.attachmentLink, attachment.attachmentType)
                 })
             })
             .then(() => {

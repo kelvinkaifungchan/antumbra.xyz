@@ -11,7 +11,8 @@ class AArchitectureService {
             .then((attachments) => {
                 attachments.map((attachment) => {
                     return {
-                        attachmentLink: attachment.attachmentLink
+                        attachmentLink: attachment.attachmentLink,
+                        attachmentType: attachment.attachmentType
                     }
                 })
             })
@@ -45,6 +46,8 @@ class AArchitectureService {
                         author: article.author,
                         title: article.title,
                         subtitle: article.subtitle,
+                        moduleType: article.moduleType,
+                        heroImage: article.heroImage,
                         datePublished: article.datePublished,
                         tags: tag(article.id),
                         attachments: attachment(article.id),
