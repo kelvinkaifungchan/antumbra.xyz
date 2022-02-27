@@ -1,5 +1,9 @@
 require("dotenv").config();
 
+//DB
+const knexConfig = require('./knexfile').development;
+const knex = require('knex')(knexfile)
+
 //Express
 const fileUpload = require("express-fileupload");
 const express = require("express");
