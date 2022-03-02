@@ -11,24 +11,26 @@ class ArticleService {
                 author: body.author,
                 title: body.title,
                 subtitle: body.subtitle,
+                moduleType: body.moduleType,
+                heroImage: body.heroImage,
                 datePublished: body.datePublished,
             })
             .into("card")
             .returning("id")
     }
 
-    edit(body) {
-        console.log("editing card")
-        return this.knex("card")
-            .where("id", articleId)
-            .update({
-                author: body.author,
-                title: body.title,
-                subtitle: body.subtitle,
-                datePublished: body.datePublished
-            })
-            .returning("id")
-    }
+    // edit(body) {
+    //     console.log("editing card")
+    //     return this.knex("card")
+    //         .where("id", articleId)
+    //         .update({
+    //             author: body.author,
+    //             title: body.title,
+    //             subtitle: body.subtitle,
+    //             datePublished: body.datePublished
+    //         })
+    //         .returning("id")
+    // }
 
     delete(articleId) {
         return this.knex("article")
@@ -49,6 +51,8 @@ class ArticleService {
                 article.author = data[0].author
                 article.title = data[0].title
                 article.subtitle = data[0].subtitle
+                article.moduleType = data[0].moduleType
+                article.heroImage = data[0].heroImage
                 article.datePublished = data[0].datePublished
             })
             .then(() => {
@@ -76,7 +80,8 @@ class ArticleService {
                     article.attachments = attachments.map((attachment) => {
                         return {
                             id: attachment.id,
-                            attachmentLink: attachment.attachmentLink
+                            attachmentLink: attachment.attachmentLink,
+                            attachmentType: attachment.attachmentType
                         }
                     })
                 })
