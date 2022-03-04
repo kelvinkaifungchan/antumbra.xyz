@@ -1,7 +1,7 @@
 import React from "react";
 
-const ticker = () => {
+const Ticker = () => {
 
 }
 
-export default ticker;
+export default Ticker;
