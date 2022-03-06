@@ -1,0 +1,9 @@
+nav a {
+    color: #FF5C00;
+    font-size: 2rem;
+}
+
+nav a:hover {
+    color: #FF5C00;
+    text-decoration: underline;
+}
