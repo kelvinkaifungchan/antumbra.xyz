@@ -1,9 +1,12 @@
 import React from 'react';
+import { NavBar } from '../components/navbar';
+import { Text } from '../components/text';
 
 export const Article = () => {
-    return (
-        <div>
-            Hi There
-        </div>
-    )
+return (
+<div className='container-fluid'>
+    <NavBar />
+    <Text />
+</div>
+)
 }
