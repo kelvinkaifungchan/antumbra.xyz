@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { HorizontalLine } from './horizontalLine';
 import "./navbar.module.css"
 
 export const NavBar = () => {
@@ -7,7 +8,8 @@ return (
 <nav className='p-3'>
     <div className='d-flex justify-content-between'>
         <div>
-            <b><Link to="/">44</Link></b>
+            <b>
+                <Link to="/">44</Link></b>
         </div>
         <div>
             <Link className="px-3" to="/archive">Archive</Link>
@@ -15,13 +17,7 @@ return (
             <Link className="pl-3" to="/callformedia">Call for Media</Link>
         </div>
     </div>
-    <hr
-        style={{
-            color: 'white',
-            backgroundColor: 'white',
-            height: 0.5,
-        }}
-    />
+    <HorizontalLine />
 </nav>
 )
 }
