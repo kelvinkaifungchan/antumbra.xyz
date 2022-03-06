@@ -2,13 +2,15 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Home } from './pages/Home';
-import { Contact } from './pages/Contact';
+import { Info } from './pages/Info';
 import { Archive } from './pages/Archive';
+import { CallForMedia } from './pages/CallforMedia';
 import {
   BrowserRouter as Router,
   Route,
   Routes
 } from "react-router-dom";
+
 
 function App() {
   return (
@@ -17,10 +19,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}/>
             <Route path="/archive" element={<Archive />}/>
-            <Route path="/contact" element={<Contact />}/>
+            <Route path="/info" element={<Info />}/>
+            <Route path="/callformedia" element={<CallForMedia />}/>
           </Routes>
       </Router>
-
     </div>
   );
 }

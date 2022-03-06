@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavBar } from '../components/navbar';
 
-export const Contact = () => {
+export const Info = () => {
     return (
         <div className='container-fluid'>
             <NavBar/>
-            <div className='row p-3' style={{fontSize: '1.5rem'}}>
+            <div className='row p-3' style={{fontSize: '2rem'}}>
                 <div className='col-6'>
                     <b>About Us:</b><br/>
                         AArchitecture is the student-run magazine of the Architectural Association and welcomes

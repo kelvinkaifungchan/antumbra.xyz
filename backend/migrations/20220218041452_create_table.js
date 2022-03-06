@@ -30,6 +30,13 @@ exports.up = function (knex) {
       table.increments("id").primary();
       table.integer('article_id').unsigned().references('id').inTable('article');
       table.integer('tag_id').unsigned().references('id').inTable('tag');
+    })
+    .createTable("archive", (table) => {
+      table.increments("id").primary();
+      table.integer("issue");
+      table.string("title");
+      table.string("date");
+      table.string("link");
     });
 };
 
@@ -39,6 +46,7 @@ exports.up = function (knex) {
  */
 exports.down = function (knex) {
   return knex.schema
+    .dropTable("archive")
     .dropTable("article_tag")
     .dropTable("tag")
     .dropTable("attachment")

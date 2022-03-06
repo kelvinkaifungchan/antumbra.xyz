@@ -11,8 +11,8 @@ return (
         </div>
         <div>
             <Link className="px-3" to="/archive">Archive</Link>
-            <Link className="px-3" to="/contact">Contact</Link>
-            <Link className="pl-3" to="/contact">Call for Media</Link>
+            <Link className="px-3" to="/info">Info</Link>
+            <Link className="pl-3" to="/callformedia">Call for Media</Link>
         </div>
     </div>
     <hr
