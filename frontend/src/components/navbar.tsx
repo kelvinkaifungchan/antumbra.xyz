@@ -1,21 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "./navbar.module.css"
 
 export const NavBar = () => {
-    return (
-        <div>
-                <li> 
-                    <button><Link to="/">44</Link></button>
-                </li>
-                <li> 
-                    <button><Link to="/contact">Archive</Link></button>
-                </li>
-                <li> 
-                    <button><Link to="/contact">Contact</Link></button>
-                </li>
-                <li> 
-                    <button><Link to="/contact">Call for Media</Link></button>
-                </li>
-        </div>
-    )
+return (
+<nav>
+    <ul>
+        <li>
+            <Link to="/">44</Link>
+        </li>
+        <li>
+            <Link to="/contact">Archive</Link>
+        </li>
+        <li>
+            <Link to="/contact">Contact</Link>
+        </li>
+        <li style={{float:"right"}}>
+            <Link to="/contact">Call for Media</Link>
+        </li>
+    </ul>
+</nav>
+)
 }
