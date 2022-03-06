@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Home } from './pages/Home';
 import { Contact } from './pages/Contact';
+import { Archive } from './pages/Archive';
 import {
   BrowserRouter as Router,
   Route,
@@ -15,6 +16,7 @@ function App() {
       <Router>
           <Routes>
             <Route path="/" element={<Home />}/>
+            <Route path="/archive" element={<Archive />}/>
             <Route path="/contact" element={<Contact />}/>
           </Routes>
       </Router>
