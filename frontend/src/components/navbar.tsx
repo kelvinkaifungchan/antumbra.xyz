@@ -9,7 +9,7 @@ return (
     <div className='d-flex justify-content-between'>
         <div>
             <b>
-                <Link to="/">44</Link></b>
+                <Link to="/home">44</Link></b>
         </div>
         <div>
             <Link className="px-3" to="/archive">Archive</Link>
