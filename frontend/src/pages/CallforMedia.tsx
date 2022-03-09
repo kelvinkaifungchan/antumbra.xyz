@@ -5,7 +5,7 @@ export const CallForMedia = () => {
 return (
 <div className='container-fluid'>
     <NavBar />
-    <div className='row px-3' style={{fontSize: '2rem'}}>
+    <div className='row px-3' style={{fontSize: '1rem'}}>
         <div className='col-6'>
             The Warm War is an intermediary space. It’s not quite the Cold War: the open hostility, espionage
             and nuclear dread that made up the power struggle between Federalism and Communism. Neither is it a

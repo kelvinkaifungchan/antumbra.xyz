@@ -1,9 +1,14 @@
 nav a {
     color: #FF5C00;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 nav a:hover {
     color: #FF5C00;
     text-decoration: underline;
+}
+
+hr {
+    background: linear-gradient(to right, #010328, #ffffff, #010328);
+    height: 0.5px;
 }

@@ -6,7 +6,7 @@ export const Archive = () => {
 return (
 <div className='container-fluid'>
     <NavBar />
-    <div className='row px-3' style={{fontSize: '2rem'}}>
+    <div className='row px-3' style={{fontSize: '1.5rem'}}>
         <div className='col w-100'>
             <table className='w-100' style={{color: '#FF5C00'}}>
                 {/* Placeholder; needs to be mapped from database*/}
