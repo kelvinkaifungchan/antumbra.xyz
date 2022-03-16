@@ -15,10 +15,10 @@ import {
 
 function App() {
   return (
-    <div className="App">
+    <div className="App animation">
       <Router>
           <Routes>
-            <Route path="/home" element={<Home />}/>
+            <Route path="/" element={<Home />}/>
             <Route path="/:id" element={<Article />}/>
             <Route path="/archive" element={<Archive />}/>
             <Route path="/info" element={<Info />}/>
