@@ -6,7 +6,7 @@ import "./navbar.module.css"
 export const NavBar = () => {
 return (
 <nav className='p-3'>
-    <div className='d-flex justify-content-between' style={{fontSize: '1.5rem'}}>
+    <div className='d-flex justify-content-between' style={{fontSize: '1.8rem'}}>
         <div>
                 <Link to="/"><span style={{filter: 'blur(3px)'}}>AARCHITECTURE</span> 44</Link>
         </div>
