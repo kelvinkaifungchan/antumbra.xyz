@@ -2,6 +2,8 @@ import React from 'react';
 import { NavBar } from '../components/navbar';
 import { Issue } from '../components/issue';
 
+
+
 export const Archive = () => {
 return (
 <div className='container-fluid'>
