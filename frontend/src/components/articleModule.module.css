@@ -1,0 +1,7 @@
+.module {
+    transition: 0.2s;
+}
+
+.module:hover {
+    transform: scale(1.007);
+}
