@@ -29,7 +29,7 @@ const articleList = [
 const imageLink = ``
 export const Home = () => {
   return (
-    <div>
+    <div className="container-fluid">
       {/* header */}
       <div className={`${styles.blur} ${styles.dflexCenter}`}>
         AARCHITECTURE
@@ -72,7 +72,7 @@ export const Home = () => {
                     <ArticleModule content={item} img={img}/>
                   </div>
                   )
-                })}
+          })}
         </div>
       </div>
     </div>
