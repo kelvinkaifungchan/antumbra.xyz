@@ -5,10 +5,13 @@ import "./navbar.module.css"
 
 export const NavBar = () => {
 return (
-<nav className='p-3'>
-    <div className='d-flex justify-content-between' style={{fontSize: '1.8rem'}}>
+<nav className='pt-3 px-3'>
+    <div className='d-flex justify-content-between' style={{color: "#FF5C00",fontSize: '1.8rem'}}>
         <div>
                 <Link to="/"><span style={{filter: 'blur(3px)'}}>AARCHITECTURE</span> 44</Link>
+        </div>
+        <div >
+            THE WARM WAR
         </div>
         <div>
             <Link className="px-3" to="/archive">ARCHIVE</Link>
