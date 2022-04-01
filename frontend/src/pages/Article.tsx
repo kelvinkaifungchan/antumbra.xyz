@@ -8,8 +8,8 @@ export const Article = () => {
 return (
 <div className='container-fluid'>
     <NavBar />
-    <Text />
-    {/* <Video /> */}
+    {/* <Text /> */}
+    <Video />
     {/* <Photography /> */}
 </div>
 )
