@@ -5,7 +5,7 @@ export const Info = () => {
     return (
         <div className='container-fluid'>
             <NavBar/>
-            <div className='row p-3' style={{fontSize: '1rem'}}>
+            <div className='row p-3' style={{fontSize: '1.5rem'}}>
                 <div className='col-6'>
                     <div className='w-50'>
                     <b>About Us:</b><br/>
