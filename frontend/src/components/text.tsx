@@ -5,6 +5,10 @@ return (
 <div className='px-3 pb-5' style={{fontSize: '2rem'}}>
     <div className='row pb-5'>
         <div className='col-6' style={{color: "#FF5C00", fontSize: '1.2rem'}}>
+            Tag(s):<br />
+            Architecture <br />
+            Technology <br /><br />
+            
             Contributor(s):<br />
             Tiziana Terranova<br />
             Ravi Sundaram

@@ -2,7 +2,7 @@ import React from "react";
 import { NavBar } from "../components/navbar";
 import styles from "./Home.module.css";
 import "./Home.module.css";
-import img from "../assets/meme13.jpeg";
+import img from "../assets/highway.jpg";
 import Ticker from "react-ticker";
 import { Chip } from "@mui/material";
 import { HorizontalLine } from "../components/horizontalLine";

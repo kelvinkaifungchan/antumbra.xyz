@@ -7,4 +7,119 @@ body {
   font-weight: 400;
   letter-spacing: 0.04rem;
   color: #ffffff;
+  /* animation: pulse 60s infinite; */
 }
+
+/* @keyframes pulse {
+  0%{
+    background: #010328;
+  }
+  
+  2% {
+    background: #021AB6;
+  }
+  
+  5% {
+    background: #06115E;
+  }
+  
+  10% {
+    background: #061999;
+  }
+  
+  11% {
+    background: #010328;
+  }
+  
+  15% {
+    background: #061999;
+  }
+  
+  20% {
+    background: #010328;
+  }
+  
+  21% {
+    background: #06115E;
+  }
+  
+  25% {
+    background: #061999;
+  }
+  
+  27% {
+    background: #06115E;
+  }
+  
+  30% {
+    background: #061999;
+  }
+  
+  35% {
+    background: #06115E;
+  }
+  
+  36% {
+    background: #061999;
+  }
+  
+  40% {
+    background: #06115E;
+  }
+  
+  50% {
+    background: #061999;
+  }
+  
+  51% {
+    background: #06115E;
+  }
+  
+  55% {
+    background: #061999;
+  }
+  
+  60% {
+    background: #010328;
+  }
+  
+  61% {
+    background: #06115E;
+  }
+  
+  65% {
+    background: #010328;
+  }
+  
+  67% {
+    background: #06115E;
+  }
+  
+  70% {
+    background: #010328;
+  }
+  
+  74% {
+    background: #010328;
+  }
+  
+  75% {
+    background: #061999;
+  }
+  
+  79% {
+    background: #010328;
+  }
+  
+  89% {
+    background: #06115E;
+  }
+  
+  91% {
+    background: #06115E;
+  }
+  
+  100% {
+    background: #010328;
+  }
+  } */

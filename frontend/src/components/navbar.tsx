@@ -9,12 +9,12 @@ return (
     <div className='d-flex justify-content-between'>
         <div>
             <b>
-                <Link to="/home">44</Link></b>
+                <Link to="/"><span style={{filter: 'blur(3px)'}}>AARCHITECTURE</span> 44</Link></b>
         </div>
         <div>
-            <Link className="px-3" to="/archive">Archive</Link>
-            <Link className="px-3" to="/info">Info</Link>
-            <Link className="pl-3" to="/callformedia">Call for Media</Link>
+            <Link className="px-3" to="/archive">ARCHIVE</Link>
+            <Link className="px-3" to="/info">INFO</Link>
+            <Link className="pl-3" to="/callformedia">CALL FOR MEDIA</Link>
         </div>
     </div>
     <HorizontalLine />

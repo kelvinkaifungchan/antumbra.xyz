@@ -1,16 +1,19 @@
+import React from 'react';
+
 interface Issue {
-    number: number,
-    title: string,
-    date: string,
-    link?: string
+id: number,
+number: number,
+title: string,
+date: string,
+link?: string
 }
 
 export const Issue: React.FC<Issue> = ({number, title, date, link}) => {
-return (
+    return (
     <tr>
-    <td>{number}</td>
-    <td>{title}</td>
-    <td style={{float: 'right'}}>{date}</td>
-</tr>
-)
-}
+        <td>{number}</td>
+        <td>{title}</td>
+        <td style={{float: 'right'}}>{date}</td>
+        </tr>
+    )
+    }

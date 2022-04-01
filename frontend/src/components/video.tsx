@@ -12,7 +12,14 @@ return (
         <div className='col-6' style={{color:"#FF5C00", fontSize: '3rem'}}>
             AS CRUST
         </div>
-        <div className='col-6'>
+        <div className='col-3'>
+            <div style={{fontSize: '1.2rem', color:"#FF5C00"}}>
+                Tag(s):<br />
+                Technology<br/>
+                Automation
+            </div>
+        </div>
+        <div className='col-3'>
             <div style={{fontSize: '1.2rem', color:"#FF5C00"}}>
                 Contributor(s):<br />
                 Amnesia Scanner
