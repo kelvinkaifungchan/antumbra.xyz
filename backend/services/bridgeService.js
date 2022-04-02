@@ -5,27 +5,27 @@ class BridgeService {
     async addTag(articleId, tag) {
         console.log("Adding new tag to article");
 
-        const tag = await this.knex("tag").where({
+        const name = await this.knex("tag").where({
             tag: tag
         })
 
         return this.knex("article_tag")
             .insert({
                 article_id: articleId,
-                tag_id: tag[0].id
+                tag_id: name[0].id
             })
     }
 
     async deleteTag(articleId, tag) {
         console.log("Deleting tag from article");
 
-        const tag = await this.knex("tag").where({
+        const name = await this.knex("tag").where({
             tag: tag
         })
 
         return this.knex("article_tag")
             .where({
-                tag_id: tag[0].id,
+                tag_id: name[0].id,
                 article_id: articleId
             })
             .del()
@@ -53,3 +53,4 @@ class BridgeService {
             .del()
     }
 }
+module.exports = BridgeService;

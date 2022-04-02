@@ -10,9 +10,9 @@ return (
         <div>
                 <Link to="/"><span style={{filter: 'blur(3px)'}}>AARCHITECTURE</span> 44</Link>
         </div>
-        <div >
+        {/* <div >
             THE WARM WAR
-        </div>
+        </div> */}
         <div>
             <Link className="px-3" to="/archive">ARCHIVE</Link>
             <Link className="px-3" to="/info">INFO</Link>
