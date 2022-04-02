@@ -3,6 +3,8 @@ import ReactPlayer from 'react-player'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import { TextBlock } from './textBlock';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 const photographyExample = {
     tags: ["Architecture", "Photography"],
@@ -13,6 +15,23 @@ const photographyExample = {
 }
 
 export const Photography = () => {
+    let params = useParams();
+    const getArticleFile = () => {
+        axios(`http://localhost:8080/api/aarchitecture/article/?articleId=${params.id}`,{
+            method: 'GET',
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                withCredentials: true,
+                mode: 'no-cors'
+              }})
+        .then((response)=>{
+            console.log(response);
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+    }
+    getArticleFile()
 return (
 <div className='px-3 pb-5' style={{fontSize: '1.5rem'}}>
 <div className='row pb-4'>

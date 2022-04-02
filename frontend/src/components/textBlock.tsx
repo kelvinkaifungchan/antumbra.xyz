@@ -10,7 +10,7 @@ text: string,
 
 export const TextBlock: React.FC<TextBlock> = ({id, imageLink, imageCaption, text}) => {
     return (
-    <div key={id} className='row' style={{opacity: '0.8'}}>
+    <div key={id} className='row'>
         <div className='col-6'>
             <div className='row pb-5 pr-5'>
                 <div>
@@ -22,7 +22,7 @@ export const TextBlock: React.FC<TextBlock> = ({id, imageLink, imageCaption, tex
                 </div>
             </div>
         </div>
-        <div className='col-6'>
+        <div className='col-6' style={{fontSize: '1.5rem', opacity: '0.8'}}>
             {text}<br /><br />
         </div>
     </div>

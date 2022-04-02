@@ -15,8 +15,11 @@ class ArticleService {
                 heroImage: body.heroImage,
                 datePublished: body.datePublished,
             })
-            .into("card")
+            .into("article")
             .returning("id")
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
     // edit(body) {
@@ -38,6 +41,9 @@ class ArticleService {
                 id: articleId
             })
             .del()
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
     article(articleId) {
@@ -89,5 +95,9 @@ class ArticleService {
             .then(() => {
                 return article
             })
+            .catch((err) => {
+                console.log(err)
+            })
     }
 }
+module.exports = ArticleService;

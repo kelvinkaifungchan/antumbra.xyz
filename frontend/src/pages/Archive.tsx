@@ -306,13 +306,15 @@ return (
     <div className='row px-3' style={{fontSize: '1.8rem'}}>
         <div className='col w-100'>
             <table className='w-100' style={{color: '#FF5C00'}}>
+                <tbody>
                 {/* Placeholder; needs to be mapped from database*/}
-                {archive.map((issue)=> {
+                {archive.map((issue,index)=> {
                     return(
-                        <Issue id={issue.id} issue={issue.issue} title={issue.title} date={issue.date} link={issue.link}/>
+                        <Issue key={index} id={issue.id} issue={issue.issue} title={issue.title} date={issue.date} link={issue.link}/>
                     )
                 })
                 }
+                </tbody>
             </table>
         </div>
     </div>
