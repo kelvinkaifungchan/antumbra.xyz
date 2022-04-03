@@ -7,10 +7,8 @@ return (
         <div>
                 <Link to="https://www.aaschool.ac.uk/"><img src="https://aarchitecture.blob.core.windows.net/videos/Architectural_association_school_of_architecture_logo.png" alt="Architectural Association" width="auto" height="60" style={{filter:"invert(1)"}}/></Link>
         </div>
-        <div style={{fontSize:'1rem', opacity:'0.8'}}>
-        36 Bedford Square<br/>
-        London<br/>
-        WC1B 3ES
+        <div style={{fontSize:'1rem', opacity:'0.7', width:"20%"}}>
+        The Warm War is developed and edited by Karl Herdersch, Kaifung Kelvin Chan and Alexander Balgarnie
         </div>
         <div style={{fontSize:'1rem'}}>
             <Link className="px-3" to="/info">About</Link><br/>
@@ -19,8 +17,9 @@ return (
             <Link className="px-3" to="/">Privacy Policy</Link><br/>
             <Link className="px-3" to="/archive">Archive</Link><br/>
         </div>
-        <div style={{fontSize:'1rem'}}>
-        </div>
+        <div></div>
+        <div></div>
+        <div></div>
         <div></div>
         <div></div>
         <div style={{fontSize:'1rem'}}>

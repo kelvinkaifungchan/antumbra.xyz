@@ -20,15 +20,6 @@
     margin: 0 20px 0 20px;
 }
 
-.tags {
-    margin: 20px;
-}
-
-.articleGrid {
-    min-width: 595px;
-    height: 332px;
-}
-
 .banner {
     transition: 0.2s;
 }

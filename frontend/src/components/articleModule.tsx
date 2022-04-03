@@ -48,8 +48,8 @@ interface Props {
 export const ArticleModule = (props: Props) => {
     return (
         <div className={`${styles.module} pb-5`} style={{height: "100%"}}>
-            <div style={{zIndex:"1"}}>
-                <img className='w-100' src={props.heroImage} />
+            <div className={styles.card} style={{zIndex:"1"}}>
+                <img className='w-100' style={{borderRadius:"20px"}} src={props.heroImage} />
             </div>
             <div style={{zIndex:"-1"}}>
                 <div style={{fontSize:"3rem"}}>
