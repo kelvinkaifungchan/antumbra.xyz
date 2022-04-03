@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { NavBar } from "../components/navbar";
 import { HorizontalLine } from "../components/horizontalLine";
@@ -6,6 +7,9 @@ import { ArticleModule } from "../components/articleModule";
 import { Footer } from "../components/footer";
 import Ticker from "react-ticker";
 import { Chip } from "@mui/material";
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import styles from "./Home.module.css";
 import "./Home.module.css";
 import axios, {AxiosResponse} from 'axios';
@@ -61,13 +65,19 @@ interface ArticleList extends Array<Article>{}
     })
     },[])
 
-    const handleClick = () => {
-    return
-    }
-
     const handleNav = (e: any, id: number, type: string) => {
     navigate(`/${type}/${id}`);
     }
+
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+
     return (
     <div className="container-fluid">
       {/* header */}
@@ -106,6 +116,33 @@ interface ArticleList extends Array<Article>{}
           sx={{ color: "#FF5C00", border: "1px solid #FF5C00", mr: 2 }} onClick={handleClick} />
         );
         })}
+        <div style={{float:"right"}}>
+        <Button
+        aria-controls={open ? 'demo-positioned-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        sx={{ color: "#FF5C00", border: "1px solid #FF5C00", borderRadius:"20px"}}
+        onClick={handleClick}
+      >
+        III
+      </Button>
+      <Menu
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+      >
+        <MenuItem><Link className="px-3" to="/info">Information</Link></MenuItem>
+        <MenuItem><Link className="px-3" to="/archive">Archive</Link></MenuItem>
+      </Menu>
+        </div>
       </div>
       <HorizontalLine />
       <div className={styles.tags}>
