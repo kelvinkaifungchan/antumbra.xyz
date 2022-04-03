@@ -12,7 +12,7 @@ export const ArticleModule = (props: Props) => {
     return (
         // <div style={{ backgroundImage:`url("${props.heroImage}")`, width:'auto', height:'100%', backgroundRepeat:'no-repeat', backgroundSize:'auto', borderRadius:'9'}}>
         <div className={styles.module} style={{height: "100%"}}>
-        <div className={styles.card} style={{color:"#FF5C00", backgroundImage:`url("${props.heroImage}")`, minHeight:"85%", backgroundSize:"cover", borderRadius:"5px"}}>
+        <div className={styles.card} style={{color:"#FF5C00", backgroundImage:`url("${props.heroImage}")`, minHeight:"70%", backgroundSize:"cover", borderRadius:"5px"}}>
             <div className='px-3 pt-3' style={{fontSize:"3rem"}}>{props.title}</div><br/>
         </div>
         <div className='p-3' style={{background:"none"}}>
