@@ -1,7 +1,19 @@
 .module {
-    transition: 0.2s;
+    transition: 0.5s;
+    filter: blur(2px);
+}
+
+.card {
+    filter: blur(2px) invert(1);
+    transition: 0.5s;
+}
+
+.card:hover {
+    transform: scale(1.007);
+    filter: blur(0px) invert(0);
 }
 
 .module:hover {
     transform: scale(1.007);
+    filter: blur(0px) invert(0);
 }

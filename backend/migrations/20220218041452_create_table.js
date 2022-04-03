@@ -9,7 +9,7 @@ exports.up = function (knex) {
       table.string("type");
       table.string("author");
       table.string("title");
-      table.string("subtitle");
+      table.string("subtitle", 600);
       table.string("moduleType");
       table.string("heroImage");
       table.string("datePublished");

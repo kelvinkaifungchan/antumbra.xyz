@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavBar } from '../components/navbar';
 import { Issue } from '../components/issue';
+import { HorizontalLine } from "../components/horizontalLine";
+import { Footer } from "../components/footer";
 
 const archive = [
     {
@@ -318,6 +320,8 @@ return (
             </table>
         </div>
     </div>
+    <HorizontalLine />
+    <Footer />
 </div>
 )
 }

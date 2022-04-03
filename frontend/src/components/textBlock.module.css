@@ -1,9 +1,9 @@
-img {
+.image {
     opacity: 1;
     transition: 0.2s;
 }
 
-img:hover {
+.image:hover {
     opacity: 0.8;
     cursor: pointer;
 }
