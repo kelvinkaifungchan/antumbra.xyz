@@ -1,7 +1,13 @@
 body {
   /* background: #010328; */
-  background: linear-gradient(to right, #010328, #040a79, #4e0c68,#010328, #2a2c5d);
+  /* background: linear-gradient(272deg, #010328, #040a79, #4e0c68,#010328, #2a2c5d),linear-gradient(27deg, #280801, #6b7904, #108597,#280801, #94a228); */
+  background: linear-gradient(217deg, #010328, rgba(255,0,0,0) 100%),
+            linear-gradient(127deg, #101132, rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, #353766, rgba(0,0,255,0) 70.71%),
+            linear-gradient(50deg, #d3ec17, rgba(0,0,255,0) 70.71%);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   height: 100vh;
   min-height: 100%;
   font-family: Helvetica, sans-serif;

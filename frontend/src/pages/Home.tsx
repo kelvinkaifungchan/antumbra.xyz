@@ -85,9 +85,9 @@ interface ArticleList extends Array<Article>{}
         </Ticker> */}
       </div>
       <HorizontalLine />
-      {/*
+      
       <NavBar />
-      <HorizontalLine /> */}
+      <HorizontalLine />
       {/* tags */}
       <div className={styles.tags}>
         {tags.map((tagItem, index) => {

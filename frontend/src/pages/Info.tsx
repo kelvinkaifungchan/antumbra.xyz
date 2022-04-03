@@ -7,9 +7,9 @@ export const Info = () => {
 return (
 <div className='container-fluid'>
     <NavBar />
-    <div className='row p-3' style={{fontSize: '1.8rem', opacity: "0.8"}}>
+    <div className='row p-3' style={{minHeight:'80vh',fontSize: '1.2rem', opacity: "0.8"}}>
         <div className='col-lg-8 col-md-12'>
-            <div className='w-100'>
+            <div className='w-75'>
                 About Us:<br />
                 AArchitecture is the student-run magazine of the Architectural Association and welcomes
                 contributions from all professions and perspectives.<br /><br />
