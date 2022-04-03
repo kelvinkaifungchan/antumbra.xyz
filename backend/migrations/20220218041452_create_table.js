@@ -6,21 +6,25 @@ exports.up = function (knex) {
   return knex.schema
     .createTable("article", (table) => {
       table.increments("id").primary();
-      table.string("type");
-      table.string("author");
       table.string("title");
       table.string("subtitle", 600);
-      table.string("moduleType");
       table.string("heroImage");
       table.string("datePublished");
       table.timestamp("created_at").defaultTo(knex.fn.now());
     })
-    .createTable("attachment", (table) => {
+    .createTable("articleBlocks", (table) => {
       table.increments("id").primary();
       table.integer('article_id').unsigned().references('id').inTable('article');
-      table.string("attachmentType");
+      table.string("type");
       table.string("attachmentLink");
+      table.string("attachmentCaption");
+      table.string("text")
       table.timestamp("created_at").defaultTo(knex.fn.now());
+    })
+    .createTable("contributor", (table) => {
+      table.increments("id").primary();
+      table.string("name");
+      table.string("bio");
     })
     .createTable("tag", (table) => {
       table.increments("id").primary();
@@ -30,6 +34,11 @@ exports.up = function (knex) {
       table.increments("id").primary();
       table.integer('article_id').unsigned().references('id').inTable('article');
       table.integer('tag_id').unsigned().references('id').inTable('tag');
+    })
+    .createTable("article_contributor", (table) => {
+      table.increments("id").primary();
+      table.integer('article_id').unsigned().references('id').inTable('article');
+      table.integer('contributor_id').unsigned().references('id').inTable('contributor');
     })
     .createTable("archive", (table) => {
       table.increments("id").primary();
@@ -47,8 +56,10 @@ exports.up = function (knex) {
 exports.down = function (knex) {
   return knex.schema
     .dropTable("archive")
+    .dropTable("article_contributor")
     .dropTable("article_tag")
     .dropTable("tag")
-    .dropTable("attachment")
+    .dropTable("contributor")
+    .dropTable("articleBlocks")
     .dropTable("article");
 };
