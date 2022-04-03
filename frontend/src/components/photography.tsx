@@ -1,8 +1,6 @@
-import React from 'react';
-import ReactPlayer from 'react-player'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
-import { TextBlock } from './textBlock';
+import { TextBlock } from './articleBlocks';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
@@ -37,10 +35,10 @@ return (
 <div className='row pb-4'>
     </div>
     <div className='row pb-5'>
-        <div className='col-6' style={{color:"#FF5C00", fontSize: '3rem'}}>
+        <div className='col-3' style={{color:"#FF5C00", fontSize: '3rem'}}>
             {photographyExample.title}
         </div>
-        <div className='col-3'>
+        <div className='col-2'>
             <div style={{fontSize: '1.2rem', color:"#FF5C00"}}>
                 Tag(s):<br />
                 {photographyExample.tags.map((tag) => {
@@ -52,7 +50,7 @@ return (
                 })}
             </div>
         </div>
-        <div className='col-3'>
+        <div className='col-2'>
             <div style={{fontSize: '1.2rem', color:"#FF5C00"}}>
                 Contributor(s):<br />
                 {photographyExample.contributors.map((contributor) => {

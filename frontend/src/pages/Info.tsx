@@ -7,7 +7,7 @@ export const Info = () => {
 return (
 <div className='container-fluid'>
     <NavBar />
-    <div className='row p-3' style={{minHeight:'80vh',fontSize: '1.2rem', opacity: "0.8"}}>
+    <div className='row p-3 d-flex align-items-center' style={{minHeight:'78vh',fontSize: '1.2rem', opacity: "0.8"}}>
         <div className='col-lg-8 col-md-12'>
             <div className='w-75'>
                 About Us:<br />
@@ -33,7 +33,7 @@ return (
         <img src="https://aarchitecture.blob.core.windows.net/videos/220131-Info.gif" alt="Architectural Association" width="100%" height="auto"/>
         </div>
     </div>
-    <HorizontalLine />
+    {/* <HorizontalLine /> */}
     <Footer />
 </div>
 )

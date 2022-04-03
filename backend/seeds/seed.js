@@ -15,7 +15,7 @@ exports.seed = function (knex) {
             title: "AS Crust",
             subtitle: "Amnesia Scanner returned today with AS CRUST. In the visual for the song, a kid keeps kicking an emaciated-looking four-legged animal.",
             moduleType:"video",
-            heroImage:"https://i.ytimg.com/vi/xjytGvXdgqA/maxresdefault.jpg",
+            heroImage:"https://aarchitecture.blob.core.windows.net/videos/AS%20Crust.gif",
             datePublished: "10th January 2021"
         },{
             type: "photography",
@@ -37,10 +37,26 @@ exports.seed = function (knex) {
             type: "photography",
             author: "Simon Denny",
             title: "Dotcomseance",
-            subtitle: "In the UK alone, there are over 1500 sites, which monitor air quality - these monitoring networks, in turn, continuously gather and process data in real-time. Although these networks continuously produce a wide range of both descriptive and exceedance statistics, not all data produced is easily accessible for the public realm, and neither does it remain unchallenged by other information sources.",
+            subtitle: "Twenty-one dotcom era companies have been summoned for revival. Each company includes an ENS domain, a new logo-NFT designed by Guile Twardowski—the artist behind Cryptokitties—and a suite of hidden text-to-image logo-NFTs by Cosmographia that Guile drew inspiration from.",
             moduleType:"main",
             heroImage:"https://pbs.twimg.com/media/FG0JjTxXwA0kM90.jpg:large",
-            datePublished: "21th April 2022"
+            datePublished: "1st April 2022"
+        }, {
+            type: "text",
+            author: "Joanna Zylinska",
+            title: "The Future of Media",
+            subtitle: "An investigation of the future of various media industries and technologies that considers how media shape our future. How do we combat post-truth in the news? Are social media influencers the journalists of today? What is it like to live in a smart city? Does AI really change 'everything'?",
+            moduleType:"text",
+            heroImage:"https://img.artrabbit.com/events/joanna-zylinska-pictures-from-the-end-of-the-world-nonhuman-photography/images/jm8WmIUweF9u/1000x789/01-Brown-tailed-Moth-Euproctis-chrysorrhoea.jpg",
+            datePublished: "3rd April 2022"
+        }, {
+            type: "photography",
+            author: "Mich Rossiter",
+            title: "Surfacescapes",
+            subtitle: "As Mark Zuckerberg beckons us over into his van marked ‘Metaverse’, the architectural profession looks to go virtual and I literally lose the plot, I’ve decided to go meta-hiking and make art. Art I do not own, cannot monetise and is sincerely wrong.",
+            moduleType:"photography",
+            heroImage:"https://aarchitecture.blob.core.windows.net/videos/220403_MR_Surfacescape%20No.%205%20-%20MX4_2.png",
+            datePublished: "3rd April 2022"
         }]);
     })
     .then(()=>{

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { FootnoteBlock } from './footnoteBlock';
-import { TextBlock } from './textBlock';
 import axios, { AxiosResponse } from 'axios';
 import { useParams } from 'react-router-dom';
+import { TextBlock, FootnoteBlock, AuthorBioBlock } from './articleBlocks';
+import { Link } from 'react-router-dom';
 
 const textExample = {
     tags: ["Architecture", "Technology", "Networks"],
     contributors: "Tiziana Terranova and Ravi Sundaram",
+    biographyBlocks: [{author: "Tiziana Terranova", text: "lectures and research the digital media cultures and politics in the Department of Human and Social Sciences at the University of Naples, 'L'Orientale'. She is the author of Network Culture: Politics for the Information Age (Pluto Press, 2004) and Hypersocial (University of Minnesota Press, forthcoming). She is a member of the free university network Euronomade and of the Robin Hood Minor Asset Management Cooperative."},
+    {author: "Ravi Sundaram", text: "is a Professor at CSDS, Delhi, where he founded the Sarai program along with Ravi Vasudevan and Raqs Media Collective. Sundaram is the author of Pirate Modernity: Media Urbanism in Delhi (2010) and edited No Limits: Media Studies from India (2015). He is finishing his next book project on post-public media circulations and the question of the political."}],
     title: "Colonial Infrastructures and Techno-Social Networks",
     textBlocks: [{
         imageLink: "https://images.e-flux-systems.com/highway.jpg,1920",
@@ -28,12 +30,20 @@ interface TextBlock {
 
 interface TextBlockList extends Array<TextBlock>{}
 
+interface AuthorBlock {
+    author: string,
+    text: string,
+}
+
+interface AuthorBlockList extends Array<AuthorBlock>{}
+
 interface ArticleContent {
     tags: string[],
     contributors: string,
     title: string,
     textBlocks: TextBlockList,
-    footnote: string[]
+    footnote: string[],
+    authorBio: AuthorBlockList,
 }
 
 export const Text = () => {
@@ -61,7 +71,7 @@ export const Text = () => {
 return (
 <div className='px-3' style={{fontSize: '2rem'}}>
     <div className='row py-5'>
-        <div className='col-6' style={{color: "#FF5C00", fontSize: '1.2rem'}}>
+        <div className='col-3' style={{color: "#FF5C00", fontSize: '1.2rem'}}>
             Tag(s):<br />
             {textExample?textExample.tags.map((tag) => {
                 return(
@@ -80,11 +90,17 @@ return (
                     </div>
                 )
             }):null} */}
+            <br/>
+            <div>Download PDF</div>
+            <div>Share</div>
         </div>
         <div className='col-6' style={{color: "#FF5C00", fontSize: '4rem'}}>
             <div className='w-75'>
                 {textExample?textExample.title:null}<br />
             </div>
+        </div>
+        <div className='col-3'>
+
         </div>
     </div>
     {textExample?textExample.textBlocks.map((text,index) => {
@@ -93,6 +109,13 @@ return (
         )
     }):null}
     <FootnoteBlock references={textExample!.footnote}/>
+    {
+        textExample?textExample.biographyBlocks.map((text,index) => {
+            return (
+            <AuthorBioBlock key={index} author={text.author} text={text.text}/>
+            )
+        }):null
+    }
 </div>
 )
 }

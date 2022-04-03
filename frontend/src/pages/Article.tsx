@@ -17,7 +17,7 @@ return (
     <NavBar />
     {articleType == "text" ? <Text /> : articleType == "video" ? <Video /> : <Photography />}
     <br/>
-    <HorizontalLine />
+    {/* <HorizontalLine /> */}
     <Footer />
 </div>
 )
