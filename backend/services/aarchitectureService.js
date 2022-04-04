@@ -86,6 +86,7 @@ class AArchitectureService {
                         title: article.title,
                         subtitle: article.subtitle,
                         heroImage: article.heroImage,
+                        pdf: article.pdf,
                         datePublished: article.datePublished,
                         tags: tags,
                         articleBlocks: articleBlocks,

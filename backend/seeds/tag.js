@@ -2,13 +2,13 @@ exports.seed = function (knex) {
   return knex('tag').del()
   .then(async()=>{
       return knex('tag').insert([{
-        tag: 'Essays',
+        tag: 'Essay',
       },{
         tag: 'Photography',
       },{
         tag: 'Film',
       },{
-        tag: 'Interviews',
+        tag: 'Interview',
       },{
         tag: 'Art',
       },{
@@ -16,7 +16,7 @@ exports.seed = function (knex) {
       },{
           tag: 'Architecture',
       },{
-          tag: 'Technology',
+          tag: 'Tech',
       },{
           tag: 'Photography',
       },{
@@ -26,7 +26,7 @@ exports.seed = function (knex) {
       },{
         tag: 'Archives',
       },{
-        tag: 'Algorithms',
+        tag: 'NFTs',
       },{
         tag: 'Computation',
       },{
@@ -37,6 +37,49 @@ exports.seed = function (knex) {
         tag: 'Growth',
       },{
         tag: 'Urbanisation',
+      },{
+        tag: 'Data',
+      },{
+        tag: 'Museums',
       }])
+  })
+  .then(()=>{
+    return knex('article_tag').del();
+})
+.then(()=>{
+    return knex('article_tag').insert([{
+        article_id: 1,
+        tag_id: 1,
+      }, {
+        article_id: 1,
+        tag_id: 8,
+      }, {
+        article_id: 1,
+        tag_id: 11,
+      }, {
+        article_id: 1,
+        tag_id: 12,
+      }, {
+        article_id: 1,
+        tag_id: 19,
+      }, {
+        article_id: 2,
+        tag_id: 5,
+      },{
+        article_id: 2,
+        tag_id: 8,
+      },{
+        article_id: 2,
+        tag_id: 13,
+      },{
+        article_id: 6,
+        tag_id: 1,
+      },{
+        article_id: 6,
+        tag_id: 5,
+      },{
+        article_id: 6,
+        tag_id: 20,
+      }]);
   })
 };

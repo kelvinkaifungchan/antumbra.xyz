@@ -1,15 +1,17 @@
 const express = require("express");
 
 class AArchitectureRouter {
-    constructor(aarchitectureService, articleService) {
+    constructor(aarchitectureService, articleService, archiveService) {
         this.aarchitectureService = aarchitectureService
         this.articleService = articleService
+        this.archiveService = archiveService
     }
 
     router() {
         let router = express.Router();
         router.get("/", this.get.bind(this))
         router.get("/article", this.getArticle.bind(this))
+        router.get("/archive", this.getArchive.bind(this))
         return router
     }
 
@@ -31,6 +33,18 @@ class AArchitectureRouter {
         return this.articleService
         .article(req.query.articleId)
         //http://localhost:8080/api/aarchitecture/article/?articleId=1
+        .then((data) => {
+            return res.json(data)
+        })
+        .catch((err) => {
+            return res.status(500).json(err)
+        })
+    }
+
+    getArchive (req, res) {
+        console.log("Requesting getting archive")
+        return this.archiveService
+        .archive()
         .then((data) => {
             return res.json(data)
         })

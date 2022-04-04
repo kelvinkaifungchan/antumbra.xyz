@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios, {AxiosResponse} from 'axios';
 import { NavBar } from "../components/navbar";
 import { HorizontalLine } from "../components/horizontalLine";
+import { TagBar } from "../components/tagBar";
 import { ArticleModule } from "../components/articleModule";
 import { Footer } from "../components/footer";
 import Ticker from "react-ticker";
-
 import styles from "./Home.module.css";
 import "./Home.module.css";
-import axios, {AxiosResponse} from 'axios';
-import { TagBar } from "../components/tagBar";
+import { display } from "@mui/system";
 
 interface Tag {
   id: number;
@@ -38,30 +38,41 @@ interface Article {
   title: string,
   subtitle: string,
   heroImage: string,
+  pdf: string,
   datePublished: string,
   tags: Array<Tag>,
   articleBlock: Array<ArticleBlock>
 }
 
-interface ArticleList extends Array<Article>{}
+export const Test = () => {
+  return (
+    <div>
+      HI THERE
+    </div>
+  )
+}
 
   export const Home = () => {
   let navigate = useNavigate();
-  const [articleList, setArticleList] = useState<ArticleList | null>(null);
+  const [articleList, setArticleList] = useState<Article[] | null>(null);
+  const [scroll, setScroll] = useState(false);
 
     useEffect(()=>{
+    window.addEventListener("scroll", () => {
+      setScroll(window.scrollY > 40);
+    })
     axios.get(`http://localhost:8080/api/aarchitecture`)
     .then((response: AxiosResponse)=>{
     setArticleList(response.data)
     })
     },[])
 
-    const handleNav = (e: any, id: number) => {
-    navigate(`/${id}`);
+    const handleNav = (e: any, id: number, type:string) => {
+    navigate(`/${type}/${id}`);
     }
 
         return (
-        <div className="container-fluid">
+        <div className={scroll ? `${styles.stick} container-fluid ${styles.home}` : `container-fluid home ${styles.home}`}>
           {/* header */}
           {/* <div className={`${styles.banner}`}>
             <div className={`${styles.blur} ${styles.dflexCenter}`}>
@@ -74,25 +85,16 @@ interface ArticleList extends Array<Article>{}
           {/*
           <HorizontalLine /> */}
           {/* scroll bar ticker*/}
-          <div className={styles.ticker}>
-            {/* <Ticker mode="chain" speed={5}>
-              {({ index }) => (
-              <>
-                <div style={{paddingLeft:'12px', paddingRight:'12px'}}>{articleList && articleList.length > 0 ?
-                  articleList[index%articleList.length].title : null}</div>
-              </>
-              )}
-            </Ticker> */}
+          <div style={scroll ? {display:"none"} : {display:"inline"}}>
+            <NavBar />
           </div>
-          <NavBar />
-          <HorizontalLine />
           <TagBar />
-          <HorizontalLine />
+
           {/* articles */}
           <div className="row px-3">
             {articleList && articleList.length > 0 ? articleList.map((item, index)=>{
             return (
-            <div key={index} onClick={(e)=>{handleNav(e, item.id)}} className="col-4 py-3" style={{width:"100%", height:"auto", float:"left"}}>
+            <div key={index} onClick={(e)=>{handleNav(e, item.id, item.type)}} className="col-lg-4 col-sm-6 col-xs-12 py-3" style={{width:"100%", height:"auto", float:"left"}}>
               <ArticleModule contributors={item.contributors} title={item.title} heroImage={item.heroImage}
                 subtitle={item.subtitle} />
             </div>
@@ -100,7 +102,18 @@ interface ArticleList extends Array<Article>{}
             }):null}
 
           </div>
+          <div className={styles.ticker}>
+            <Ticker mode="chain" speed={5}>
+              {({ index }) => (
+              <>
+                <div style={{paddingLeft:'50px', paddingRight:'50px'}}>
+                  {articleList && articleList.length > 0 ? articleList[index%articleList.length].title : null}
+                </div>
+              </>
+              )}
+            </Ticker>
+          </div>
           <Footer />
-        </div>
+        </div> 
         );
         };

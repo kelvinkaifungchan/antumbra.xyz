@@ -1,6 +1,4 @@
-import axios, {AxiosResponse} from 'axios';
-import { TitleBlock } from "./articleBlocks";
-import { useParams } from 'react-router-dom';
+import { TitleBlock, TextBlock, BannerImageBlock, QuoteBlock } from "./articleBlocks";
 import React, { useEffect, useState } from "react";
 
 interface Tag {
@@ -30,38 +28,36 @@ interface Article {
     title: string,
     subtitle: string,
     heroImage: string,
+    pdf: string,
     datePublished: string,
     tags: Array<Tag>,
-    articleBlock: Array<ArticleBlock>
+    articleBlocks: Array<ArticleBlock>
 }
 
-export const Text = () => {
-    
-    let params = useParams();
+export const Text = ({props} : {props: Article}) => {
     const [article, setArticle] = useState<Article | null>(null);
+    useEffect(() => {setArticle(props)})
 
-    const getArticle = () => {
-        axios(`http://localhost:8080/api/aarchitecture/article/:${params.id}`,{
-            method: 'GET',
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                withCredentials: true,
-                mode: 'no-cors'
-              }})
-        .then((response: AxiosResponse)=>{
-            console.log(response);
-            setArticle(response.data)
-        })
-        .catch((error)=>{
-            console.log(error);
-        })
-    }
-
-    getArticle()
+    console.log(article)
 
     return (
     <div className='px-3'>
-        {article ? <TitleBlock title={article.title} tags={article.tags} contributors={article.contributors}/> : null}
+        {article ? <TitleBlock title={article.title} tags={article.tags} contributors={article.contributors} pdf={article.pdf}/> : null}
+        {article ? article.articleBlocks.map((block, index) => {
+          if (block.type === "text" && block.text) {
+            return (
+              <div key={index}>
+              <TextBlock imageLink={block.attachmentLink} imageCaption={block.attachmentCaption} text={block.text}/>
+              </div>
+            )
+          } else if (block.type === "bannerImage" && block.attachmentLink && block.attachmentCaption) {
+            return (
+              <div key={index}>
+              <BannerImageBlock imageLink={block.attachmentLink} imageCaption={block.attachmentCaption} />
+              </div>
+            )
+          }
+        }) : null}
     </div>
     )
     }

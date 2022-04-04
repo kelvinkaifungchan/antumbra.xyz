@@ -10,6 +10,7 @@
       table.string("title");
       table.string("subtitle", 600);
       table.string("heroImage");
+      table.string("pdf");
       table.string("datePublished");
       table.timestamp("created_at").defaultTo(knex.fn.now());
     })
@@ -25,7 +26,7 @@
     .createTable("contributor", (table) => {
       table.increments("id").primary();
       table.string("name");
-      table.string("bio");
+      table.string("bio", 3000);
       table.timestamp("created_at").defaultTo(knex.fn.now());
     })
     .createTable("tag", (table) => {

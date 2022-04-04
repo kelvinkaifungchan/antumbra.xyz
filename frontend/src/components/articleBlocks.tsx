@@ -16,18 +16,17 @@ interface Tag {
 interface TitleBlock {
     title: string,
     tags: Array<Tag>,
-    contributors: Array<Contributor>
+    contributors: Array<Contributor>,
+    pdf?: string
 }
 
 interface TextBlock {
-    id: number,
     imageLink?: string,
     imageCaption?: string,
     text: string,
 }
 
 interface BannerImageBlock {
-    id: number,
     imageLink: string,
     imageCaption: string,
 }
@@ -41,19 +40,18 @@ interface FootnoteBlock {
 }
 
 interface ContributorBioBlock {
-    id: number,
     name: string,
     bio: string,
 }
 
-export const TitleBlock: React.FC<TitleBlock> = ({title, tags, contributors}) => {
+export const TitleBlock: React.FC<TitleBlock> = ({title, tags, contributors, pdf}) => {
     return (
         <div className='row py-5'>
             <div className='col-3' style={{color: "#FF5C00", fontSize: '1.2rem'}}>
                 Tag(s):<br />
-                {tags?tags.map((tag) => {
+                {tags?tags.map((tag, index) => {
                     return(
-                        <div>
+                        <div key={index}>
                             {tag.tag} <br />
                         </div>
                     )
@@ -68,8 +66,8 @@ export const TitleBlock: React.FC<TitleBlock> = ({title, tags, contributors}) =>
                     )
                 }):null}
                 <br/>
-                <div>Download PDF</div>
-                <div>Share</div>
+                <div><a href={pdf} target={"blank"}>Download PDF</a></div>
+                {/* <div>Share</div> */}
             </div>
             <div className='col-6' style={{color: "#FF5C00", fontSize: '4rem'}}>
                 <div className='w-75'>
@@ -115,9 +113,9 @@ export const TitleBlockB: React.FC<TitleBlock> = ({title, tags, contributors}) =
     )
 }
 
-export const TextBlock: React.FC<TextBlock> = ({id, imageLink, imageCaption, text}) => {
+export const TextBlock: React.FC<TextBlock> = ({imageLink, imageCaption, text}) => {
     return (
-    <div key={id} className='row'>
+    <div className='row'>
         <div className='col-3'>
             <div className='row pb-5 pr-5'>
                 <div>
@@ -138,7 +136,7 @@ export const TextBlock: React.FC<TextBlock> = ({id, imageLink, imageCaption, tex
 
 export const BannerImageBlock: React.FC<BannerImageBlock> = ({imageLink, imageCaption}) => {
     return (
-    <div className='row' style={{fontSize: '1.2rem', opacity: '0.8'}}>
+    <div className='row py-5' style={{fontSize: '1.2rem', opacity: '0.8'}}>
         <div className='col-3'>
         </div>
         <div className='col-6'>
@@ -152,6 +150,20 @@ export const BannerImageBlock: React.FC<BannerImageBlock> = ({imageLink, imageCa
         <div className='col-3'>
         </div>
     </div>
+    )
+}
+
+export const QuoteBlock: React.FC<TextBlock> = ({text}) => {
+    return (
+        <div className='row py-5 d-flex justify-content-center'>
+            <div className='col-4 d-flex justify-content-center'>
+                <div style={{fontSize:"1.2rem"}}>
+                    <i>
+                        {text}
+                    </i>
+                </div>
+            </div>
+        </div>
     )
 }
 

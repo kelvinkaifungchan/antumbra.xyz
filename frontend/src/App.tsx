@@ -19,9 +19,9 @@ function App() {
       <Router>
           <Routes>
             <Route path="/" element={<Home />}/>
-            <Route path="/essay/:id" element={<Article type="essay"/>}/>
-            <Route path="/visual/:id" element={<Article type="visual"/>}/>
-            <Route path="/film/:id" element={<Article type="film"/>}/>
+            <Route path="/text/:id" element={<Article type="text"/>}/>
+            <Route path="/image/:id" element={<Article type="image"/>}/>
+            <Route path="/video/:id" element={<Article type="video"/>}/>
             <Route path="/archive" element={<Archive />}/>
             <Route path="/info" element={<Info />}/>
             <Route path="/callformedia" element={<CallForMedia />}/>

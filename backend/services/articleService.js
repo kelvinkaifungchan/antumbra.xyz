@@ -12,6 +12,7 @@ class ArticleService {
                 title: body.title,
                 subtitle: body.subtitle,
                 heroImage: body.heroImage,
+                pdf:body.pdf,
                 datePublished: body.datePublished,
             })
             .into("article")
@@ -57,6 +58,7 @@ class ArticleService {
                 article.title = data[0].title
                 article.subtitle = data[0].subtitle
                 article.heroImage = data[0].heroImage
+                article.pdf = data[0].pdf
                 article.datePublished = data[0].datePublished
             })
             .then(() => {
