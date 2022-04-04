@@ -2,7 +2,7 @@
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.up = function (knex) {
+ exports.up = function (knex) {
   return knex.schema
     .createTable("article", (table) => {
       table.increments("id").primary();
@@ -12,19 +12,20 @@ exports.up = function (knex) {
       table.string("datePublished");
       table.timestamp("created_at").defaultTo(knex.fn.now());
     })
-    .createTable("articleBlocks", (table) => {
+    .createTable("articleBlock", (table) => {
       table.increments("id").primary();
       table.integer('article_id').unsigned().references('id').inTable('article');
       table.string("type");
       table.string("attachmentLink");
       table.string("attachmentCaption");
-      table.string("text")
+      table.string("text", 3000)
       table.timestamp("created_at").defaultTo(knex.fn.now());
     })
     .createTable("contributor", (table) => {
       table.increments("id").primary();
       table.string("name");
       table.string("bio");
+      table.timestamp("created_at").defaultTo(knex.fn.now());
     })
     .createTable("tag", (table) => {
       table.increments("id").primary();
@@ -60,6 +61,6 @@ exports.down = function (knex) {
     .dropTable("article_tag")
     .dropTable("tag")
     .dropTable("contributor")
-    .dropTable("articleBlocks")
+    .dropTable("articleBlock")
     .dropTable("article");
 };

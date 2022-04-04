@@ -16,7 +16,6 @@ const genreTags = [
     
     const topicTags = [
     "Infrastucture",
-    "Memes",
     "Architecture",
     "Technology",
     "Photography",
