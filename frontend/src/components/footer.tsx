@@ -5,7 +5,7 @@ return (
 <footer className='p-3'>
     <div className='d-flex justify-content-between align-items-start' style={{color: "#FF5C00",fontSize: '1.8rem'}}>
         <div>
-                <Link to="https://www.aaschool.ac.uk/"><img src="https://aarchitecture.blob.core.windows.net/videos/Architectural_association_school_of_architecture_logo.png" alt="Architectural Association" width="auto" height="60" style={{filter:"invert(1)"}}/></Link>
+                <Link to="https://www.aaschool.ac.uk/"><img src="https://aarchitecture.blob.core.windows.net/videos/Architectural_association_school_of_architecture_logo.png" alt="Architectural Association" width="auto" height="60"/></Link>
         </div>
         <div style={{fontSize:'1rem', opacity:'0.7', width:"20%"}}>
         The Warm War is developed and edited by Karl Herdersch, Kaifung Kelvin Chan and Alexander Balgarnie

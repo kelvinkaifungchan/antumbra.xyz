@@ -81,6 +81,7 @@ class AArchitectureService {
                     let tags = await this.tag(article.id);
                     return {
                         id: article.id,
+                        type: article.type,
                         contributors: contributors,
                         title: article.title,
                         subtitle: article.subtitle,

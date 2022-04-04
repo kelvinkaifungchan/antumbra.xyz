@@ -8,6 +8,7 @@ class ArticleService {
 
         return this.knex
             .insert({
+                type: body.type,
                 title: body.title,
                 subtitle: body.subtitle,
                 heroImage: body.heroImage,
@@ -52,6 +53,7 @@ class ArticleService {
                 id: articleId
             })
             .then((data) => {
+                article.type = data[0].type
                 article.title = data[0].title
                 article.subtitle = data[0].subtitle
                 article.heroImage = data[0].heroImage

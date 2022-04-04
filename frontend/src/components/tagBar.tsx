@@ -14,7 +14,7 @@ const genreTags = [
     "Art",
     ];
     
-    const topicTags = [
+const topicTags = [
     "Infrastucture",
     "Architecture",
     "Technology",
@@ -28,7 +28,7 @@ const genreTags = [
     "Robotics",
     "Growth",
     "Urbanisation",
-    ];
+];
 
 export const TagBar = () => {
     

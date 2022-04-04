@@ -1,23 +1,64 @@
-import React from 'react';
+import axios, {AxiosResponse} from 'axios';
+import React, { useEffect, useState } from "react";
 import { NavBar } from '../components/navbar';
-import { Photography } from '../components/photography';
-import { Text } from '../components/text';
-import { Video } from '../components/video';
-import { HorizontalLine } from '../components/horizontalLine';
 import { Footer } from '../components/footer'
+import { Text } from '../components/text'
+import { Video } from '../components/video'
+import { Image } from '../components/image'
+
+interface Tag {
+    id: number;
+    tag: string
+  }
+  
+  interface ArticleBlock {
+    id: number;
+    article_id: number;
+    type: string;
+    attachmentLink?: string;
+    attachmentCaption?: string;
+    text?: string;
+  }
+  
+  export interface Contributor {
+    id: number;
+    name: string;
+    bio: string;
+  }
 
 interface Article {
+    id: number,
+    type: string
+    contributors: Array<Contributor>,
+    title: string,
+    subtitle: string,
+    heroImage: string,
+    datePublished: string,
+    tags: Array<Tag>,
+    articleBlock: Array<ArticleBlock>
+}
+
+interface Type {
     type: string
 }
 
-export const Article: React.FC<Article> = ({type}) => {
-const articleType = type
+export const Article: React.FC<Type> = ({type}) => {
+
+    const [article, setArticle] = useState<Article | null>(null);
+
+    useEffect(()=>{
+        axios.get(`http://localhost:8080/api/article/:id`)
+        .then((response: AxiosResponse)=>{
+        setArticle(response.data)
+        })
+    },[])
+
 return (
 <div className='container-fluid'>
     <NavBar />
-    {articleType == "text" ? <Text /> : articleType == "video" ? <Video /> : <Photography />}
-    <br/>
-    {/* <HorizontalLine /> */}
+    {
+        type == "essay" ? <Text /> : type == "film" ? <Video /> : <Image />
+    }
     <Footer />
 </div>
 )

@@ -1,10 +1,16 @@
 import styles from './articleModule.module.css'
 
+export interface Contributor {
+    id: number;
+    name: string;
+    bio: string;
+  }
+
 interface Props {
     title: string,
     heroImage: string,
     subtitle: string,
-    contributors: string
+    contributors: Array<Contributor>
 }
 
 // export const ArticleModule = (props: Props) => {

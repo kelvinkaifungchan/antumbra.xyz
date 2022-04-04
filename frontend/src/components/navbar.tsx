@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import "./navbar.module.css"
 
 export const NavBar = () => {
 return (
@@ -12,7 +11,7 @@ return (
         <div>
             {/* <Link className="px-3" to="/info">INFORMATION</Link> */}
             {/* <Link className="pl-3" to="/callformedia">CALL FOR MEDIA</Link> */}
-            <Link className="px-3" to="/">The Warm War</Link>
+            <Link className="px-3" to="/callformedia">The Warm War</Link>
         </div>
     </div>
 </nav>

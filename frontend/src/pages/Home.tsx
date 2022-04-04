@@ -10,19 +10,37 @@ import styles from "./Home.module.css";
 import "./Home.module.css";
 import axios, {AxiosResponse} from 'axios';
 import { TagBar } from "../components/tagBar";
-import { ArticleGrid } from "../components/articleGrid";
+
+interface Tag {
+  id: number;
+  tag: string
+}
+
+interface ArticleBlock {
+  id: number;
+  article_id: number;
+  type: string;
+  attachmentLink?: string;
+  attachmentCaption?: string;
+  text?: string;
+}
+
+export interface Contributor {
+  id: number;
+  name: string;
+  bio: string;
+}
 
 interface Article {
-id: number,
-type: string,
-author: string,
-title: string,
-subtitle: string,
-moduleType: string,
-heroImage: string,
-datePublished: string,
-tags: { id: number; tag: string },
-attachments: { attachmentLink: string, attachmentType: string }
+  id: number,
+  type: string,
+  contributors: Array<Contributor>,
+  title: string,
+  subtitle: string,
+  heroImage: string,
+  datePublished: string,
+  tags: Array<Tag>,
+  articleBlock: Array<ArticleBlock>
 }
 
 interface ArticleList extends Array<Article>{}
@@ -38,8 +56,8 @@ interface ArticleList extends Array<Article>{}
     })
     },[])
 
-    const handleNav = (e: any, id: number, type: string) => {
-    navigate(`/${type}/${id}`);
+    const handleNav = (e: any, id: number) => {
+    navigate(`/${id}`);
     }
 
         return (
@@ -74,8 +92,8 @@ interface ArticleList extends Array<Article>{}
           <div className="row px-3">
             {articleList && articleList.length > 0 ? articleList.map((item, index)=>{
             return (
-            <div key={index} onClick={(e)=>{handleNav(e, item.id, item.type)}} className="col-4 py-3" style={{width:"100%", height:"auto", float:"left"}}>
-              <ArticleModule contributors={item.author} title={item.title} heroImage={item.heroImage}
+            <div key={index} onClick={(e)=>{handleNav(e, item.id)}} className="col-4 py-3" style={{width:"100%", height:"auto", float:"left"}}>
+              <ArticleModule contributors={item.contributors} title={item.title} heroImage={item.heroImage}
                 subtitle={item.subtitle} />
             </div>
             )

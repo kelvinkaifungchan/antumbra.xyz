@@ -1,4 +1,4 @@
-export const Video = () => {
+export const Image = () => {
     return (
     <div>
         Hi

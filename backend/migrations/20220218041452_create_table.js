@@ -6,6 +6,7 @@
   return knex.schema
     .createTable("article", (table) => {
       table.increments("id").primary();
+      table.string("type");
       table.string("title");
       table.string("subtitle", 600);
       table.string("heroImage");
