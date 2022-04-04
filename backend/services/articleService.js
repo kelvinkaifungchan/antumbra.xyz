@@ -2,21 +2,22 @@ class ArticleService {
     constructor(knex) {
         this.knex = knex;
     }
+
     add(body) {
         console.log("Adding new article");
 
         return this.knex
             .insert({
                 type: body.type,
-                author: body.author,
                 title: body.title,
                 subtitle: body.subtitle,
-                moduleType: body.moduleType,
                 heroImage: body.heroImage,
+                pdf:body.pdf,
                 datePublished: body.datePublished,
             })
             .into("article")
             .returning("id")
+            //Add function to add contributor
             .catch((err) => {
                 console.log(err)
             })
@@ -54,12 +55,28 @@ class ArticleService {
             })
             .then((data) => {
                 article.type = data[0].type
-                article.author = data[0].author
                 article.title = data[0].title
                 article.subtitle = data[0].subtitle
-                article.moduleType = data[0].moduleType
                 article.heroImage = data[0].heroImage
+                article.pdf = data[0].pdf
                 article.datePublished = data[0].datePublished
+            })
+            .then(() => {
+                return this.knex("article_contributor")
+                .join("contributor", "article_contributor.contributor_id", "=", "contributor.id")
+                .select("article_contributor.article_id", "article_contributor.contributor_id", "contributor.name", "contributor.bio")
+                .where({
+                    article_id: articleId
+                })
+                .then((contributors) => {
+                    article.contributors = contributors.map((contributor) => {
+                        return {
+                            id: contributor.contributor_id,
+                            name: contributor.name,
+                            bio: contributor.bio
+                        }
+                    })
+                })
             })
             .then(() => {
                 return this.knex("article_tag")
@@ -78,16 +95,19 @@ class ArticleService {
                 })
             })
             .then(() => {
-                return this.knex("attachment")
+                return this.knex("articleBlock")
                 .where({
                     article_id: articleId
                 })
-                .then((attachments) => {
-                    article.attachments = attachments.map((attachment) => {
+                .then((articleBlocks) => {
+                    article.articleBlocks = articleBlocks.map((articleBlock) => {
                         return {
-                            id: attachment.id,
-                            attachmentLink: attachment.attachmentLink,
-                            attachmentType: attachment.attachmentType
+                            id: articleBlock.id,
+                            article_id: articleId,
+                            type: articleBlock.type,
+                            attachmentLink: articleBlock.attachmentLink,
+                            attachmentCaption: articleBlock.attachmentCaption,
+                            text: articleBlock.text
                         }
                     })
                 })

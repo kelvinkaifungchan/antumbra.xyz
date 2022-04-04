@@ -3,16 +3,20 @@ class AArchitectureService {
         this.knex = knex;
     }
 
-    attachment(articleId) {
-        return this.knex("attachment")
+    articleBlock(articleId) {
+        return this.knex("articleBlock")
             .where({
                 article_id: articleId
             })
-            .then((attachments) => {
-                const data = attachments.map((attachment) => {
+            .then((blocks) => {
+                const data = blocks.map((block) => {
                     return {
-                        attachmentLink: attachment.attachmentLink,
-                        attachmentType: attachment.attachmentType
+                        id: block.id,
+                        article_id: articleId,
+                        type: block.type,
+                        attachmentLink: block.attachmentLink,
+                        attachmentCaption: block.attachmentCaption,
+                        text: block.text,
                     }
                 })
                 return data
@@ -20,6 +24,29 @@ class AArchitectureService {
             .catch((err) => {
                 console.log(err)
             })
+    }
+
+    contributor(articleId) {
+        return this.knex("article_contributor")
+        .join("contributor", "article_contributor.contributor_id", "=", "contributor.id")
+        .select("article_contributor.article_id", "article_contributor.contributor_id", "contributor.name", "contributor.bio")
+        .where({
+            article_id: articleId
+        })
+        .then((contributors) => {
+            const data = contributors.map((contributor) => {
+                return {
+                    id: contributor.contributor_id,
+                    name: contributor.name,
+                    bio: contributor.bio
+                }
+            })
+            return data
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+
     }
 
     tag(articleId) {
@@ -44,45 +71,29 @@ class AArchitectureService {
 
     }
 
-    allTags() {
-        return this.knex("tag")
-        .then((tags) => {
-            const data = tags.map((tag) => {
-                return {
-                    id: tag.id,
-                    tag: tag.tag
-                }
-            })
-            return data
-        })
-    }
-
     aarchitecture() {
         // let data = {}
         return this.knex("article")
             .then(async (articles) => {
                 const data = await Promise.all(articles.map(async (article) => {
+                    let articleBlocks = await this.articleBlock(article.id);
+                    let contributors = await this.contributor(article.id);
                     let tags = await this.tag(article.id);
-                    let attachments = await this.attachment(article.id);
                     return {
                         id: article.id,
                         type: article.type,
-                        author: article.author,
+                        contributors: contributors,
                         title: article.title,
                         subtitle: article.subtitle,
-                        moduleType: article.moduleType,
                         heroImage: article.heroImage,
+                        pdf: article.pdf,
                         datePublished: article.datePublished,
                         tags: tags,
-                        attachments: attachments,
+                        articleBlocks: articleBlocks,
                     }
                 }))
                 return data
             })
-            // .then(async () => {
-            //     data.tags = await this.allTags()
-            //     return data
-            // })
             .catch((err) => {
                 console.log(err)
             })

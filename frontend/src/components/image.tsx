@@ -1,4 +1,4 @@
-import { TitleBlock, TextBlock, BannerImageBlock, VideoBlock } from "./articleBlocks";
+import { TitleBlock, TextBlock, BannerImageBlock } from "./articleBlocks";
 import React, { useEffect, useState } from "react";
 
 interface Tag {
@@ -34,12 +34,13 @@ interface Article {
     articleBlocks: Array<ArticleBlock>
 }
 
-export const Video = ({props} : {props: Article}) => {
+export const Image = ({props} : {props: Article}) => {
     const [article, setArticle] = useState<Article | null>(null);
     useEffect(() => {setArticle(props)})
 
     return (
     <div className='px-3'>
+        {article ? <TitleBlock title={article.title} tags={article.tags} contributors={article.contributors}/> : null}
         {article ? article.articleBlocks.map((block, index) => {
           if (block.type === "text" && block.text) {
             return (

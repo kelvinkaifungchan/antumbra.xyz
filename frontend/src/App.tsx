@@ -20,8 +20,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}/>
             <Route path="/text/:id" element={<Article type="text"/>}/>
+            <Route path="/image/:id" element={<Article type="image"/>}/>
             <Route path="/video/:id" element={<Article type="video"/>}/>
-            <Route path="/photography/:id" element={<Article type="photography"/>}/>
             <Route path="/archive" element={<Archive />}/>
             <Route path="/info" element={<Info />}/>
             <Route path="/callformedia" element={<CallForMedia />}/>

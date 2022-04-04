@@ -16,4 +16,5 @@
 .module:hover {
     transform: scale(1.007);
     filter: blur(0px) invert(0);
+    cursor: pointer;
 }
