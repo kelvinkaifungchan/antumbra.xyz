@@ -10,6 +10,8 @@ import Ticker from "react-ticker";
 import styles from "./Home.module.css";
 import "./Home.module.css";
 import { display } from "@mui/system";
+import { Hamburger } from "../components/hamburger";
+import { Link } from "react-router-dom";
 
 interface Tag {
   id: number;
@@ -73,6 +75,10 @@ export const Test = () => {
 
         return (
         <div className={scroll ? `${styles.stick} container-fluid ${styles.home}` : `container-fluid home ${styles.home}`}>
+        <Hamburger />
+        <div className={`${styles.title}`} style={ scroll ? {opacity:"0.3"} : {opacity:"0"}}>
+          THE WARM WAR
+        </div>
           {/* header */}
           {/* <div className={`${styles.banner}`}>
             <div className={`${styles.blur} ${styles.dflexCenter}`}>
@@ -94,7 +100,7 @@ export const Test = () => {
           <div className="row px-3">
             {articleList && articleList.length > 0 ? articleList.map((item, index)=>{
             return (
-            <div key={index} onClick={(e)=>{handleNav(e, item.id, item.type)}} className="col-lg-4 col-sm-6 col-xs-12 py-3" style={{width:"100%", height:"auto", float:"left"}}>
+            <div key={index} onClick={(e)=>{handleNav(e, item.id, item.type)}} className="col-lg-3 col-sm-6 col-xs-12 py-3" style={{width:"100%", height:"auto", float:"left"}}>
               <ArticleModule contributors={item.contributors} title={item.title} heroImage={item.heroImage}
                 subtitle={item.subtitle} />
             </div>
@@ -107,7 +113,9 @@ export const Test = () => {
               {({ index }) => (
               <>
                 <div style={{paddingLeft:'50px', paddingRight:'50px'}}>
+                  <Link to="/">
                   {articleList && articleList.length > 0 ? articleList[index%articleList.length].title : null}
+                  </Link>
                 </div>
               </>
               )}

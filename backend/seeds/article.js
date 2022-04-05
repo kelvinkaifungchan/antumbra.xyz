@@ -92,6 +92,50 @@ exports.seed = function (knex) {
             article_id: 1,
             type: 'text',
             text: 'It becomes self-evident that the “Warm War” is an open hostility between the general populace and numerous governmental and private agencies for the access of data. The modus operandi of this war is through the collection, abstraction and the movement of data. It is a negotiation to satisfy both sides of the conflict without committing to tangible solutions and concrete targets. A new transparent approach must be implemented to level the global playing field and to cut overall emissions worldwide. The raw data of “free goods” must be circulated among the general populace to incentivise renewed discussions, which, in turn, may lead to decisive action.'
+        },{
+            article_id: 6,
+            type: 'bannerImage',
+            attachmentLink: 'https://aarchitecture.blob.core.windows.net/videos/200404_MR_TateRealisms/Leonora%20Carrington%20and%20Max%20Ernst%20(1937)%20by%20Lee%20Miller.jpg',
+            attachmentCaption: 'Leonora Carrington pictured with Max Ernst - Lee Miller, 1937'
+        },{
+            article_id: 6,
+            type: 'text',
+            text: 'A question at the forefront of my head when I’m in an art gallery is: what shoes do people wear to galleries? Do they go for comfort? Do they go garmy? Do they veil their pretention with knackered reeboks? Do they try to impress a crowd that might be inclined to gag at an Ugg or side-eye a slipper?'
+        },{
+            article_id: 6,
+            type: 'text',
+            text: 'I of course think that art galleries should be filled with bare-footed people. We’re all less judgemental of one another when our feet are out and the floor becomes communal; perhaps our engagement with art can also be enriched this way. Chris Ofili grounds his work by propping it up with balls of elephant dung, which he says connects them to the earth. He may have a point. Alas, the AF1s, Chelsea boots, Dickies, Docs and Crocs squeak on in. I’m not claiming any cultural high ground here, I feel invincible in my tangerine 95s and haven’t yet taken them off them at a gallery. Baby steps.'
+        },{
+            article_id: 6,
+            type: 'bannerImage',
+            attachmentLink: 'https://aarchitecture.blob.core.windows.net/videos/200404_MR_TateRealisms/Sketch%20by%20Mich%20Rossiter.jpg',
+            attachmentCaption: "Sketch of Roland Penrose's The Last Voyage of Captain Cook (1936-67) by Mich Rossiter, 2022"
+        },{
+            article_id: 6,
+            type: 'text',
+            text: 'No Ofili today, though. The Tate’s newest headline offering is Surrealism Beyond Borders, an exhibition loan from the New York Met acting as a Marvel-style origin story for Surrealism (the First Avenger?). The exhibition’s timeline, although heavily-*curated*, succeeds in threading a clear narrative through a series of snaking spaces, dividing Surrealism into its focal cities, periods and sub-movements.'
+        },{
+            article_id: 6,
+            type: 'text',
+            text: 'One of Tate’s proudest achievements, so they proclaim immediately after the ticket desk, is that they ARE NOT BEING EUROCENTRIC TODAY, NOPE NOT TODAY, COME BACK ANOTHER DAY FOR THAT MAYBE. I’m paraphrasing. And there are in fact beautiful, pneumatic works by artists who were based in Martinique, Cairo, Tokyo, Puerto Rico and Mexico, as well as Europe. The geographical and cultural breadth of the exhibition invites visitors to join some conceptual dots in their heads, in order to appreciate the movement’s poignant scope and versatility. After the dot-joining, we see that core Surrealist principles and manifestoes are moulded by environmental factors, political landscapes and societal boundaries in each artist’s world, rather than by a projection of European life. This is special and results in a series of spaces that give raw, incisive accounts of the artists’ lives.'
+        },{
+            article_id: 6,
+            type: 'bannerImage',
+            attachmentLink: 'https://aarchitecture.blob.core.windows.net/videos/200404_MR_TateRealisms/Untitled%20(1939)%20by%20Ramses%20Younan.jpg',
+            attachmentCaption: 'Excerpt: Untitled - Ramses Younan, 1939'
+        },{
+            article_id: 6,
+            type: 'text',
+            text: 'This landscape of multiplicity is gripping. From it, common threads of radical political action, anti-imperialism and collective conscience are crystalised. Between Ramses Younan’s disassembled, monolithic dune figures, contortedly lounging in a baking hot daze, and Remedios Varo’s personal dystopia, longing for her lover as she “Embroider[s] the Earth’s Mantle” as one of six drone embroiderers, sit more overt fragments of political struggle. The most poignant is ‘Liberté est un mot vietnamien’ by a large group of surrealists led by Yves Bonnefoy and Andre Breton. The 1947 piece is an anti-imperialist manifesto imploring that France ends its post-war occupation of Vietnam. In fact, many of these works are acts of resistance, made in a broiling inter-war world seething with the possibility of violence.'
+        },{
+            article_id: 6,
+            type: 'bannerImage',
+            attachmentLink: "https://aarchitecture.blob.core.windows.net/videos/200404_MR_TateRealisms/Embroidering%20the%20Earth's%20Mantle%20by%20Remedios%20Varo.jpg",
+            attachmentCaption: "Embroidering the Earth's Mantle - Maria Remedios Varo, 1961"
+        },{
+            article_id: 6,
+            type: 'quote',
+            text: '“We cannot defend freedom here while imposing servitude elsewhere. Surrealism, whose great objective as always is the liberation of mankind, can hardly remain silent at such senseless and revolting criminality.” – Paris-based surrealists, April 1947'
         },]);
     })
 };
