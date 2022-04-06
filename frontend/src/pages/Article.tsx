@@ -6,6 +6,7 @@ import { Footer } from '../components/footer'
 import { Text } from '../components/text'
 import { Video } from '../components/video'
 import { Image } from '../components/image'
+import { Hamburger } from '../components/hamburger';
 
 interface Tag {
     id: number;
@@ -53,6 +54,7 @@ export const Article=({type}: {type:string} ) => {
 return (
 <div className='container-fluid'>
     <NavBar />
+    <Hamburger />
     {
         article && type === "text" ? <Text props={article}/> : article && type === "video" ? <Video props={article}/> : article ? <Image props={article}/> : null
     }

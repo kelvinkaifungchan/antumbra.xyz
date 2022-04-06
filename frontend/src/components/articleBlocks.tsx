@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import "./articleBlock.module.css"
 import style from './articleBlock.module.css'
+
 
 interface Contributor {
     id: number,
@@ -47,7 +48,41 @@ interface ContributorBioBlock {
 export const TitleBlock: React.FC<TitleBlock> = ({title, tags, contributors, pdf}) => {
     return (
         <div className='row py-5'>
-            <div className='col-3' style={{color: "#FF5C00", fontSize: '1.2rem'}}>
+            <div className='col-3'>
+            </div>
+            <div className='col-6' style={{textAlign:"center", color: "#FF5C00"}}>
+                <div className='w-100' style={{fontSize: '4rem'}}>
+                    {title?title:null}<br />
+                </div>
+                <div>
+                    <br/>
+                {contributors?contributors.map((contributor, index) => {
+                    return(
+                        <div key={index} style={{fontSize:"2rem"}}>
+                            {contributor.name}<br />
+                        </div>
+                    )
+                }):null}
+                </div>
+            </div>
+            <div className='col-3'>
+
+            </div>
+        </div>
+    )
+}
+
+export const SidePanel: React.FC<TitleBlock> = ({title, tags, contributors, pdf}) => {
+    const [scroll, setScroll] = useState(false);
+    useEffect(()=>{
+        window.addEventListener("scroll", () => {
+          setScroll(window.scrollY > 300);
+        })
+        },[])
+
+    return (
+        <div className="row py-5 w-100" style={scroll ? {position:"fixed", opacity:"1", transition:"0.5s"} : {position:"fixed", opacity:"0", transition:"0.5s"}}>
+            <div className='col-6' style={{color: "#FF5C00", fontSize: '1.2rem', width:"100%"}}>
                 Tag(s):<br />
                 {tags?tags.map((tag, index) => {
                     return(
@@ -66,15 +101,10 @@ export const TitleBlock: React.FC<TitleBlock> = ({title, tags, contributors, pdf
                     )
                 }):null}
                 <br/>
-                <div><a href={pdf} target={"blank"}>Download PDF</a></div>
-                {/* <div>Share</div> */}
+                <div><a href={pdf} target={"blank"}>PDF</a></div>
+                <div><a href={pdf} target={"blank"}>Share</a></div>
             </div>
-            <div className='col-6' style={{color: "#FF5C00", fontSize: '4rem'}}>
-                <div className='w-75'>
-                    {title?title:null}<br />
-                </div>
-            </div>
-            <div className='col-3'>
+            <div className='col-6'>
 
             </div>
         </div>
@@ -137,17 +167,17 @@ export const TextBlock: React.FC<TextBlock> = ({imageLink, imageCaption, text}) 
 export const BannerImageBlock: React.FC<BannerImageBlock> = ({imageLink, imageCaption}) => {
     return (
     <div className='row py-5' style={{fontSize: '1.2rem', opacity: '0.8'}}>
-        <div className='col-3'>
+        <div className='col-2'>
         </div>
-        <div className='col-6'>
+        <div className='col-8'>
             <div>
                 <img className={`${style.image} w-100`} src={imageLink} alt={imageCaption} />
             </div>
-            <div className='pt-3 w-75' style={{fontSize: '0.8rem'}}>
+            <div className='pt-3 w-100' style={{fontSize: '0.8rem'}}>
                 {imageCaption}
             </div>
         </div>
-        <div className='col-3'>
+        <div className='col-2'>
         </div>
     </div>
     )
@@ -157,7 +187,7 @@ export const QuoteBlock: React.FC<TextBlock> = ({text}) => {
     return (
         <div className='row py-5 d-flex justify-content-center'>
             <div className='col-4 d-flex justify-content-center'>
-                <div style={{fontSize:"1.2rem"}}>
+                <div style={{fontSize:"1.2rem", opacity:"0.8"}}>
                     <i>
                         {text}
                     </i>

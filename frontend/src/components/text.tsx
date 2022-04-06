@@ -1,4 +1,4 @@
-import { TitleBlock, TextBlock, BannerImageBlock, QuoteBlock } from "./articleBlocks";
+import { TitleBlock, TextBlock, BannerImageBlock, QuoteBlock, SidePanel } from "./articleBlocks";
 import React, { useEffect, useState } from "react";
 
 interface Tag {
@@ -42,6 +42,7 @@ export const Text = ({props} : {props: Article}) => {
 
     return (
     <div className='px-3'>
+        {article ? <SidePanel title={article.title} tags={article.tags} contributors={article.contributors} pdf={article.pdf}/> : null}
         {article ? <TitleBlock title={article.title} tags={article.tags} contributors={article.contributors} pdf={article.pdf}/> : null}
         {article ? article.articleBlocks.map((block, index) => {
           if (block.type === "text" && block.text) {
@@ -54,6 +55,12 @@ export const Text = ({props} : {props: Article}) => {
             return (
               <div key={index}>
               <BannerImageBlock imageLink={block.attachmentLink} imageCaption={block.attachmentCaption} />
+              </div>
+            )
+           } else if (block.type === "quote" && block.text) {
+            return (
+              <div key={index}>
+                <QuoteBlock text={block.text}/>
               </div>
             )
           }

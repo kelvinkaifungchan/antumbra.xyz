@@ -17,7 +17,7 @@
 
 .ticker {
     width: 98.35%;
-    font-size: 1.8rem;
+    font-size: 2rem;
     background-color: #fcf603FF;
     padding: 15px;
     color: #FF5C00;
@@ -41,4 +41,15 @@
 
 .home {
     padding-bottom: 100px;
+}
+
+.title {
+    position: fixed;
+    font-size: 20rem;
+    top: 1vh;
+    right: 50px;
+    height: 16vh;
+    z-index: -200;
+    filter: blur(15px);
+    transition: 5s;
 }
