@@ -45,6 +45,7 @@ interface ArticleModule {
   let navigate = useNavigate();
   const [articleList, setArticleList] = useState<ArticleModule[] | null>(null);
   const [scroll, setScroll] = useState(false);
+  const [modalControl, setModalControl] = useState(false);
 
     useEffect(()=>{
     window.addEventListener("scroll", () => {
@@ -59,7 +60,6 @@ interface ArticleModule {
     const handleNav = (e: any, id: number, type:string) => {
     navigate(`/${type}/${id}`);
     }
-
         return (
         <div className={scroll ? `${styles.stick} container-fluid ${styles.home}` : `container-fluid ${styles.home}`}>
         <Hamburger />

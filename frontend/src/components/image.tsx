@@ -1,5 +1,7 @@
 import { TitleBlockB, TextBlockRight, ImageCarouselBlock} from "./articleBlocks";
 import React, { useEffect, useState } from "react";
+import { CarouselModule } from "../components/carouselModule";
+import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
 interface Tag {
     id: number;
@@ -36,11 +38,14 @@ interface Article {
 
 export const Image = ({props} : {props: Article}) => {
     const [article, setArticle] = useState<Article | null>(null);
+    const [modalControl, setModalControl] = useState(false);
+    console.log('image', props)
     useEffect(() => {setArticle(props)})
 
     return (
     <div className='px-3'>
         {article ? <ImageCarouselBlock videoLink={article.title}/> : null}
+        <CarouselModule imageSource={article}/>
         {article ? <TitleBlockB title={article.title} tags={article.tags} contributors={article.contributors}/> : null}
         {article ? article.articleBlocks.map((block, index) => {
           if (block.type === "textRight" && block.text) {
