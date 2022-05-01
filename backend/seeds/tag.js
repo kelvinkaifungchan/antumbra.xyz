@@ -41,6 +41,8 @@ exports.seed = function (knex) {
         tag: 'Data',
       },{
         tag: 'Museums',
+      }, {
+        tag: 'Markets'
       }])
   })
   .then(()=>{
@@ -65,21 +67,39 @@ exports.seed = function (knex) {
       }, {
         article_id: 2,
         tag_id: 5,
-      },{
+      }, {
         article_id: 2,
         tag_id: 8,
-      },{
+      }, {
         article_id: 2,
         tag_id: 13,
       },{
-        article_id: 6,
+        article_id: 2,
+        tag_id: 21,
+      },{
+        article_id: 3,
         tag_id: 1,
       },{
-        article_id: 6,
+        article_id: 3,
         tag_id: 5,
       },{
-        article_id: 6,
+        article_id: 3,
         tag_id: 20,
+      },{
+        article_id: 3,
+        tag_id: 21,
+      },{
+        article_id: 3,
+        tag_id: 21,
+      },{
+        article_id: 4,
+        tag_id: 3,
+      },{
+        article_id: 4,
+        tag_id: 6,
+      },{
+        article_id: 4,
+        tag_id: 18,
       }]);
   })
 };

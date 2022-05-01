@@ -8,11 +8,11 @@ exports.seed = function (knex) {
         name: "Simon Denny",
         bio: "Simon Denny is a contemporary artist based in Berlin. He represented New Zealand at the 2015 Venice Biennale. Since 2018 he is a professor for time based media at the HFBK Hamburg.",
       }, {
-        name: "Joanna Zylinska",
-        bio: "Joanna Zylinska is a writer, lecturer, artist and curator, working in the areas of digital technologies and new media, ethics, photography and art. She is Professor of Media Philosophy + Critical Digital Practice in the Department of Digital Humanities at King's College London. She is also a member of Creative AI Lab, a collaboration between King's and Serpentine Galleries.",
-      }, {
         name: "Mich Rossiter",
         bio: "Mich Rossiter is an architecture graduate based in London. His work takes the form of architecture, essays, photography and podcasts. 'Mich' is pronounced: 'Mitch'.",
+      }, {
+        name: "Noah Gotlib",
+        bio: "Noah Gotlib is a designer, researcher, and architect in training currently based in Toronto. He received his M.Arch / AA Diploma from the Architectural Association in London in 2020.",
       }]);
   })
   .then(()=>{
@@ -29,11 +29,9 @@ exports.seed = function (knex) {
         article_id: 3,
         contributor_id: 3,
       },{
-        article_id: 6,
+        article_id: 4,
         contributor_id: 4,
-      },{
-        article_id: 7,
-        contributor_id: 4,
-    }]);
+      }
+    ]);
   })
 };

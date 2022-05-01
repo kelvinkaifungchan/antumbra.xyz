@@ -6,45 +6,25 @@ exports.seed = function (knex) {
             type: "text",
             subtitle: "In the UK alone, there are over 1500 sites, which monitor air quality - these monitoring networks, in turn, continuously gather and process data in real-time. Although these networks continuously produce a wide range of both descriptive and exceedance statistics, not all data produced is easily accessible for the public realm, and neither does it remain unchallenged by other information sources.",
             heroImage:"https://aarchitecture.blob.core.windows.net/videos/ezgif.com-gif-maker.gif",
-            datePublished: "22nd March 2022"
+            datePublished: "May 2022"
         }, {
             title: "Dotcomseance",
             type: "image",
-            subtitle: "Twenty-one dotcom era companies have been summoned for revival. Each company includes an ENS domain, a new logo-NFT designed by Guile Twardowski—the artist behind Cryptokitties—and a suite of hidden text-to-image logo-NFTs by Cosmographia that Guile drew inspiration from.",
+            subtitle: "Dotcom Séance is an on-chain spiritism NFT session to revive ghosts of companies that crashed in the dot-com bubble.",
             heroImage:"https://pbs.twimg.com/media/FG0JjTxXwA0kM90.jpg:large",
-            datePublished: "1st April 2022"
+            datePublished: "May 2022"
         }, {
-            title: "The Future of Media",
-            type: "text",
-            subtitle: "An investigation of the future of various media industries and technologies that considers how media shape our future. How do we combat post-truth in the news? Are social media influencers the journalists of today? What is it like to live in a smart city? Does AI really change 'everything'?",
-            heroImage:"https://img.artrabbit.com/events/joanna-zylinska-pictures-from-the-end-of-the-world-nonhuman-photography/images/jm8WmIUweF9u/1000x789/01-Brown-tailed-Moth-Euproctis-chrysorrhoea.jpg",
-            datePublished: "3rd April 2022"
-        }, {
-            title: "Sci-Fi Imaginaries",
-            type: "image",
-            subtitle: "Colliding Hollywood sci-fi imaginaries with the realities of colonisation in the Americas",
-            heroImage:"https://aarchitecture.blob.core.windows.net/videos/220404_GGV_1_H.gif",
-            datePublished: "3rd April 2022"
-        }, {
-            title: "Artificial Aesthetics",
-            type: "text",
-            subtitle: "A critical guide to AI, media, and design",
-            heroImage:"https://3.bp.blogspot.com/-ZMxKkKWJIL0/W5rBMxVtXPI/AAAAAAACcrc/ESMzCc7Q_HEepOCC9DrFxJY_6YM7ynLDgCLcBGAs/s1600/AI__book_cover_2_jpg.jpg",
-            datePublished: "3rd April 2022"
-        },{
             title: "Tate Realisms",
             type: "text",
-            subtitle: "A question at the forefront of my head when I’m in an art gallery is: what shoes do people wear to galleries? Do they go for comfort? Do they go garmy? Do they veil their pretention with knackered reeboks? Do they try to impress a crowd that might be inclined to gag at an Ugg or side-eye a slipper?",
+            subtitle: "A question at the forefront of my head when I’m in an art gallery is: what shoes do people wear to galleries? Do they go for comfort? Do they go garmy? Do they veil their pretention with knackered reeboks? Do they try to impress a crowd that might be inclined to gag at an Ugg or side-eye a slipper?.",
             heroImage:"https://aarchitecture.blob.core.windows.net/videos/220403_MR_Leonora%20Carrington%20and%20Max%20Ernst%20(1937)%20by%20Lee%20Miller.jpg",
-            pdf: "https://aarchitecture.blob.core.windows.net/videos/220404_MR_TateRealisms.pdf",
-            datePublished: "3rd April 2022"
+            datePublished: "May 2022"
         }, {
-            title: "Surfacescapes",
-            type: "image",
-            subtitle: "As Mark Zuckerberg beckons us over into his van marked ‘Metaverse’, the architectural profession looks to go virtual and I literally lose the plot, I’ve decided to go meta-hiking and make art. Art I do not own, cannot monetise and is sincerely wrong.",
-            heroImage:"https://aarchitecture.blob.core.windows.net/videos/220403_MR_Surfacescape%20No.%205%20-%20MX4_2.png",
-            pdf: "https://aarchitecture.blob.core.windows.net/videos/220404_MR_Surfacescapes.pdf",
-            datePublished: "3rd April 2022"
+            title: "Crumbling Land: The Erosion of the Jeffersonian Grid",
+            type: "video",
+            subtitle: "The project provides guidelines for the intentional abandonment of the Jeffersonian Grid, proposing that existing trends of abandonment and divestment can be strategically utilized for climate change adaptation.",
+            heroImage:"https://testingbucketwebdev.s3.ap-southeast-1.amazonaws.com/SMALL_Rewilding_3.jpg",
+            datePublished: "May 2022"
         }]);
     })
     .then(()=>{
@@ -54,11 +34,11 @@ exports.seed = function (knex) {
         return knex('articleBlock').insert([{
             article_id: 1,
             type: 'text',
-            text: 'As we enter a hyper-consumerist era governed by “big data” and “surveillance capitalism”, data has become an all-powerful technocratic instrument in the negotiation of many socio-political sectors, including the negotiations within Climate Politics. According to the market intelligence agency IDC, global data reached up to an astonishing data cap of 18 zettabytes in 2018 with no signs of slowing down whatsoever. In the UK alone, there are over 1500 sites, which monitor air quality - these monitoring networks, in turn, continuously gather and process data in real-time. Although these networks continuously produce a wide range of both descriptive and exceedance statistics, not all data produced is easily accessible for the public realm, and neither does it remain unchallenged by other information sources. Both governments and high-technology corporations now compete to gather and analyze data, at the expense of their respective citizens’ and consumers’ health and privacy. It has become an ultimate quest to gather, process, and to manipulate as much data as one can for financial profit - to meet certain environmental quotas, such as UK Air Quality Objectives, EU Limit and Target Values, and Critical Loads . Data abstraction and spreading misinformation have become powerful tools for such agencies, and to objectively interpret available datasets has become an increasingly challenging task for the general populace.'
+            text: "As we enter a hyper-consumerist era governed by “big data” and “surveillance capitalism”, data has become an all-powerful technocratic instrument in the negotiation of many socio-political sectors, including the negotiations within Climate Politics. According to the market intelligence agency IDC, global data reached up to an astonishing data cap of 18 zettabytes in 2018 with no signs of slowing down whatsoever. In the UK alone, there are over 1500 sites, which monitor air quality - these monitoring networks, in turn, continuously gather and process data in real-time. Although these networks continuously produce a wide range of both descriptive and exceedance statistics, not all data produced is easily accessible for the public realm, and neither does it remain unchallenged by other information sources. Both governments and high-technology corporations now compete to gather and analyze data, at the expense of their respective citizens’ and consumers’ health and privacy. It has become an ultimate quest to gather, process, and to manipulate as much data as one can for financial profit - to meet certain environmental quotas, such as UK Air Quality Objectives, EU Limit and Target Values, and Critical Loads . Data abstraction and spreading misinformation have become powerful tools for such agencies, and to objectively interpret available datasets has become an increasingly challenging task for the general populace."
         }, {
             article_id: 1,
             type: 'text',
-            text: 'Many new readers may be unfamiliar with this open hostility, as it has been cleverly masked by numerous agencies involved in this conflict. A clear example of this is the UK’s commitment to reduce greenhouse gas emissions to net zero by 2050 to meet the suggested quotas by the National Air Quality Standards. These discussions, however, cleverly avoids the discussions of the ever-increasing offshoring of CO2 emissions. This includes discussions of importing carbon-intensive goods and electricity from overseas - during the “coal free” fortnight in 2019, no domestic coal was used to power the UK grid, however, the UK imported an estimated 40.5 GWH of Dutch coal-generated electricity. The data and the information involved in this event was cleverly avoided by the apparatus of ubiquity and the promises of a “greener tomorrow”. Energy and Infrastructure analyst Tony Lodge further describes  this in his lecture “The Great Carbon Swindle” in regards to how the UK is able to cleverly mask the emissions involved in supply chains and how it avoids carbon levies through layers of convoluted bureaucracy. This has become much more imminent in recent years, as the UK now imports six times more electricity than it exports, which is currently exempt from carbon levies. This, fundamentally, confuses the general populace, who cannot know the actual source of electricity that they are using. In short, this has become an open hostility to acquire the “real picture” of UK sustainability.'
+            text: "Many new readers may be unfamiliar with this open hostility, as it has been cleverly masked by numerous agencies involved in this conflict. A clear example of this is the UK’s commitment to reduce greenhouse gas emissions to net zero by 2050 to meet the suggested quotas by the National Air Quality Standards. These discussions, however, cleverly avoids the discussions of the ever-increasing offshoring of CO2 emissions. This includes discussions of importing carbon-intensive goods and electricity from overseas - during the “coal free” fortnight in 2019, no domestic coal was used to power the UK grid, however, the UK imported an estimated 40.5 GWH of Dutch coal-generated electricity. The data and the information involved in this event was cleverly avoided by the apparatus of ubiquity and the promises of a “greener tomorrow”. Energy and Infrastructure analyst Tony Lodge further describes  this in his lecture “The Great Carbon Swindle” in regards to how the UK is able to cleverly mask the emissions involved in supply chains and how it avoids carbon levies through layers of convoluted bureaucracy. This has become much more imminent in recent years, as the UK now imports six times more electricity than it exports, which is currently exempt from carbon levies. This, fundamentally, confuses the general populace, who cannot know the actual source of electricity that they are using. In short, this has become an open hostility to acquire the “real picture” of UK sustainability."
         }, {
             article_id: 1,
             type: 'text',
@@ -75,7 +55,7 @@ exports.seed = function (knex) {
             article_id: 1,
             type: 'bannerImage',
             attachmentLink: 'https://aarchitecture.blob.core.windows.net/videos/ezgif.com-gif-maker.gif',
-            attachmentCaption: 'Demo of AR application visualising movement of CO2'
+            attachmentCaption: 'Demo of AR application visualising movement of CO2 (2021) © Yeha Kim'
         },{
             article_id: 1,
             type: 'text',
@@ -93,49 +73,63 @@ exports.seed = function (knex) {
             type: 'text',
             text: 'It becomes self-evident that the “Warm War” is an open hostility between the general populace and numerous governmental and private agencies for the access of data. The modus operandi of this war is through the collection, abstraction and the movement of data. It is a negotiation to satisfy both sides of the conflict without committing to tangible solutions and concrete targets. A new transparent approach must be implemented to level the global playing field and to cut overall emissions worldwide. The raw data of “free goods” must be circulated among the general populace to incentivise renewed discussions, which, in turn, may lead to decisive action.'
         },{
-            article_id: 6,
+            article_id: 2,
+            type: 'titleBlockB'
+        },{
+            article_id: 2,
+            type: 'textRight',
+            text: "Dotcom Séance is an on-chain spiritism NFT session to revive ghosts of companies that crashed in the dot-com bubble. It revives web 1 business models as web3 token groups that become ad-hoc DAOs, internet history through time and code. Twenty-one dotcom era companies have been summoned for revival. Each company includes an ENS domain, a new logo-NFT designed by Guile Twardowski—the artist behind Cryptokitties—and a suite of hidden text-to-image logo-NFTs by a CLIP/Diffusion text-to-image ML model that Guile drew inspiration from. Minting any NFT allows you to claim a subdomain on the company's new ENS domain. Owner of the Twardowski logo-NFTs earns the title of CEO on each company's profile page."
+        },{
+            article_id: 3,
             type: 'bannerImage',
             attachmentLink: 'https://aarchitecture.blob.core.windows.net/videos/200404_MR_TateRealisms/Leonora%20Carrington%20and%20Max%20Ernst%20(1937)%20by%20Lee%20Miller.jpg',
             attachmentCaption: 'Leonora Carrington pictured with Max Ernst - Lee Miller, 1937'
         },{
-            article_id: 6,
+            article_id: 3,
             type: 'text',
             text: 'A question at the forefront of my head when I’m in an art gallery is: what shoes do people wear to galleries? Do they go for comfort? Do they go garmy? Do they veil their pretention with knackered reeboks? Do they try to impress a crowd that might be inclined to gag at an Ugg or side-eye a slipper?'
         },{
-            article_id: 6,
+            article_id: 3,
             type: 'text',
             text: 'I of course think that art galleries should be filled with bare-footed people. We’re all less judgemental of one another when our feet are out and the floor becomes communal; perhaps our engagement with art can also be enriched this way. Chris Ofili grounds his work by propping it up with balls of elephant dung, which he says connects them to the earth. He may have a point. Alas, the AF1s, Chelsea boots, Dickies, Docs and Crocs squeak on in. I’m not claiming any cultural high ground here, I feel invincible in my tangerine 95s and haven’t yet taken them off them at a gallery. Baby steps.'
         },{
-            article_id: 6,
+            article_id: 3,
             type: 'bannerImage',
             attachmentLink: 'https://aarchitecture.blob.core.windows.net/videos/200404_MR_TateRealisms/Sketch%20by%20Mich%20Rossiter.jpg',
             attachmentCaption: "Sketch of Roland Penrose's The Last Voyage of Captain Cook (1936-67) by Mich Rossiter, 2022"
         },{
-            article_id: 6,
+            article_id: 3,
             type: 'text',
-            text: 'No Ofili today, though. The Tate’s newest headline offering is Surrealism Beyond Borders, an exhibition loan from the New York Met acting as a Marvel-style origin story for Surrealism (the First Avenger?). The exhibition’s timeline, although heavily-*curated*, succeeds in threading a clear narrative through a series of snaking spaces, dividing Surrealism into its focal cities, periods and sub-movements.'
+            text: 'No Ofili today, though. The Tate’s newest headline offering is Surrealism Beyond Borders, an exhibition loan from the New York Met acting as a Marvel-style origin story for Surrealism (the First Avenger?). The exhibition’s timeline, although heavily-*curated*, succeeds in threading a clear narrative through a series of snaking spaces, dividing Surrealism into its focal cities, periods and sub-movements.\n\nOne of Tate’s proudest achievements, so they proclaim immediately after the ticket desk, is that they ARE NOT BEING EUROCENTRIC TODAY, NOPE NOT TODAY, COME BACK ANOTHER DAY FOR THAT MAYBE. I’m paraphrasing. And there are in fact beautiful, pneumatic works by artists who were based in Martinique, Cairo, Tokyo, Puerto Rico and Mexico, as well as Europe. The geographical and cultural breadth of the exhibition invites visitors to join some conceptual dots in their heads, in order to appreciate the movement’s poignant scope and versatility. After the dot-joining, we see that core Surrealist principles and manifestoes are moulded by environmental factors, political landscapes and societal boundaries in each artist’s world, rather than by a projection of European life. This is special and results in a series of spaces that give raw, incisive accounts of the artists’ lives.'
         },{
-            article_id: 6,
-            type: 'text',
-            text: 'One of Tate’s proudest achievements, so they proclaim immediately after the ticket desk, is that they ARE NOT BEING EUROCENTRIC TODAY, NOPE NOT TODAY, COME BACK ANOTHER DAY FOR THAT MAYBE. I’m paraphrasing. And there are in fact beautiful, pneumatic works by artists who were based in Martinique, Cairo, Tokyo, Puerto Rico and Mexico, as well as Europe. The geographical and cultural breadth of the exhibition invites visitors to join some conceptual dots in their heads, in order to appreciate the movement’s poignant scope and versatility. After the dot-joining, we see that core Surrealist principles and manifestoes are moulded by environmental factors, political landscapes and societal boundaries in each artist’s world, rather than by a projection of European life. This is special and results in a series of spaces that give raw, incisive accounts of the artists’ lives.'
-        },{
-            article_id: 6,
+            article_id: 3,
             type: 'bannerImage',
             attachmentLink: 'https://aarchitecture.blob.core.windows.net/videos/200404_MR_TateRealisms/Untitled%20(1939)%20by%20Ramses%20Younan.jpg',
             attachmentCaption: 'Excerpt: Untitled - Ramses Younan, 1939'
         },{
-            article_id: 6,
+            article_id: 3,
             type: 'text',
             text: 'This landscape of multiplicity is gripping. From it, common threads of radical political action, anti-imperialism and collective conscience are crystalised. Between Ramses Younan’s disassembled, monolithic dune figures, contortedly lounging in a baking hot daze, and Remedios Varo’s personal dystopia, longing for her lover as she “Embroider[s] the Earth’s Mantle” as one of six drone embroiderers, sit more overt fragments of political struggle. The most poignant is ‘Liberté est un mot vietnamien’ by a large group of surrealists led by Yves Bonnefoy and Andre Breton. The 1947 piece is an anti-imperialist manifesto imploring that France ends its post-war occupation of Vietnam. In fact, many of these works are acts of resistance, made in a broiling inter-war world seething with the possibility of violence.'
         },{
-            article_id: 6,
+            article_id: 3,
             type: 'bannerImage',
             attachmentLink: "https://aarchitecture.blob.core.windows.net/videos/200404_MR_TateRealisms/Embroidering%20the%20Earth's%20Mantle%20by%20Remedios%20Varo.jpg",
             attachmentCaption: "Embroidering the Earth's Mantle - Maria Remedios Varo, 1961"
         },{
-            article_id: 6,
+            article_id: 3,
             type: 'quote',
             text: '“We cannot defend freedom here while imposing servitude elsewhere. Surrealism, whose great objective as always is the liberation of mankind, can hardly remain silent at such senseless and revolting criminality.” – Paris-based surrealists, April 1947'
-        },]);
+        },{
+            article_id: 4,
+            type: 'video',
+            attachmentLink: "https://testingbucketwebdev.s3.ap-southeast-1.amazonaws.com/Crumbling+Land+Export.mp4"
+        },{
+            article_id: 4,
+            type: 'titleBlockB',
+        }, {
+            article_id: 4,
+            type: 'textRight',
+            text: "The Jeffersonian Grid dominates North America from the Boreal Forest to the Gulf of Mexico, and from Appalachia to the Rocky Mountains. For over two centuries, this system of rectilinear roads and property divisions has simplified a vast region of the Earth into a reliable mechanism of extraction. Under the pressures of climate change and stagnating infrastructure investment, the Grid has entered a period of slow decay. Across the United States and Canada, roads are being unpaved, and flood-prone properties bought-up and consolidated as overextended infrastructure, deindustrialization, and intensive agriculture put the landscape under increasing strain.\n\nThe project provides guidelines for the intentional abandonment of the Jeffersonian Grid, proposing that existing trends of abandonment and divestment can be strategically utilized for climate change adaptation. Intentional abandonment of roads, settlements and cultivated land could allow for the strategic distribution of resources as the maintenance of overextended infrastructure systems in the face of climate change become more acute.\n\nIn territories where sedentary settlement can no longer be taken for granted, the flow of water will become a new reference point for political organization and human settlement. From vast flood plains to a small gully within a field, landscapes can emerge whose uninhabitability can create a new space for migration and common ownership."
+        }]);
     })
 };

@@ -9,7 +9,7 @@ return (
                 <Link to="/"><span style={{filter: 'blur(3px)'}}>AARCHITECTURE</span> 44</Link>
         </div>
         <div>
-            <Link className="px-3" to="/callformedia">The Warm War</Link>
+            <Link to="/callformedia">The Warm War</Link>
         </div>
     </div>
 </nav>

@@ -20,7 +20,7 @@
       table.string("type");
       table.string("attachmentLink");
       table.string("attachmentCaption");
-      table.string("text", 3000)
+      table.string("text", 6000)
       table.timestamp("created_at").defaultTo(knex.fn.now());
     })
     .createTable("contributor", (table) => {

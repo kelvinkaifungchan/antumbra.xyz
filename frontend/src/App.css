@@ -1,16 +1,16 @@
 body {
-  background: linear-gradient(217deg, #010328, rgba(255, 0, 0, 0) 100%),
-    linear-gradient(127deg, #101132, rgba(0, 255, 0, 0) 100%),
-    linear-gradient(336deg, #353766, rgba(0, 0, 255, 0) 20.71%),
-    linear-gradient(50deg, #d3ec17, rgba(0, 0, 255, 0) 70.71%);
+  background: linear-gradient(217deg, #00021a, #ff000000 100%),
+    linear-gradient(127deg, #101132, #00ff0000 100%),
+    linear-gradient(336deg, #353766, #0000ff00 20.71%),
+    linear-gradient(50deg, #d3ec17, #0000ff00 70.71%);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   height: 100vh;
   min-height: 100%;
-  font-family: Helvetica, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 400;
-  letter-spacing: 0.04rem;
+  letter-spacing: -0.02rem;
   color: #ffffff;
 }
 

@@ -36,9 +36,9 @@ interface Article {
 
 export const Text = ({props} : {props: Article}) => {
     const [article, setArticle] = useState<Article | null>(null);
-    useEffect(() => {setArticle(props)})
-
-    console.log(article)
+    useEffect(() => {
+      setArticle(props)
+    },[props])
 
     return (
     <div className='px-3'>
@@ -63,6 +63,8 @@ export const Text = ({props} : {props: Article}) => {
                 <QuoteBlock text={block.text}/>
               </div>
             )
+          } else {
+            return
           }
         }) : null}
     </div>

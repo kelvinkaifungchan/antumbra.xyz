@@ -23,19 +23,6 @@ class ArticleService {
             })
     }
 
-    // edit(body) {
-    //     console.log("editing card")
-    //     return this.knex("card")
-    //         .where("id", articleId)
-    //         .update({
-    //             author: body.author,
-    //             title: body.title,
-    //             subtitle: body.subtitle,
-    //             datePublished: body.datePublished
-    //         })
-    //         .returning("id")
-    // }
-
     delete(articleId) {
         return this.knex("article")
             .where({

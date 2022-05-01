@@ -41,7 +41,6 @@ return (
             </table>
         </div>
     </div>
-    <HorizontalLine />
     <Footer />
 </div>
 )

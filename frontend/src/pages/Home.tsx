@@ -2,14 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios, {AxiosResponse} from 'axios';
 import { NavBar } from "../components/navbar";
-import { HorizontalLine } from "../components/horizontalLine";
 import { TagBar } from "../components/tagBar";
 import { ArticleModule } from "../components/articleModule";
 import { Footer } from "../components/footer";
 import Ticker from "react-ticker";
 import styles from "./Home.module.css";
 import "./Home.module.css";
-import { display } from "@mui/system";
 import { Hamburger } from "../components/hamburger";
 import { Link } from "react-router-dom";
 
@@ -33,30 +31,19 @@ export interface Contributor {
   bio: string;
 }
 
-export interface Article {
+interface ArticleModule {
   id: number,
   type: string,
   contributors: Array<Contributor>,
   title: string,
   subtitle: string,
   heroImage: string,
-  pdf: string,
-  datePublished: string,
   tags: Array<Tag>,
-  articleBlock: Array<ArticleBlock>
-}
-
-export const Test = () => {
-  return (
-    <div>
-      HI THERE
-    </div>
-  )
 }
 
   export const Home = () => {
   let navigate = useNavigate();
-  const [articleList, setArticleList] = useState<Article[] | null>(null);
+  const [articleList, setArticleList] = useState<ArticleModule[] | null>(null);
   const [scroll, setScroll] = useState(false);
   const [modalControl, setModalControl] = useState(false);
 
@@ -74,11 +61,8 @@ export const Test = () => {
     navigate(`/${type}/${id}`);
     }
         return (
-        <div className={scroll ? `${styles.stick} container-fluid ${styles.home}` : `container-fluid home ${styles.home}`}>
+        <div className={scroll ? `${styles.stick} container-fluid ${styles.home}` : `container-fluid ${styles.home}`}>
         <Hamburger />
-        <div className={`${styles.title}`} style={ scroll ? {opacity:"0.3"} : {opacity:"0"}}>
-          THE WARM WAR
-        </div>
           {/* header */}
           {/* <div className={`${styles.banner}`}>
             <div className={`${styles.blur} ${styles.dflexCenter}`}>
@@ -88,9 +72,6 @@ export const Test = () => {
               <h1>THE WARM WAR</h1>
             </div>
           </div> */}
-          {/*
-          <HorizontalLine /> */}
-          {/* scroll bar ticker*/}
           <div style={scroll ? {display:"none"} : {display:"inline"}}>
             <NavBar />
           </div>
@@ -112,7 +93,7 @@ export const Test = () => {
             <Ticker mode="chain" speed={5}>
               {({ index }) => (
               <>
-                <div style={{paddingLeft:'50px', paddingRight:'50px'}}>
+                <div style={{paddingLeft:'25px', paddingRight:'25px'}}>
                   <Link to="/">
                   {articleList && articleList.length > 0 ? articleList[index%articleList.length].title : null}
                   </Link>

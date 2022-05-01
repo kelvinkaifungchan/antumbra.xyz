@@ -20,9 +20,18 @@ export const ArticleModule: React.FC<Card> =({title, heroImage, subtitle, contri
             <div className={styles.card} style={{zIndex:"1"}}>
                 <img className='w-100' style={{borderRadius:"20px"}} src={heroImage} />
             </div>
-            <div style={{zIndex:"-1"}}>
-                <div style={{fontSize:"3rem"}}>
-                    {title}<br />
+            <div className="pt-2" style={{zIndex:"-1"}}>
+                <div style={{fontSize:"3rem", lineHeight:"3.5rem"}}>
+                    {title}<br/>
+                </div>
+                <div className="pb-2" style={{fontSize: '1.2rem'}}>
+                    {contributors?contributors.map((contributor, index) => {
+                        return(
+                            <div key={index}>
+                                {contributor.name} <br />
+                            </div>
+                        )
+                    }):null}
                 </div>
                 <div style={{background:"none"}}>
                     {subtitle}..<br /><br />

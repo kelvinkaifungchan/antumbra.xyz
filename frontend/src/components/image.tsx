@@ -1,4 +1,4 @@
-import { TitleBlock, TextBlock, BannerImageBlock } from "./articleBlocks";
+import { TitleBlockB, TextBlockRight, ImageCarouselBlock} from "./articleBlocks";
 import React, { useEffect, useState } from "react";
 import { CarouselModule } from "../components/carouselModule";
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
@@ -44,21 +44,18 @@ export const Image = ({props} : {props: Article}) => {
 
     return (
     <div className='px-3'>
-        {article ? <TitleBlock title={article.title} tags={article.tags} contributors={article.contributors}/> : null}
-      <CarouselModule imageSource={article}/>
+        {article ? <ImageCarouselBlock videoLink={article.title}/> : null}
+        <CarouselModule imageSource={article}/>
+        {article ? <TitleBlockB title={article.title} tags={article.tags} contributors={article.contributors}/> : null}
         {article ? article.articleBlocks.map((block, index) => {
-          if (block.type === "text" && block.text) {
+          if (block.type === "textRight" && block.text) {
             return (
               <div key={index}>
-              <TextBlock imageLink={block.attachmentLink} imageCaption={block.attachmentCaption} text={block.text} />
+              <TextBlockRight text={block.text} />
               </div>
             )
-          } else if (block.type === "bannerImage" && block.attachmentLink && block.attachmentCaption) {
-            return (
-              <div key={index}>
-              <BannerImageBlock imageLink={block.attachmentLink} imageCaption={block.attachmentCaption} />
-              </div>
-            )
+          } else {
+            return
           }
         }) : null}
     </div>

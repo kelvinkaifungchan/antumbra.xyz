@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { HtmlRenderer, Parser } from 'commonmark'
 import "./articleBlock.module.css"
 import style from './articleBlock.module.css'
 
@@ -18,6 +19,7 @@ interface TitleBlock {
     title: string,
     tags: Array<Tag>,
     contributors: Array<Contributor>,
+    text?: string,
     pdf?: string
 }
 
@@ -50,8 +52,8 @@ export const TitleBlock: React.FC<TitleBlock> = ({title, tags, contributors, pdf
         <div className='row py-5'>
             <div className='col-3'>
             </div>
-            <div className='col-6' style={{textAlign:"center", color: "#FF5C00"}}>
-                <div className='w-100' style={{fontSize: '4rem'}}>
+            <div className='col-6' style={{textAlign:"left", color: "#FF5C00"}}>
+                <div className='w-75' style={{fontSize: '4rem'}}>
                     {title?title:null}<br />
                 </div>
                 <div>
@@ -101,8 +103,8 @@ export const SidePanel: React.FC<TitleBlock> = ({title, tags, contributors, pdf}
                     )
                 }):null}
                 <br/>
-                <div><a href={pdf} target={"blank"}>PDF</a></div>
-                <div><a href={pdf} target={"blank"}>Share</a></div>
+                {pdf ? <div><a href={pdf} target={"blank"}>PDF</a></div> : null}
+                {/* <div><a href={pdf} target={"blank"}>Share</a></div> */}
             </div>
             <div className='col-6'>
 
@@ -113,11 +115,14 @@ export const SidePanel: React.FC<TitleBlock> = ({title, tags, contributors, pdf}
 
 export const TitleBlockB: React.FC<TitleBlock> = ({title, tags, contributors}) => {
     return (
-        <div className='row py-5'>
-            <div className='col-3' style={{color: "#FF5C00", fontSize: '1.2rem'}}>
-                {title?title:null}<br />
+        <div className='row'>
+            <div className='col-6'>
+                <div className="w-75 pb-3" style={{color: "#FF5C00", fontSize: '3rem', lineHeight:'3.5rem'}}>
+                 {title?title:null}
+                </div>
             </div>
-            <div className='col-6' style={{color: "#FF5C00", fontSize: '4rem'}}>
+            <div className="col-3">
+            <div style={{color: "#FF5C00", fontSize: '1.2rem'}}>
                 Tag(s):<br />
                 {tags?tags.map((tag) => {
                     return(
@@ -127,8 +132,10 @@ export const TitleBlockB: React.FC<TitleBlock> = ({title, tags, contributors}) =
                     )
                 }):null}
                 <br />
+                </div>
             </div>
-            <div className='col-3'>
+            <div className="col-3">
+            <div style={{color: "#FF5C00", fontSize: '1.2rem'}}>
                 Contributor(s):
                     {contributors?contributors.map((contributor, index) => {
                         return(
@@ -138,16 +145,54 @@ export const TitleBlockB: React.FC<TitleBlock> = ({title, tags, contributors}) =
                         )
                     }):null}
                 <br/>
+                </div>
             </div>
         </div>
     )
 }
 
+export const TextBlockRight: React.FC<TextBlock> = ({text}) => {
+    
+    const [mark, setMark] = useState("Loading...");
+    
+    useEffect(() => {
+        const parser = new Parser()
+        const renderer = new HtmlRenderer()
+          setMark(renderer.render(parser.parse(text)))
+      })
+
+    return (
+    <div className='row'>
+        <div className='col-6'>
+        </div>
+        <div className='col-6' style={{fontSize: '1.2rem', opacity: '0.8'}}>
+            <div dangerouslySetInnerHTML={{__html: mark}}>
+            </div>
+        </div>
+    </div>
+    )
+}
+
 export const TextBlock: React.FC<TextBlock> = ({imageLink, imageCaption, text}) => {
+    
+    const [mark, setMark] = useState("Loading...");
+    
+    useEffect(() => {
+        const parser = new Parser()
+        const renderer = new HtmlRenderer()
+          setMark(renderer.render(parser.parse(text)))
+      })
+
     return (
     <div className='row'>
         <div className='col-3'>
-            <div className='row pb-5 pr-5'>
+        </div>
+        <div className='col-6' style={{fontSize: '1.2rem', opacity: '0.8'}}>
+            <div dangerouslySetInnerHTML={{__html: mark}}>
+            </div>
+        </div>
+        <div className='col-3'>
+        <div className='row pb-5 pr-5'>
                 <div>
                     <img className={`${style.image} w-75`} src={imageLink} alt={imageCaption} />
                 </div>
@@ -156,20 +201,30 @@ export const TextBlock: React.FC<TextBlock> = ({imageLink, imageCaption, text}) 
                 </div>
             </div>
         </div>
-        <div className='col-6' style={{fontSize: '1.2rem', opacity: '0.8'}}>
-            {text}<br /><br />
-        </div>
-        <div className='col-3'></div>
     </div>
     )
 }
 
 export const BannerImageBlock: React.FC<BannerImageBlock> = ({imageLink, imageCaption}) => {
     return (
+    // <div className='row py-5' style={{fontSize: '1.2rem', opacity: '0.8'}}>
+    //     <div className='col-2'>
+    //     </div>
+    //     <div className='col-8'>
+    //         <div>
+    //             <img className={`${style.image} w-100`} src={imageLink} alt={imageCaption} />
+    //         </div>
+    //         <div className='pt-3 w-100' style={{fontSize: '0.8rem'}}>
+    //             {imageCaption}
+    //         </div>
+    //     </div>
+    //     <div className='col-2'>
+    //     </div>
+    // </div>
     <div className='row py-5' style={{fontSize: '1.2rem', opacity: '0.8'}}>
-        <div className='col-2'>
+        <div className='col-4'>
         </div>
-        <div className='col-8'>
+        <div className='col-4 align-items-center'>
             <div>
                 <img className={`${style.image} w-100`} src={imageLink} alt={imageCaption} />
             </div>
@@ -177,7 +232,7 @@ export const BannerImageBlock: React.FC<BannerImageBlock> = ({imageLink, imageCa
                 {imageCaption}
             </div>
         </div>
-        <div className='col-2'>
+        <div className='col-4'>
         </div>
     </div>
     )
@@ -203,6 +258,20 @@ export const VideoBlock: React.FC<VideoBlock> = ({videoLink}) => {
             <video id="video" controls={true} style={{width:"100%", height:"80vh", border:"none", background:"#ffffff0f", borderRadius:"20px"}}>
                 <source src={videoLink} type="video/mp4"/>
             </video>
+            {/* <iframe src={videoLink}
+            style={{width:"100%", height:"80vh", border:"none", background:"#ffffff0f", borderRadius:"20px"}} allow="autoplay; fullscreen;"></iframe> */}
+        </div>
+    )
+}
+
+export const ImageCarouselBlock: React.FC<VideoBlock> = ({videoLink}) => {
+    return (
+        <div className='row py-4'>
+            <video id="video" controls={true} style={{width:"100%", height:"80vh", border:"none", background:"#ffffff0f", borderRadius:"20px"}}>
+                <source src={videoLink} type="video/mp4"/>
+            </video>
+            {/* <iframe src={videoLink}
+            style={{width:"100%", height:"80vh", border:"none", background:"#ffffff0f", borderRadius:"20px"}} allow="autoplay; fullscreen;"></iframe> */}
         </div>
     )
 }
