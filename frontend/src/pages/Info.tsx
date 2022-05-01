@@ -1,12 +1,13 @@
 import React from 'react';
 import { NavBar } from '../components/navbar';
-import { HorizontalLine } from "../components/horizontalLine";
+import { Hamburger } from "../components/hamburger";
 import { Footer } from "../components/footer";
 
 export const Info = () => {
 return (
 <div className='container-fluid'>
     <NavBar />
+    <Hamburger />
     <div className='row p-3 d-flex align-items-center' style={{minHeight:'78vh',fontSize: '1.2rem', opacity: "0.8"}}>
         <div className='col-lg-8 col-md-12'>
             <div className='w-75'>

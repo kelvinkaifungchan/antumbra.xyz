@@ -72,11 +72,9 @@ class AArchitectureService {
     }
 
     aarchitecture() {
-        // let data = {}
         return this.knex("article")
             .then(async (articles) => {
                 const data = await Promise.all(articles.map(async (article) => {
-                    let articleBlocks = await this.articleBlock(article.id);
                     let contributors = await this.contributor(article.id);
                     let tags = await this.tag(article.id);
                     return {
@@ -86,10 +84,7 @@ class AArchitectureService {
                         title: article.title,
                         subtitle: article.subtitle,
                         heroImage: article.heroImage,
-                        pdf: article.pdf,
-                        datePublished: article.datePublished,
                         tags: tags,
-                        articleBlocks: articleBlocks,
                     }
                 }))
                 return data
