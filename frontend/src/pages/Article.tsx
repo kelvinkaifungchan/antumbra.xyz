@@ -21,8 +21,15 @@ interface Tag {
     attachmentCaption?: string;
     text: string;
   }
+
+  interface CarouselImage {
+    id: number;
+    article_id: number;
+    imageLink?: string;
+    imageCaption?: string;
+  }
   
-  export interface Contributor {
+  interface Contributor {
     id: number;
     name: string;
     bio: string;
@@ -39,6 +46,7 @@ interface Article {
     datePublished: string,
     tags: Array<Tag>,
     articleBlocks: Array<ArticleBlock>
+    carousel?: Array<CarouselImage>
 }
 
 export const Article=({type}: {type:string} ) => {

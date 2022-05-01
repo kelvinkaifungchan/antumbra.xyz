@@ -64,14 +64,6 @@ interface ArticleModule {
         <div className={scroll ? `${styles.stick} container-fluid ${styles.home}` : `container-fluid ${styles.home}`}>
         <Hamburger />
           {/* header */}
-          {/* <div className={`${styles.banner}`}>
-            <div className={`${styles.blur} ${styles.dflexCenter}`}>
-              AARCHITECTURE
-            </div>
-            <div className={`${styles.header} ${styles.dflexCenter}`} style={{color:'#FF5C00'}}>
-              <h1>THE WARM WAR</h1>
-            </div>
-          </div> */}
           <div style={scroll ? {display:"none"} : {display:"inline"}}>
             <NavBar />
           </div>
