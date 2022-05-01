@@ -12,6 +12,8 @@ import "./Home.module.css";
 import { display } from "@mui/system";
 import { Hamburger } from "../components/hamburger";
 import { Link } from "react-router-dom";
+import { Modal, ModalBody, ModalHeader } from 'reactstrap';
+import { CarouselModule } from "../components/carouselModule";
 
 interface Tag {
   id: number;
@@ -33,7 +35,7 @@ export interface Contributor {
   bio: string;
 }
 
-interface Article {
+export interface Article {
   id: number,
   type: string,
   contributors: Array<Contributor>,
@@ -58,6 +60,7 @@ export const Test = () => {
   let navigate = useNavigate();
   const [articleList, setArticleList] = useState<Article[] | null>(null);
   const [scroll, setScroll] = useState(false);
+  const [modalControl, setModalControl] = useState(false);
 
     useEffect(()=>{
     window.addEventListener("scroll", () => {
@@ -72,9 +75,16 @@ export const Test = () => {
     const handleNav = (e: any, id: number, type:string) => {
     navigate(`/${type}/${id}`);
     }
+    const toggleModal = () => {
+      setModalControl(!modalControl);
+    }
 
         return (
         <div className={scroll ? `${styles.stick} container-fluid ${styles.home}` : `container-fluid home ${styles.home}`}>
+        <button onClick={()=>toggleModal()}>fuck</button>
+        <Modal centered fullscreen isOpen={modalControl} toggle={() => setModalControl(false)}>
+          <CarouselModule imageSource={articleList}/>
+        </Modal>
         <Hamburger />
         <div className={`${styles.title}`} style={ scroll ? {opacity:"0.3"} : {opacity:"0"}}>
           THE WARM WAR
