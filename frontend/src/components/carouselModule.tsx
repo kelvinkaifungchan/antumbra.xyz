@@ -1,60 +1,58 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
-import { Article } from '../pages/Home'
+
 const imageSource = [
-    'https://aarchitecture.blob.core.windows.net/videos/220403_MR_Surfacescape%20No.%205%20-%20MX4_2.png',
-    'https://aarchitecture.blob.core.windows.net/videos/220403_MR_Leonora%20Carrington%20and%20Max%20Ernst%20(1937)%20by%20Lee%20Miller.jpg',
-    'https://img.artrabbit.com/events/joanna-zylinska-pictures-from-the-end-of-the-world-nonhuman-photography/images/jm8WmIUweF9u/1000x789/01-Brown-tailed-Moth-Euproctis-chrysorrhoea.jpg'
+'https://www.dotcomseance.com/art/pets.com/guile.jpg',
+'https://www.dotcomseance.com/art/alladvantage.com/guile.jpg',
+'https://www.dotcomseance.com/art/bidland.com/guile.jpg'
 ]
 interface imageSourceState {
-    imageUri: string,
-    isOpen: boolean
+imageUrl: string,
+isOpen: boolean
 }
 
 export const CarouselModule = (props: any) => {
-    const [modalControl, setModalControl]  = useState<any>(null);
+const [modalControl, setModalControl] = useState<any>(null);
     const [switcher, flipSwitch] = useState(false);
     useEffect(()=>{
-        const imageSourceControl = imageSource.map((imageSource)=>{
-            return {
-                imageUri: imageSource,
-                isOpen: false
-            }
-        })
-        setModalControl(imageSourceControl);
+    const imageSourceControl = imageSource.map((imageSource)=>{
+    return {
+    imageUrl: imageSource,
+    isOpen: false
+    }
+    })
+    setModalControl(imageSourceControl);
     },[])
 
     const modalSwitcher = (index: number) => {
-        modalControl[index].isOpen = !modalControl[index].isOpen;
-        flipSwitch(!switcher)
+    modalControl[index].isOpen = !modalControl[index].isOpen;
+    flipSwitch(!switcher)
     }
     return (
-        <Carousel 
-        width="100%" 
-        autoPlay
-        infiniteLoop 
-        dynamicHeight 
-        showStatus={false} 
-        showThumbs={false} 
-        showIndicators={false}
-        onClickItem={(index)=> modalSwitcher(index)}
-        >
+    <div className='row py-4'>
+        <div style={{background:"#ffffff0f", borderRadius:"20px"}}>
+        <Carousel width="100%" autoPlay infiniteLoop dynamicHeight showStatus={false} showThumbs={false}
+            showIndicators={false} onClickItem={(index)=> modalSwitcher(index)}
+            >
             {modalControl?
             modalControl.map((imageInfo: imageSourceState, i: number) => {
-                return(
-                    <>
-                    <img key={i} style={{ width:'100%' }} src={imageInfo.imageUri}/>
-                    <Modal centered fullscreen isOpen={imageInfo.isOpen} toggle={()=>modalSwitcher(i)}>
-                        <img key={i} style={{ width:'100%' }} src={imageInfo.imageUri} />
-                    </Modal>
-                    </>
-                )
+            return(
+            <>
+                <img key={i} style={{maxWidth:'100%', maxHeight:'80vh', minHeight:'80vh', width:'auto', height:'auto'}}
+                    src={imageInfo.imageUrl} />
+                <Modal centered fullscreen isOpen={imageInfo.isOpen} toggle={()=>modalSwitcher(i)}>
+                    <img key={i} style={{ width:'100%' }} src={imageInfo.imageUrl} />
+                </Modal>
+            </>
+            )
             }):
             null
             }
-                    
         </Carousel>
+        </div>
+    </div>
+
     )
-}
+    }
