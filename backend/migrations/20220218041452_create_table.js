@@ -23,6 +23,13 @@
       table.string("text", 6000)
       table.timestamp("created_at").defaultTo(knex.fn.now());
     })
+    .createTable("carousel", (table) => {
+      table.increments("id").primary();
+      table.integer('article_id').unsigned().references('id').inTable('article');
+      table.string("imageLink");
+      table.string("imageCaption")
+      table.timestamp("created_at").defaultTo(knex.fn.now());
+    })
     .createTable("contributor", (table) => {
       table.increments("id").primary();
       table.string("name");

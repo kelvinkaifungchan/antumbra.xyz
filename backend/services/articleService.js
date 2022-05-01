@@ -100,7 +100,27 @@ class ArticleService {
                 })
             })
             .then(() => {
-                return article
+                if (article.type == "image") {
+                    return this.knex("carousel")
+                    .where({
+                        article_id: articleId
+                    })
+                    .then((images) => {
+                        article.carousel = images.map((image) => {
+                            return {
+                                id: image.id,
+                                article_id: articleId,
+                                imageLink: image.imageLink,
+                                imageCaption: image.imageCaption,
+                            }
+                        })
+                    })
+                    .then(() => {
+                        return article
+                    })
+                } else {
+                    return article
+                }
             })
             .catch((err) => {
                 console.log(err)

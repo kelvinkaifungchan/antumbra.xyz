@@ -16,8 +16,15 @@ interface Tag {
     attachmentCaption?: string;
     text?: string;
   }
+
+  interface CarouselImage {
+    id: number;
+    article_id: number;
+    imageLink?: string;
+    imageCaption?: string;
+  }
   
-  export interface Contributor {
+  interface Contributor {
     id: number;
     name: string;
     bio: string;
@@ -34,6 +41,7 @@ interface Article {
     datePublished: string,
     tags: Array<Tag>,
     articleBlocks: Array<ArticleBlock>
+    carousel?: Array<CarouselImage>
 }
 
 export const Image = ({props} : {props: Article}) => {
@@ -44,7 +52,7 @@ export const Image = ({props} : {props: Article}) => {
 
     return (
     <div className='px-3'>
-        <CarouselModule imageSource={article}/>
+        {article && article.carousel ? <CarouselModule imageSource={article.carousel}/> : null}
         {article ? <TitleBlockB title={article.title} tags={article.tags} contributors={article.contributors}/> : null}
         {article ? article.articleBlocks.map((block, index) => {
           if (block.type === "textRight" && block.text) {

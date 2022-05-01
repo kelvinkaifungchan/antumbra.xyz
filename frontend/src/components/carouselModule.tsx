@@ -3,23 +3,27 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
-const imageSource = [
-'https://www.dotcomseance.com/art/pets.com/guile.jpg',
-'https://www.dotcomseance.com/art/alladvantage.com/guile.jpg',
-'https://www.dotcomseance.com/art/bidland.com/guile.jpg'
-]
 interface imageSourceState {
-imageUrl: string,
+imageLink: string,
+imageCaption: string,
 isOpen: boolean
 }
 
-export const CarouselModule = (props: any) => {
-const [modalControl, setModalControl] = useState<any>(null);
+interface CarouselImage {
+    id: number;
+    article_id: number;
+    imageLink?: string;
+    imageCaption?: string;
+  }
+
+export const CarouselModule = ({imageSource}: {imageSource:CarouselImage[]}) => {
+    const [modalControl, setModalControl] = useState<any>(null);
     const [switcher, flipSwitch] = useState(false);
     useEffect(()=>{
     const imageSourceControl = imageSource.map((imageSource)=>{
     return {
-    imageUrl: imageSource,
+    imageLink: imageSource.imageLink,
+    imageCaption: imageSource.imageCaption,
     isOpen: false
     }
     })
@@ -41,9 +45,9 @@ const [modalControl, setModalControl] = useState<any>(null);
             return(
             <>
                 <img key={i} style={{maxWidth:'100%', maxHeight:'80vh', minHeight:'80vh', width:'auto', height:'auto'}}
-                    src={imageInfo.imageUrl} />
+                    src={imageInfo.imageLink} />
                 <Modal centered fullscreen isOpen={imageInfo.isOpen} toggle={()=>modalSwitcher(i)}>
-                    <img key={i} style={{ width:'100%' }} src={imageInfo.imageUrl} />
+                    <img key={i} style={{ width:'100%' }} src={imageInfo.imageLink} />
                 </Modal>
             </>
             )
