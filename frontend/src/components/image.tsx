@@ -44,7 +44,6 @@ export const Image = ({props} : {props: Article}) => {
 
     return (
     <div className='px-3'>
-        {article ? <ImageCarouselBlock videoLink={article.title}/> : null}
         <CarouselModule imageSource={article}/>
         {article ? <TitleBlockB title={article.title} tags={article.tags} contributors={article.contributors}/> : null}
         {article ? article.articleBlocks.map((block, index) => {
