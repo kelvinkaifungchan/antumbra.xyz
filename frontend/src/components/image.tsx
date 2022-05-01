@@ -44,8 +44,8 @@ export const Image = ({props} : {props: Article}) => {
 
     return (
     <div className='px-3'>
-      <CarouselModule imageSource={article}/>
         {article ? <TitleBlock title={article.title} tags={article.tags} contributors={article.contributors}/> : null}
+      <CarouselModule imageSource={article}/>
         {article ? article.articleBlocks.map((block, index) => {
           if (block.type === "text" && block.text) {
             return (
