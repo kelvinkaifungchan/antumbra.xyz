@@ -25,7 +25,7 @@ interface ArticleBlock {
   text?: string;
 }
 
-export interface Contributor {
+interface Contributor {
   id: number;
   name: string;
   bio: string;
@@ -65,7 +65,7 @@ interface ArticleModule {
         <Hamburger />
           {/* header */}
           <div style={scroll ? {display:"none"} : {display:"inline"}}>
-            <NavBar />
+          <NavBar />
           </div>
           <TagBar />
 
@@ -73,7 +73,7 @@ interface ArticleModule {
           <div className="row px-3">
             {articleList && articleList.length > 0 ? articleList.map((item, index)=>{
             return (
-            <div key={index} onClick={(e)=>{handleNav(e, item.id, item.type)}} className="col-lg-3 col-sm-6 col-xs-12 py-3" style={{width:"100%", height:"auto", float:"left"}}>
+            <div key={index} onClick={(e)=>{handleNav(e, item.id, item.type)}} className="col-lg-3 col-md-6 col-xs-12 py-3" style={{width:"100%", height:"auto", float:"left"}}>
               <ArticleModule contributors={item.contributors} title={item.title} heroImage={item.heroImage}
                 subtitle={item.subtitle} />
             </div>

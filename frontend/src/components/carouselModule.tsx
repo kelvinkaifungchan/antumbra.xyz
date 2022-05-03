@@ -34,9 +34,12 @@ export const CarouselModule = ({imageSource}: {imageSource:CarouselImage[]}) => 
     modalControl[index].isOpen = !modalControl[index].isOpen;
     flipSwitch(!switcher)
     }
+
+    console.log("this is the image source", imageSource)
+
     return (
-    <div className='row py-4'>
-        <div style={{background:"#ffffff0f", borderRadius:"20px"}}>
+    <div className='row py-4' style={{overflowX:"auto", whiteSpace:"nowrap"}}>
+        {/* <div style={{background:"#ffffff0f", borderRadius:"20px"}}>
         <Carousel width="100%" autoPlay infiniteLoop dynamicHeight showStatus={false} showThumbs={false}
             showIndicators={false} onClickItem={(index)=> modalSwitcher(index)}
             >
@@ -55,6 +58,14 @@ export const CarouselModule = ({imageSource}: {imageSource:CarouselImage[]}) => 
             null
             }
         </Carousel>
+        </div> */}
+        <div>
+            {imageSource.map((image, i) => {
+                    return(
+                    <img key={i} style={{maxWidth:'100%', maxHeight:'80vh', minHeight:'80vh', width:'auto', height:'auto'}}
+                    src={image.imageLink} />
+                    )
+            })}
         </div>
     </div>
 

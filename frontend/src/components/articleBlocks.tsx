@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { HtmlRenderer, Parser } from 'commonmark'
 import "./articleBlock.module.css"
 import style from './articleBlock.module.css'
+import { ArticleModule } from "../components/articleModule";
 
 
 interface Contributor {
@@ -47,12 +48,28 @@ interface ContributorBioBlock {
     bio: string,
 }
 
+interface ArticleModule {
+    id: number,
+    type: string
+    contributors: Array<Contributor>,
+    title: string,
+    subtitle: string,
+    heroImage: string,
+    pdf: string,
+    datePublished: string,
+    tags: Array<Tag>,
+  }
+
+interface ArticleList {
+    articles?: ArticleModule[]
+}
+
 export const TitleBlock: React.FC<TitleBlock> = ({title, tags, contributors, pdf}) => {
     return (
         <div className='row py-5'>
             <div className='col-3'>
             </div>
-            <div className='col-6' style={{textAlign:"left", color: "#FF5C00"}}>
+            <div className='col-6' style={{textAlign:"left", color: "#FF5C00", letterSpacing:"-0.07rem"}}>
                 <div className='w-75' style={{fontSize: '4rem'}}>
                     {title?title:null}<br />
                 </div>
@@ -117,7 +134,7 @@ export const TitleBlockB: React.FC<TitleBlock> = ({title, tags, contributors}) =
     return (
         <div className='row'>
             <div className='col-6'>
-                <div className="w-75 pb-3" style={{color: "#FF5C00", fontSize: '3rem', lineHeight:'3.5rem'}}>
+                <div className="w-75 pb-3" style={{color: "#FF5C00", fontSize: '3rem', lineHeight:'3.5rem', letterSpacing:"-0.07rem"}}>
                  {title?title:null}
                 </div>
             </div>
@@ -127,7 +144,7 @@ export const TitleBlockB: React.FC<TitleBlock> = ({title, tags, contributors}) =
                 {tags?tags.map((tag) => {
                     return(
                         <div>
-                            {tag.tag} <br />
+                            {tag.tag}
                         </div>
                     )
                 }):null}
@@ -225,8 +242,8 @@ export const BannerImageBlock: React.FC<BannerImageBlock> = ({imageLink, imageCa
         <div className='col-4'>
         </div>
         <div className='col-4 align-items-center'>
-            <div>
-                <img className={`${style.image} w-100`} src={imageLink} alt={imageCaption} />
+            <div className="d-flex justify-content-center">
+                <img className={`${style.image}`} style={{minHeight:"60vh", maxHeight:"60vh", width:"auto", height:"auto"}} src={imageLink} alt={imageCaption} />
             </div>
             <div className='pt-3 w-100' style={{fontSize: '0.8rem'}}>
                 {imageCaption}
@@ -255,7 +272,7 @@ export const QuoteBlock: React.FC<TextBlock> = ({text}) => {
 export const VideoBlock: React.FC<VideoBlock> = ({videoLink}) => {
     return (
         <div className='row py-4'>
-            <video id="video" controls={true} style={{width:"100%", height:"80vh", border:"none", background:"#ffffff0f", borderRadius:"20px"}}>
+            <video id="video" controls={true} style={{width:"100%", height:"80vh", border:"none", background:"#000000", borderRadius:"20px"}}>
                 <source src={videoLink} type="video/mp4"/>
             </video>
             {/* <iframe src={videoLink}

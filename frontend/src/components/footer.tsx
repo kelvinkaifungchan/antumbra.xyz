@@ -11,6 +11,7 @@ return (
         The Warm War is developed and edited by Karl Herdersch, Kaifung Kelvin Chan and Alexander Balgarnie
         </div>
         <div className='col-12 col-lg-3' style={{fontSize:'1rem'}}>
+            <Link className="px-3" to="/callformedia">Call for Media</Link><br/>
             <Link className="px-3" to="/info">Information</Link><br/>
             <Link className="px-3" to="/archive">Archive</Link><br/>
         </div>

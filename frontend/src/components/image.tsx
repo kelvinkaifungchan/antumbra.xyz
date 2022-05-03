@@ -47,11 +47,12 @@ interface Article {
 export const Image = ({props} : {props: Article}) => {
     const [article, setArticle] = useState<Article | null>(null);
     const [modalControl, setModalControl] = useState(false);
-    console.log('image', props)
-    useEffect(() => {setArticle(props)})
+    useEffect(() => {
+      setArticle(props)
+    })
 
     return (
-    <div className='px-3'>
+    <div className="px-3">
         {article && article.carousel ? <CarouselModule imageSource={article.carousel}/> : null}
         {article ? <TitleBlockB title={article.title} tags={article.tags} contributors={article.contributors}/> : null}
         {article ? article.articleBlocks.map((block, index) => {

@@ -13,6 +13,12 @@ exports.seed = function (knex) {
       }, {
         name: "Noah Gotlib",
         bio: "Noah Gotlib is a designer, researcher, and architect in training currently based in Toronto. He received his M.Arch / AA Diploma from the Architectural Association in London in 2020.",
+      }, {
+        name: "Lev Manovich",
+        bio: "",
+      }, {
+        name: "Emanuele Arielli",
+        bio: "",
       }]);
   })
   .then(()=>{
@@ -31,6 +37,12 @@ exports.seed = function (knex) {
       },{
         article_id: 4,
         contributor_id: 4,
+      },{
+        article_id: 5,
+        contributor_id: 5,
+      },{
+        article_id: 5,
+        contributor_id: 6,
       }
     ]);
   })
