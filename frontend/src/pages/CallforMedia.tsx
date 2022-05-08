@@ -1,11 +1,13 @@
 import React from 'react';
 import { Footer } from '../components/footer';
+import { Hamburger } from '../components/hamburger';
 import { NavBar } from '../components/navbar';
 
 export const CallForMedia = () => {
 return (
 <div className='container-fluid'>
     <NavBar />
+    <Hamburger />
     <div className='row px-3' style={{fontSize: '1.8rem'}}>
         <div className='col-8 py-5'>
             The Warm War is an intermediary space. It’s not quite the Cold War: the open hostility, espionage

@@ -16,15 +16,6 @@ interface Tag {
   tag: string
 }
 
-interface ArticleBlock {
-  id: number;
-  article_id: number;
-  type: string;
-  attachmentLink?: string;
-  attachmentCaption?: string;
-  text?: string;
-}
-
 interface Contributor {
   id: number;
   name: string;
@@ -57,9 +48,7 @@ interface ArticleModule {
     })
     },[])
 
-    const handleNav = (e: any, id: number, type:string) => {
-    navigate(`/${type}/${id}`);
-    }
+
         return (
         <div className={scroll ? `${styles.stick} container-fluid ${styles.home}` : `container-fluid ${styles.home}`}>
         <Hamburger />
@@ -68,19 +57,7 @@ interface ArticleModule {
           <NavBar />
           </div>
           <TagBar />
-
-          {/* articles */}
-          <div className="row px-3">
-            {articleList && articleList.length > 0 ? articleList.map((item, index)=>{
-            return (
-            <div key={index} onClick={(e)=>{handleNav(e, item.id, item.type)}} className="col-lg-3 col-md-6 col-xs-12 py-3" style={{width:"100%", height:"auto", float:"left"}}>
-              <ArticleModule contributors={item.contributors} title={item.title} heroImage={item.heroImage}
-                subtitle={item.subtitle} />
-            </div>
-            )
-            }):null}
-
-          </div>
+          {articleList ? <ArticleModule articles={articleList} /> : null}
           <div className={styles.ticker}>
             <Ticker mode="chain" speed={5}>
               {({ index }) => (

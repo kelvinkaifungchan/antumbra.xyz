@@ -3,7 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
-interface imageSourceState {
+interface ImageSourceState {
 imageLink: string,
 imageCaption: string,
 isOpen: boolean
@@ -21,7 +21,7 @@ export const CarouselModule = ({imageSource}: {imageSource:CarouselImage[]}) => 
     const [switcher, flipSwitch] = useState(false);
     useEffect(()=>{
     const imageSourceControl = imageSource.map((imageSource)=>{
-    return {
+        return {
     imageLink: imageSource.imageLink,
     imageCaption: imageSource.imageCaption,
     isOpen: false
@@ -35,7 +35,8 @@ export const CarouselModule = ({imageSource}: {imageSource:CarouselImage[]}) => 
     flipSwitch(!switcher)
     }
 
-    console.log("this is the image source", imageSource)
+    console.log(modalControl)
+    console.log("this is imagesource", imageSource)
 
     return (
     <div className='row py-4' style={{overflowX:"auto", whiteSpace:"nowrap"}}>
@@ -60,10 +61,12 @@ export const CarouselModule = ({imageSource}: {imageSource:CarouselImage[]}) => 
         </Carousel>
         </div> */}
         <div>
-            {imageSource.map((image, i) => {
+            {imageSource.map((image: CarouselImage, i: number) => {
                     return(
+                    <>
                     <img key={i} style={{maxWidth:'100%', maxHeight:'80vh', minHeight:'80vh', width:'auto', height:'auto'}}
                     src={image.imageLink} />
+                    </>
                     )
             })}
         </div>
