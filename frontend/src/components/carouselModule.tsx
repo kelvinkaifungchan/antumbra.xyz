@@ -3,7 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
-interface imageSourceState {
+interface ImageSourceState {
 imageLink: string,
 imageCaption: string,
 isOpen: boolean
@@ -21,7 +21,7 @@ export const CarouselModule = ({imageSource}: {imageSource:CarouselImage[]}) => 
     const [switcher, flipSwitch] = useState(false);
     useEffect(()=>{
     const imageSourceControl = imageSource.map((imageSource)=>{
-    return {
+        return {
     imageLink: imageSource.imageLink,
     imageCaption: imageSource.imageCaption,
     isOpen: false
@@ -34,9 +34,13 @@ export const CarouselModule = ({imageSource}: {imageSource:CarouselImage[]}) => 
     modalControl[index].isOpen = !modalControl[index].isOpen;
     flipSwitch(!switcher)
     }
+
+    console.log(modalControl)
+    console.log("this is imagesource", imageSource)
+
     return (
-    <div className='row py-4'>
-        <div style={{background:"#ffffff0f", borderRadius:"20px"}}>
+    <div className='row py-4' style={{overflowX:"auto", whiteSpace:"nowrap"}}>
+        {/* <div style={{background:"#ffffff0f", borderRadius:"20px"}}>
         <Carousel width="100%" autoPlay infiniteLoop dynamicHeight showStatus={false} showThumbs={false}
             showIndicators={false} onClickItem={(index)=> modalSwitcher(index)}
             >
@@ -55,6 +59,16 @@ export const CarouselModule = ({imageSource}: {imageSource:CarouselImage[]}) => 
             null
             }
         </Carousel>
+        </div> */}
+        <div>
+            {imageSource.map((image: CarouselImage, i: number) => {
+                    return(
+                    <>
+                    <img key={i} style={{maxWidth:'100%', maxHeight:'80vh', minHeight:'80vh', width:'auto', height:'auto'}}
+                    src={image.imageLink} />
+                    </>
+                    )
+            })}
         </div>
     </div>
 

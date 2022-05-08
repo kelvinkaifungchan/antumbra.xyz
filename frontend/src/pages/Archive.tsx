@@ -4,6 +4,7 @@ import { NavBar } from '../components/navbar';
 import { Issue } from '../components/issue';
 import { HorizontalLine } from "../components/horizontalLine";
 import { Footer } from "../components/footer";
+import { Hamburger } from "../components/hamburger";
 
 interface Issue {
     id: number,
@@ -26,6 +27,7 @@ export const Archive = () => {
 return (
 <div className='container-fluid'>
     <NavBar />
+    <Hamburger />
     <div className='row px-3' style={{fontSize: '1.8rem'}}>
         <div className='col w-100'>
             <table className='w-100' style={{color: '#FF5C00'}}>

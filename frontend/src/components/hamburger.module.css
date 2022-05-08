@@ -1,9 +1,9 @@
 .hamburger {
     position: fixed;
-    top: 90px;
+    top: 70px;
     right: 50px;
     height: 10vh;
-    z-index: 60;
+    z-index: 999;
     transform: rotate(23deg);
     transition: 0.2s;
     opacity: 0.7
