@@ -14,9 +14,9 @@ interface CarouselImage {
     article_id: number;
     imageLink?: string;
     imageCaption?: string;
-}
+  }
 
-export const CarouselModule = ({ imageSource }: { imageSource: CarouselImage[] }) => {
+export const CarouselModule = ({imageSource}: {imageSource:CarouselImage[]}) => {
     const [modalControl, setModalControl] = useState<any>(null);
     const [switcher, flipSwitch] = useState(false);
     useEffect(()=>{
@@ -31,21 +31,18 @@ export const CarouselModule = ({ imageSource }: { imageSource: CarouselImage[] }
     },[])
 
     const modalSwitcher = (index: number) => {
-        modalControl[index].isOpen = !modalControl[index].isOpen;
-        flipSwitch(!switcher)
+    modalControl[index].isOpen = !modalControl[index].isOpen;
+    flipSwitch(!switcher)
     }
-
-    console.log(modalControl)
-    console.log("this is imagesource", imageSource)
 
     return (
     <div className='row py-4' style={{overflowX:"auto", whiteSpace:"nowrap"}}>
-        <div style={{background:"#ffffff0f", borderRadius:"20px"}}>
+        {/* <div style={{background:"#ffffff0f", borderRadius:"20px"}}>
         <Carousel width="100%" autoPlay infiniteLoop dynamicHeight showStatus={false} showThumbs={false}
             showIndicators={false} onClickItem={(index)=> modalSwitcher(index)}
             >
             {modalControl?
-            modalControl.map((imageInfo: ImageSourceState, i: number) => {
+            modalControl.map((imageInfo: imageSourceState, i: number) => {
             return(
             <>
                 <img key={i} style={{maxWidth:'100%', maxHeight:'80vh', minHeight:'80vh', width:'auto', height:'auto'}}
@@ -59,7 +56,7 @@ export const CarouselModule = ({ imageSource }: { imageSource: CarouselImage[] }
             null
             }
         </Carousel>
-        </div>
+        </div> */}
         <div>
             {imageSource.map((image: CarouselImage, i: number) => {
                     return(
@@ -71,5 +68,6 @@ export const CarouselModule = ({ imageSource }: { imageSource: CarouselImage[] }
             })}
         </div>
     </div>
+
     )
-}
+    }
