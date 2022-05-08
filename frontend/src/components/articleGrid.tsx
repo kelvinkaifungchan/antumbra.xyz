@@ -62,8 +62,8 @@ var selectedTags = ["Tech", "Essay"]
 export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {
     const [scroll, setScroll] = useState(false);
     const [articleList, setArticleList] = useState<ArticleModule[] | null>(null);
+    const [filter, setFilterList] = useState([])
     useEffect(() => {
-        
         var filter = articles.filter(function (article) {
             return article.tags.some(function(tag) {
                 return selectedTags.indexOf(tag.tag) > -1;
