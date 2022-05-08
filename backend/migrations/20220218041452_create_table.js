@@ -70,6 +70,7 @@ exports.down = function (knex) {
     .dropTable("article_tag")
     .dropTable("tag")
     .dropTable("contributor")
+    .dropTable("carousel")
     .dropTable("articleBlock")
     .dropTable("article");
 };

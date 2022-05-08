@@ -25,6 +25,12 @@ exports.seed = function (knex) {
             subtitle: "The project provides guidelines for the intentional abandonment of the Jeffersonian Grid, proposing that existing trends of abandonment and divestment can be strategically utilized for climate change adaptation.",
             heroImage:"https://testingbucketwebdev.s3.ap-southeast-1.amazonaws.com/SMALL_Rewilding_3.jpg",
             datePublished: "May 2022"
+        }, {
+            title: "Even An AI Could Do That",
+            type: "text",
+            subtitle: "An excerpt taken from Artificial Aesthetics. A critical guide to AI, media and design by Lev Manovich and Emanuele Arielli",
+            heroImage:"https://3.bp.blogspot.com/-ZMxKkKWJIL0/W5rBMxVtXPI/AAAAAAACcrc/ESMzCc7Q_HEepOCC9DrFxJY_6YM7ynLDgCLcBGAs/s1600/AI__book_cover_2_jpg.jpg",
+            datePublished: "May 2022"
         }]);
     })
     .then(()=>{
