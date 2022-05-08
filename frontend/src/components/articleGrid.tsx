@@ -32,6 +32,11 @@ interface ArticleModule {
     tags: Array<Tag>,
     }
 
+interface chipControlUnit {
+    chipName: string,
+    isOpen: boolean
+    }
+
 const genreTags = [
     "Essay",
     "Photography",
@@ -63,6 +68,9 @@ export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {
     const [scroll, setScroll] = useState(false);
     const [articleList, setArticleList] = useState<ArticleModule[] | null>(null);
     const [filter, setFilterList] = useState([])
+    const [chipControl, setChipControl] = useState<any>(null);
+    const [switcher, flipSwitcher] = useState(false);
+
     useEffect(() => {
         var filter = articles.filter(function (article) {
             return article.tags.some(function(tag) {
@@ -73,6 +81,21 @@ export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {
         window.addEventListener("scroll", () => {
             setScroll(window.scrollY > 40);
           })
+        const genreTagsMap = genreTags.map(element => {
+        return {
+            chipName: element,
+            isRed: false
+        }
+        });
+        const topicTagsMap = topicTags.map(element => {
+        return {
+            chipName: element,
+            isRed: false
+        }
+        });
+        const completeTagsMap = [...genreTagsMap, ...topicTagsMap];
+        console.log(completeTagsMap)
+        setChipControl(completeTagsMap);
     }, [])
 
     let navigate = useNavigate();
@@ -80,9 +103,20 @@ export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {
         navigate(`/${type}/${id}`);
         }
     
-    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-        return
-        };
+      const handleClick = (event: React.MouseEvent<HTMLElement>, tagItem: string, isRed: boolean) => {
+    console.log(tagItem)
+    console.log(event)
+    const replaceChip = [
+      {
+        chipName:tagItem,
+        isRed: !isRed
+      }
+    ]
+    const shallowChipControl = chipControl;
+    const targetTag = shallowChipControl.map((chips:any) => replaceChip.find((chip:any) => chip.chipName == chips.chipName)||chips)
+    setChipControl(targetTag);
+    flipSwitcher(!switcher);
+  };
 
     return (
         <>
@@ -91,21 +125,22 @@ export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {
           <HorizontalLine />
         </div>
         <div className="px-3">
-            {genreTags.map((tagItem, index) => {
+            {chipControl ? genreTags.map((tagItem, index) => {
               return (
-                <Chip key={index} label={tagItem} variant="filled" sx={{ color: "#00021A", bgcolor:"#FFFFFFFF", mr: 2 }} onClick={handleClick} />);
-            })}
+                <Chip key={index} label={tagItem} variant="filled" sx={{ color: "#00021A", bgcolor:chipControl[index]['isRed']?'#ff3a3a':'#ffffff', mr: 2 }} onClick={(e)=>handleClick(e, tagItem, chipControl[index]['isRed'])} />);
+            }) : null}
         </div>
         <div>
           <HorizontalLine />
         </div>
         <div className={`px-3 ${styles.scroll}`}>
-            {topicTags.map((tagItem, index) => {
+            {chipControl ? topicTags.map((tagItem, index) => {
               return (
                 <Chip key={index} label={tagItem} variant="filled"
-                sx={{ color: "#00021A", bgcolor:"#FFFFFF", mr: 2 }} onClick={handleClick} />
+                sx={{ color: "#00021A", bgcolor: chipControl[index+genreTags.length]['isRed']?'#ff3a3a':'#ffffff', mr: 2 }} 
+                onClick={(e)=>handleClick(e, tagItem, chipControl[index+genreTags.length]['isRed'])} />
               );
-              })}
+              }) : null}
         </div>
         <div style={ scroll ? {opacity:"0"} : {opacity:"1"}}>
           <HorizontalLine />
