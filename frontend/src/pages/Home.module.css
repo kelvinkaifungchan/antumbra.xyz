@@ -1,18 +1,6 @@
-.blur {
-    font-size: 10rem;
-    color: transparent;
-    text-shadow: 0 0 30px #ffffff80;
-    letter-spacing: 1.5rem;
-}
-
 .header h1{
     font-size: 7rem;
     margin-top: -16vh;
-}
-
-.dflexCenter {
-    display: flex;
-    justify-content: center;
 }
 
 .ticker {

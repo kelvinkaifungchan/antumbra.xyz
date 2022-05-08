@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios, {AxiosResponse} from 'axios';
 import { NavBar } from "../components/navbar";
-import { TagBar } from "../components/tagBar";
-import { ArticleModule } from "../components/articleModule";
+import { ArticleGrid } from "../components/articleGrid";
 import { Footer } from "../components/footer";
 import Ticker from "react-ticker";
 import styles from "./Home.module.css";
@@ -46,31 +45,28 @@ interface ArticleModule {
     setArticleList(response.data)
     })
     },[])
-
-
-        return (
-        <div className={scroll ? `${styles.stick} container-fluid ${styles.home}` : `container-fluid ${styles.home}`}>
-        <Hamburger />
-          {/* header */}
-          <div style={scroll ? {display:"none"} : {display:"inline"}}>
-          <NavBar />
-          </div>
-          <TagBar />
-          {articleList ? <ArticleModule articles={articleList} /> : null}
-          <div className={styles.ticker}>
-            <Ticker mode="chain" speed={5}>
-              {({ index }) => (
-              <>
-                <div style={{paddingLeft:'25px', paddingRight:'25px'}}>
-                  <Link to="/">
-                  {articleList && articleList.length > 0 ? articleList[index%articleList.length].title : null}
-                  </Link>
-                </div>
-              </>
-              )}
-            </Ticker>
-          </div>
-          <Footer />
-        </div> 
-        );
-        };
+    return (
+    <div className={scroll ? `${styles.stick} container-fluid ${styles.home}` : `container-fluid ${styles.home}`}>
+    <Hamburger />
+      {/* header */}
+      <div style={scroll ? {display:"none"} : {display:"inline"}}>
+      <NavBar />
+      </div>
+      {articleList ? <ArticleGrid articles={articleList} /> : null}
+      <div className={styles.ticker}>
+        <Ticker mode="chain" speed={5}>
+          {({ index }) => (
+          <>
+            <div style={{paddingLeft:'25px', paddingRight:'25px'}}>
+              <Link to="/">
+              {articleList && articleList.length > 0 ? articleList[index%articleList.length].title : null}
+              </Link>
+            </div>
+          </>
+          )}
+        </Ticker>
+      </div>
+      <Footer />
+    </div> 
+    );
+  };

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { HtmlRenderer, Parser } from 'commonmark'
-import "./articleBlock.module.css"
 import style from './articleBlock.module.css'
-import { ArticleModule } from "../components/articleModule";
 
 
 interface Contributor {
