@@ -1,51 +1,10 @@
-import { TitleBlockB, TextBlockRight, ImageCarouselBlock} from "./articleBlocks";
+import { TitleBlockB, TextBlockRight} from "./articleBlocks";
 import React, { useEffect, useState } from "react";
 import { CarouselModule } from "../components/carouselModule";
-import { Modal, ModalBody, ModalHeader } from 'reactstrap';
+import { ArticleData} from "../types"
 
-interface Tag {
-    id: number;
-    tag: string
-  }
-  
-  interface ArticleBlock {
-    id: number;
-    article_id: number;
-    type: string;
-    attachmentLink?: string;
-    attachmentCaption?: string;
-    text?: string;
-  }
-
-  interface CarouselImage {
-    id: number;
-    article_id: number;
-    imageLink?: string;
-    imageCaption?: string;
-  }
-  
-  interface Contributor {
-    id: number;
-    name: string;
-    bio: string;
-  }
-
-interface Article {
-    id: number,
-    type: string
-    contributors: Array<Contributor>,
-    title: string,
-    subtitle: string,
-    heroImage: string,
-    pdf: string,
-    datePublished: string,
-    tags: Array<Tag>,
-    articleBlocks: Array<ArticleBlock>
-    carousel?: Array<CarouselImage>
-}
-
-export const Image = ({props} : {props: Article}) => {
-    const [article, setArticle] = useState<Article | null>(null);
+export const Image = ({props} : {props: ArticleData}) => {
+    const [article, setArticle] = useState<ArticleData | null>(null);
     const [modalControl, setModalControl] = useState(false);
     useEffect(() => {
       setArticle(props)
