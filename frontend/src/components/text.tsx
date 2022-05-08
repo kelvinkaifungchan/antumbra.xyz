@@ -1,41 +1,9 @@
 import { TitleBlock, TextBlock, BannerImageBlock, QuoteBlock, SidePanel } from "./articleBlocks";
 import React, { useEffect, useState } from "react";
+import { ArticleData } from "../types"
 
-interface Tag {
-    id: number;
-    tag: string
-  }
-  
-  interface ArticleBlock {
-    id: number;
-    article_id: number;
-    type: string;
-    attachmentLink?: string;
-    attachmentCaption?: string;
-    text?: string;
-  }
-  
-  export interface Contributor {
-    id: number;
-    name: string;
-    bio: string;
-  }
-
-interface Article {
-    id: number,
-    type: string
-    contributors: Array<Contributor>,
-    title: string,
-    subtitle: string,
-    heroImage: string,
-    pdf: string,
-    datePublished: string,
-    tags: Array<Tag>,
-    articleBlocks: Array<ArticleBlock>
-}
-
-export const Text = ({props} : {props: Article}) => {
-    const [article, setArticle] = useState<Article | null>(null);
+export const Text = ({props} : {props: ArticleData}) => {
+    const [article, setArticle] = useState<ArticleData | null>(null);
     useEffect(() => {
       setArticle(props)
     },[props])
@@ -48,7 +16,7 @@ export const Text = ({props} : {props: Article}) => {
           if (block.type === "text" && block.text) {
             return (
               <div key={index}>
-              <TextBlock imageLink={block.attachmentLink} imageCaption={block.attachmentCaption} text={block.text}/>
+              <TextBlock attachmentLink={block.attachmentLink} attachmentCaption={block.attachmentCaption} text={block.text}/>
               </div>
             )
           } else if (block.type === "bannerImage" && block.attachmentLink && block.attachmentCaption) {

@@ -1,21 +1,13 @@
+import { IssueData } from "../types"
 import React, { useEffect, useState } from "react";
 import axios, {AxiosResponse} from 'axios';
 import { NavBar } from '../components/navbar';
 import { Issue } from '../components/issue';
-import { HorizontalLine } from "../components/horizontalLine";
 import { Footer } from "../components/footer";
 import { Hamburger } from "../components/hamburger";
 
-interface Issue {
-    id: number,
-    issue: number,
-    title: string,
-    date: string,
-    link: string,
-}
-
 export const Archive = () => {
-    const [archive, setArchive] = useState<Issue[] | null>(null);
+    const [archive, setArchive] = useState<IssueData[] | null>(null);
 
     useEffect(()=>{
         axios.get(`http://localhost:8080/api/aarchitecture/archive`)

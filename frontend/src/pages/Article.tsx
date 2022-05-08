@@ -1,3 +1,4 @@
+import  { ArticleData, ArticleModule, Tag } from "../types"
 import axios, {AxiosResponse} from 'axios';
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -9,64 +10,10 @@ import { Video } from '../components/video'
 import { Image } from '../components/image'
 import { Hamburger } from '../components/hamburger';
 import { ArticleModuleSmall } from "../components/articleGrid";
-import { HorizontalLine } from '../components/horizontalLine';
 
-interface Tag {
-    id: number;
-    tag: string
-  }
-  
-  interface ArticleBlock {
-    id: number;
-    article_id: number;
-    type: string;
-    attachmentLink?: string;
-    attachmentCaption?: string;
-    text: string;
-  }
-
-  interface CarouselImage {
-    id: number;
-    article_id: number;
-    imageLink?: string;
-    imageCaption?: string;
-  }
-  
-  interface Contributor {
-    id: number;
-    name: string;
-    bio: string;
-  }
-
-interface Article {
-    id: number,
-    type: string
-    contributors: Array<Contributor>,
-    title: string,
-    subtitle: string,
-    heroImage: string,
-    pdf: string,
-    datePublished: string,
-    tags: Array<Tag>,
-    articleBlocks: Array<ArticleBlock>
-    carousel?: Array<CarouselImage>
-}
-
-interface ArticleModule {
-  id: number,
-  type: string
-  contributors: Array<Contributor>,
-  title: string,
-  subtitle: string,
-  heroImage: string,
-  pdf: string,
-  datePublished: string,
-  tags: Array<Tag>,
-}
-
-export const Article=({type}: {type:string} ) => {
+export const Article =({type}: {type:string} ) => {
     let navigate = useNavigate();
-    const [article, setArticle] = useState<Article | null>(null);
+    const [article, setArticle] = useState<ArticleData | null>(null);
     const [articleList, setArticleList] = useState<ArticleModule[] | null>(null);
     let params = useParams()
 

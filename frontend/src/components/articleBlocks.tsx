@@ -1,68 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { HtmlRenderer, Parser } from 'commonmark'
+import { ArticleModule, ArticleBlockData, Contributor, Tag, TitleData, BannerImageData, VideoData, TextData } from "../types"
+import { HtmlRenderer, Parser } from 'commonmark';
 import style from './articleBlock.module.css'
 
-
-interface Contributor {
-    id: number,
-    name: string,
-    bio: string,
-}
-
-interface Tag {
-    id: number,
-    tag: string
-}
-
-interface TitleBlock {
-    title: string,
-    tags: Array<Tag>,
-    contributors: Array<Contributor>,
-    text?: string,
-    pdf?: string
-}
-
-interface TextBlock {
-    imageLink?: string,
-    imageCaption?: string,
-    text: string,
-}
-
-interface BannerImageBlock {
-    imageLink: string,
-    imageCaption: string,
-}
-
-interface VideoBlock {
-    videoLink: string,
-}
-
-interface FootnoteBlock {
-    references: Array<string>
-}
-
-interface ContributorBioBlock {
-    name: string,
-    bio: string,
-}
-
-interface ArticleModule {
-    id: number,
-    type: string
-    contributors: Array<Contributor>,
-    title: string,
-    subtitle: string,
-    heroImage: string,
-    pdf: string,
-    datePublished: string,
-    tags: Array<Tag>,
-  }
-
-interface ArticleList {
-    articles?: ArticleModule[]
-}
-
-export const TitleBlock: React.FC<TitleBlock> = ({title, tags, contributors, pdf}) => {
+export const TitleBlock: React.FC<TitleData> = ({title, tags, contributors, pdf}) => {
     return (
         <div className='row py-5'>
             <div className='col-3'>
@@ -89,7 +30,7 @@ export const TitleBlock: React.FC<TitleBlock> = ({title, tags, contributors, pdf
     )
 }
 
-export const SidePanel: React.FC<TitleBlock> = ({title, tags, contributors, pdf}) => {
+export const SidePanel: React.FC<TitleData> = ({title, tags, contributors, pdf}) => {
     const [scroll, setScroll] = useState(false);
     useEffect(()=>{
         window.addEventListener("scroll", () => {
@@ -128,7 +69,7 @@ export const SidePanel: React.FC<TitleBlock> = ({title, tags, contributors, pdf}
     )
 }
 
-export const TitleBlockB: React.FC<TitleBlock> = ({title, tags, contributors}) => {
+export const TitleBlockB: React.FC<TitleData> = ({title, tags, contributors}) => {
     return (
         <div className='row'>
             <div className='col-6'>
@@ -166,7 +107,7 @@ export const TitleBlockB: React.FC<TitleBlock> = ({title, tags, contributors}) =
     )
 }
 
-export const TextBlockRight: React.FC<TextBlock> = ({text}) => {
+export const TextBlockRight: React.FC<TextData> = ({text}) => {
     
     const [mark, setMark] = useState("Loading...");
     
@@ -188,7 +129,7 @@ export const TextBlockRight: React.FC<TextBlock> = ({text}) => {
     )
 }
 
-export const TextBlock: React.FC<TextBlock> = ({imageLink, imageCaption, text}) => {
+export const TextBlock: React.FC<TextData> = ({attachmentLink, attachmentCaption, text}) => {
     
     const [mark, setMark] = useState("Loading...");
     
@@ -209,10 +150,10 @@ export const TextBlock: React.FC<TextBlock> = ({imageLink, imageCaption, text}) 
         <div className='col-3'>
         <div className='row pb-5 pr-5'>
                 <div>
-                    <img className={`${style.image} w-75`} src={imageLink} alt={imageCaption} />
+                    <img className={`${style.image} w-75`} src={attachmentLink} alt={attachmentCaption} />
                 </div>
                 <div className='pt-3 w-75' style={{fontSize: '0.8rem'}}>
-                    {imageCaption}
+                    {attachmentCaption}
                 </div>
             </div>
         </div>
@@ -220,22 +161,8 @@ export const TextBlock: React.FC<TextBlock> = ({imageLink, imageCaption, text}) 
     )
 }
 
-export const BannerImageBlock: React.FC<BannerImageBlock> = ({imageLink, imageCaption}) => {
+export const BannerImageBlock: React.FC<BannerImageData> = ({imageLink, imageCaption}) => {
     return (
-    // <div className='row py-5' style={{fontSize: '1.2rem', opacity: '0.8'}}>
-    //     <div className='col-2'>
-    //     </div>
-    //     <div className='col-8'>
-    //         <div>
-    //             <img className={`${style.image} w-100`} src={imageLink} alt={imageCaption} />
-    //         </div>
-    //         <div className='pt-3 w-100' style={{fontSize: '0.8rem'}}>
-    //             {imageCaption}
-    //         </div>
-    //     </div>
-    //     <div className='col-2'>
-    //     </div>
-    // </div>
     <div className='row py-5' style={{fontSize: '1.2rem', opacity: '0.8'}}>
         <div className='col-4'>
         </div>
@@ -253,7 +180,7 @@ export const BannerImageBlock: React.FC<BannerImageBlock> = ({imageLink, imageCa
     )
 }
 
-export const QuoteBlock: React.FC<TextBlock> = ({text}) => {
+export const QuoteBlock: React.FC<TextData> = ({text}) => {
     return (
         <div className='row py-5 d-flex justify-content-center'>
             <div className='col-4 d-flex justify-content-center'>
@@ -267,7 +194,7 @@ export const QuoteBlock: React.FC<TextBlock> = ({text}) => {
     )
 }
 
-export const VideoBlock: React.FC<VideoBlock> = ({videoLink}) => {
+export const VideoBlock: React.FC<VideoData> = ({videoLink}) => {
     return (
         <div className='row py-4'>
             <video id="video" controls={true} style={{width:"100%", height:"80vh", border:"none", background:"#000000", borderRadius:"20px"}}>
@@ -279,49 +206,37 @@ export const VideoBlock: React.FC<VideoBlock> = ({videoLink}) => {
     )
 }
 
-export const ImageCarouselBlock: React.FC<VideoBlock> = ({videoLink}) => {
-    return (
-        <div className='row py-4'>
-            <video id="video" controls={true} style={{width:"100%", height:"80vh", border:"none", background:"#ffffff0f", borderRadius:"20px"}}>
-                <source src={videoLink} type="video/mp4"/>
-            </video>
-            {/* <iframe src={videoLink}
-            style={{width:"100%", height:"80vh", border:"none", background:"#ffffff0f", borderRadius:"20px"}} allow="autoplay; fullscreen;"></iframe> */}
-        </div>
-    )
-}
+// export const FootnoteBlock: React.FC<FootnoteBlock> = ({references}) => {
+//     return (
+//     <div className='row'>
+//         <div className='col-3'>
+//             <div className='row pb-5 pr-5'>
+//                 <div>
+//                 </div>
+//                 <div className='pt-3 w-75'>
+//                 </div>
+//             </div>
+//         </div>
+//         <div className='col-6' style={{fontSize: '1.2rem', opacity: '0.8'}}>
+//             Notes <br />
+//             {references.map((reference, index) => {
+//             return (<div>
+//                 {index+1}. {reference}
+//                 <br />
+//             </div>
+//             )
+//             })}
+//             <br />
 
-export const FootnoteBlock: React.FC<FootnoteBlock> = ({references}) => {
-    return (
-    <div className='row'>
-        <div className='col-3'>
-            <div className='row pb-5 pr-5'>
-                <div>
-                </div>
-                <div className='pt-3 w-75'>
-                </div>
-            </div>
-        </div>
-        <div className='col-6' style={{fontSize: '1.2rem', opacity: '0.8'}}>
-            Notes <br />
-            {references.map((reference, index) => {
-            return (<div>
-                {index+1}. {reference}
-                <br />
-            </div>
-            )
-            })}
-            <br />
+//         </div>
+//         <div className='col-3'>
 
-        </div>
-        <div className='col-3'>
+//         </div>
+//     </div>
+//     )
+// }
 
-        </div>
-    </div>
-    )
-}
-
-export const ContributorBioBlock: React.FC<ContributorBioBlock> = ({name, bio}) => {
+export const ContributorBioBlock: React.FC<Contributor> = ({name, bio}) => {
     return (
     <div className='row' style={{fontSize: '1.2rem', opacity: '0.8'}}>
         <div className='col-3'>
