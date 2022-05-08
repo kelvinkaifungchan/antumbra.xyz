@@ -32,7 +32,6 @@ interface ArticleModule {
 }
 
   export const Home = () => {
-  let navigate = useNavigate();
   const [articleList, setArticleList] = useState<ArticleModule[] | null>(null);
   const [scroll, setScroll] = useState(false);
 
@@ -52,6 +51,7 @@ interface ArticleModule {
       <div style={scroll ? {display:"none"} : {display:"inline"}}>
       <NavBar />
       </div>
+      {/* articles */}
       {articleList ? <ArticleGrid articles={articleList} /> : null}
       <div className={styles.ticker}>
         <Ticker mode="chain" speed={5}>
@@ -64,7 +64,7 @@ interface ArticleModule {
             </div>
           </>
           )}
-        </Ticker>
+      </Ticker>
       </div>
       <Footer />
     </div> 

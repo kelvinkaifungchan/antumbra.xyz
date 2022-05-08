@@ -8,7 +8,7 @@ return (
 <div className='container-fluid'>
     <NavBar />
     <Hamburger />
-    <div className='row p-3 d-flex align-items-center' style={{minHeight:'78vh',fontSize: '1.2rem', opacity: "0.8"}}>
+    <div className='row p-3 d-flex align-items-center' style={{minHeight:'83vh',fontSize: '1.2rem', opacity: "0.8"}}>
         <div className='col-lg-8 col-md-12'>
             <div className='w-75'>
                 About Us:<br />
