@@ -94,7 +94,6 @@ export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {
         }
         });
         const completeTagsMap = [...genreTagsMap, ...topicTagsMap];
-        console.log(completeTagsMap)
         setChipControl(completeTagsMap);
     }, [])
 
@@ -103,9 +102,7 @@ export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {
         navigate(`/${type}/${id}`);
         }
     
-      const handleClick = (event: React.MouseEvent<HTMLElement>, tagItem: string, isRed: boolean) => {
-    console.log(tagItem)
-    console.log(event)
+    const handleClick = (event: React.MouseEvent<HTMLElement>, tagItem: string, isRed: boolean) => {
     const replaceChip = [
       {
         chipName:tagItem,
