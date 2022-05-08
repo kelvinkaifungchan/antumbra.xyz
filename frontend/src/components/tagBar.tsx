@@ -40,13 +40,13 @@ export const TagBar = () => {
   const [chipControl, setChipControl] = useState<any>(null);
   const [switcher, flipSwitcher] = useState(false);
 
-  const handleClick = (event: React.MouseEvent<HTMLElement>, tagItem: string) => {
+  const handleClick = (event: React.MouseEvent<HTMLElement>, tagItem: string, isRed: boolean) => {
     console.log(tagItem)
     console.log(event)
     const replaceChip = [
       {
         chipName:tagItem,
-        isRed: true
+        isRed: !isRed
       }
     ]
     const shallowChipControl = chipControl;
@@ -93,7 +93,7 @@ export const TagBar = () => {
                 label={tagItem} 
                 variant="filled" 
                 sx={{ color: "#00021A", bgcolor:chipControl[index]['isRed']?'#ff3a3a':'#ffffff', mr: 2 }} 
-                onClick={(e)=>handleClick(e, tagItem)} />);
+                onClick={(e)=>handleClick(e, tagItem, chipControl[index]['isRed'])} />);
             }):null}
         </div>
         <div>
@@ -107,7 +107,7 @@ export const TagBar = () => {
                 label={tagItem} 
                 variant="filled"
                 sx={{ color: "#00021A", bgcolor: chipControl[index+genreTags.length]['isRed']?'#ff3a3a':'#ffffff', mr: 2 }} 
-                onClick={(e)=>handleClick(e, tagItem)} />
+                onClick={(e)=>handleClick(e, tagItem, chipControl[index+genreTags.length]['isRed'])} />
               );
               }):null}
         </div>
