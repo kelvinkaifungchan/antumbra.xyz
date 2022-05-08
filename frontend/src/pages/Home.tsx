@@ -36,7 +36,6 @@ interface ArticleModule {
   let navigate = useNavigate();
   const [articleList, setArticleList] = useState<ArticleModule[] | null>(null);
   const [scroll, setScroll] = useState(false);
-  const [modalControl, setModalControl] = useState(false);
 
     useEffect(()=>{
     window.addEventListener("scroll", () => {
