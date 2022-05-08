@@ -8,7 +8,7 @@ import { Text } from '../components/text'
 import { Video } from '../components/video'
 import { Image } from '../components/image'
 import { Hamburger } from '../components/hamburger';
-import { ArticleModuleSmall } from "../components/articleModule";
+import { ArticleModuleSmall } from "../components/articleGrid";
 import { HorizontalLine } from '../components/horizontalLine';
 
 interface Tag {

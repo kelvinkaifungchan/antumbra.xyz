@@ -20,7 +20,7 @@ return (
             and backroom policy transformation. It is data warfare; never virtual, always material. Information
             and misinformation flow through social media and mobile feeds. For policy makers, military and
             corporate strategists, these noise machines become a battleground. This shifting axis of conflict
-            continuously thickens and thins boundaries of negotiation.<br />
+            continuously thickens and thins boundaries of negotiation.<br /><br />
             One message pierces through the noise. Findings from the IPCC’s 6th Climate Report in 2021 show that
             we are at a tipping point for action. Multiple and complex changes are already underway in every
             part of our planet, and we can ‘expect global temperature to reach or exceed 1.5°C of warming over

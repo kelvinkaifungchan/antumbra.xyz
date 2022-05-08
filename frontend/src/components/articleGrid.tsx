@@ -1,6 +1,8 @@
-import styles from './articleModule.module.css'
+import styles from './articleGrid.module.css'
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
+import { HorizontalLine } from "./horizontalLine";
+import { Chip } from "@mui/material";
 
 interface Tag {
     id: number;
@@ -30,21 +32,87 @@ interface ArticleModule {
     tags: Array<Tag>,
     }
 
-export const ArticleModule =({articles} : {articles:ArticleModule[]}) => {
+const genreTags = [
+    "Essay",
+    "Photography",
+    "Film",
+    "Interviews",
+    "Art",
+    ];
     
+const topicTags = [
+    "Infrastucture",
+    "Architecture",
+    "Tech",
+    "Anthropocene",
+    "Surveillance",
+    "Archives",
+    "NFTs",
+    "Computation",
+    "Earth Systems",
+    "Robotics",
+    "Growth",
+    "Urbanisation",
+    "Data",
+    "Museums",
+];
+
+var selectedTags = ["Tech", "Essay"]
+
+export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {
+    const [scroll, setScroll] = useState(false);
     const [articleList, setArticleList] = useState<ArticleModule[] | null>(null);
     useEffect(() => {
-        setArticleList(articles)
-    })
+        
+        var filter = articles.filter(function (article) {
+            return article.tags.some(function(tag) {
+                return selectedTags.indexOf(tag.tag) > -1;
+            })
+        })
+        setArticleList(filter)
+        window.addEventListener("scroll", () => {
+            setScroll(window.scrollY > 40);
+          })
+    }, [])
 
     let navigate = useNavigate();
     const handleNav = (e: any, id: number, type:string) => {
         navigate(`/${type}/${id}`);
         }
+    
+    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+        return
+        };
 
     return (
+        <>
+        <div className={scroll ? `${styles.sticky} ${styles.tagBar}` : `relative ${styles.tagBar}`}>
+        <div style={ scroll ? {opacity:"0"} : {opacity:"1"}}>
+          <HorizontalLine />
+        </div>
+        <div className="px-3">
+            {genreTags.map((tagItem, index) => {
+              return (
+                <Chip key={index} label={tagItem} variant="filled" sx={{ color: "#00021A", bgcolor:"#FFFFFFFF", mr: 2 }} onClick={handleClick} />);
+            })}
+        </div>
+        <div>
+          <HorizontalLine />
+        </div>
+        <div className={`px-3 ${styles.scroll}`}>
+            {topicTags.map((tagItem, index) => {
+              return (
+                <Chip key={index} label={tagItem} variant="filled"
+                sx={{ color: "#00021A", bgcolor:"#FFFFFF", mr: 2 }} onClick={handleClick} />
+              );
+              })}
+        </div>
+        <div style={ scroll ? {opacity:"0"} : {opacity:"1"}}>
+          <HorizontalLine />
+        </div>
+    </div>
         <div className="row px-3">
-            {articles.map((item, index) => {
+            {articleList ? articleList.map((item, index) => {
                 return (<div key={index} onClick={(e)=>{handleNav(e, item.id, item.type)}} className="col-lg-3 col-md-6 col-xs-12 py-3" style={{width:"100%", height:"auto", float:"left"}}>
                 <div className={`${styles.module}`} style={{height: "100%"}}>
                     <div className={styles.card} style={{zIndex:"1"}}>
@@ -69,8 +137,9 @@ export const ArticleModule =({articles} : {articles:ArticleModule[]}) => {
                     </div>
                 </div>
             </div>)
-            })}
+            }) : null}
         </div>
+        </>
     )
 }
 
