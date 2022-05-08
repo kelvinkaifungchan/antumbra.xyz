@@ -18,8 +18,6 @@ exports.seed = function (knex) {
       },{
           tag: 'Tech',
       },{
-          tag: 'Photography',
-      },{
           tag: 'Anthropocene',
       },{
         tag: 'Surveillance',
@@ -54,16 +52,16 @@ exports.seed = function (knex) {
         tag_id: 1,
       }, {
         article_id: 1,
-        tag_id: 8,
+        tag_id: 7,
+      }, {
+        article_id: 1,
+        tag_id: 10,
       }, {
         article_id: 1,
         tag_id: 11,
       }, {
         article_id: 1,
-        tag_id: 12,
-      }, {
-        article_id: 1,
-        tag_id: 19,
+        tag_id: 18,
       }, {
         article_id: 2,
         tag_id: 5,
@@ -72,10 +70,10 @@ exports.seed = function (knex) {
         tag_id: 8,
       }, {
         article_id: 2,
-        tag_id: 13,
+        tag_id: 12,
       },{
         article_id: 2,
-        tag_id: 21,
+        tag_id: 20,
       },{
         article_id: 3,
         tag_id: 1,
@@ -84,13 +82,10 @@ exports.seed = function (knex) {
         tag_id: 5,
       },{
         article_id: 3,
+        tag_id: 19,
+      },{
+        article_id: 3,
         tag_id: 20,
-      },{
-        article_id: 3,
-        tag_id: 21,
-      },{
-        article_id: 3,
-        tag_id: 21,
       },{
         article_id: 4,
         tag_id: 3,
@@ -99,7 +94,10 @@ exports.seed = function (knex) {
         tag_id: 6,
       },{
         article_id: 4,
-        tag_id: 18,
+        tag_id: 17,
+      },{
+        article_id: 5,
+        tag_id: 1,
       }]);
   })
 };

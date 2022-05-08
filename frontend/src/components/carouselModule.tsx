@@ -58,12 +58,10 @@ export const CarouselModule = ({imageSource}: {imageSource:CarouselImage[]}) => 
         </Carousel>
         </div> */}
         <div>
-            {imageSource.map((image: CarouselImage, i: number) => {
+            {imageSource.map((image, index) => {
                     return(
-                    <>
-                    <img key={i} style={{maxWidth:'100%', maxHeight:'80vh', minHeight:'80vh', width:'auto', height:'auto'}}
+                    <img key={index} style={{maxWidth:'100%', maxHeight:'80vh', minHeight:'80vh', width:'auto', height:'auto'}}
                     src={image.imageLink} />
-                    </>
                     )
             })}
         </div>

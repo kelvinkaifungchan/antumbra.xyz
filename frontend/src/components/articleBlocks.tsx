@@ -139,9 +139,9 @@ export const TitleBlockB: React.FC<TitleBlock> = ({title, tags, contributors}) =
             <div className="col-3">
             <div style={{color: "#FF5C00", fontSize: '1.2rem'}}>
                 Tag(s):<br />
-                {tags?tags.map((tag) => {
+                {tags?tags.map((tag, index) => {
                     return(
-                        <div>
+                        <div key={index}>
                             {tag.tag}
                         </div>
                     )

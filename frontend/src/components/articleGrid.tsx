@@ -34,7 +34,7 @@ interface ArticleModule {
 
 interface chipControlUnit {
     chipName: string,
-    isOpen: boolean
+    isRed: boolean
     }
 
 const genreTags = [
@@ -62,22 +62,15 @@ const topicTags = [
     "Museums",
 ];
 
-var selectedTags = ["Tech", "Essay"]
+var selectedTags: string[] = []
 
 export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {
     const [scroll, setScroll] = useState(false);
     const [articleList, setArticleList] = useState<ArticleModule[] | null>(null);
-    const [filter, setFilterList] = useState([])
     const [chipControl, setChipControl] = useState<any>(null);
-    const [switcher, flipSwitcher] = useState(false);
 
     useEffect(() => {
-        var filter = articles.filter(function (article) {
-            return article.tags.some(function(tag) {
-                return selectedTags.indexOf(tag.tag) > -1;
-            })
-        })
-        setArticleList(filter)
+        setArticleList(articles)
         window.addEventListener("scroll", () => {
             setScroll(window.scrollY > 40);
           })
@@ -100,20 +93,45 @@ export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {
     let navigate = useNavigate();
     const handleNav = (e: any, id: number, type:string) => {
         navigate(`/${type}/${id}`);
-        }
+    }
+    
+    const toggle = async (tagItem: string, isRed: boolean) => {
+        const replaceChip = [
+            {
+              chipName:tagItem,
+              isRed: !isRed
+            }
+          ]
+          const shallowChipControl = chipControl;
+          const targetTag = shallowChipControl.map((chips:any) => replaceChip.find((chip:any) => chip.chipName == chips.chipName)||chips)
+          setChipControl(targetTag);
+          var selected = targetTag.filter(function (item:any) {
+              return item.isRed === true
+          }).map((tag:chipControlUnit) => {
+              return tag.chipName
+          })
+        console.log("selected", selected)
+        var filter = articles.filter(function (article) {
+        return article.tags.some(function(tag) {
+            if (selected.length > 0) {
+                return selected.indexOf(tag.tag) > -1;
+            }
+            else {
+                return articles
+            }
+        })
+        })
+        setArticleList(filter)
+    }
     
     const handleClick = (event: React.MouseEvent<HTMLElement>, tagItem: string, isRed: boolean) => {
-    const replaceChip = [
-      {
-        chipName:tagItem,
-        isRed: !isRed
-      }
-    ]
-    const shallowChipControl = chipControl;
-    const targetTag = shallowChipControl.map((chips:any) => replaceChip.find((chip:any) => chip.chipName == chips.chipName)||chips)
-    setChipControl(targetTag);
-    flipSwitcher(!switcher);
-  };
+        toggle(tagItem, isRed).then(() => {
+                const selected = chipControl.filter(function (item:any) {
+                    return item.isRed === true
+                })
+                
+            })
+    };
 
     return (
         <>
@@ -121,10 +139,10 @@ export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {
         <div style={ scroll ? {opacity:"0"} : {opacity:"1"}}>
           <HorizontalLine />
         </div>
-        <div className="px-3">
+        <div className={`px-3 ${styles.scroll}`}>
             {chipControl ? genreTags.map((tagItem, index) => {
               return (
-                <Chip key={index} label={tagItem} variant="filled" sx={{ color: "#00021A", bgcolor:chipControl[index]['isRed']?'#ff3a3a':'#ffffff', mr: 2 }} onClick={(e)=>handleClick(e, tagItem, chipControl[index]['isRed'])} />);
+                <Chip key={index} label={tagItem} variant="filled" sx={{ color: "#00021A", bgcolor:chipControl[index]['isRed']?'#FF5C00':'#ffffff', mr: 2 }} onClick={(e)=>handleClick(e, tagItem, chipControl[index]['isRed'])} />);
             }) : null}
         </div>
         <div>
@@ -134,7 +152,7 @@ export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {
             {chipControl ? topicTags.map((tagItem, index) => {
               return (
                 <Chip key={index} label={tagItem} variant="filled"
-                sx={{ color: "#00021A", bgcolor: chipControl[index+genreTags.length]['isRed']?'#ff3a3a':'#ffffff', mr: 2 }} 
+                sx={{ color: "#00021A", bgcolor: chipControl[index+genreTags.length]['isRed']?'#FF5C00':'#ffffff', mr: 2 }} 
                 onClick={(e)=>handleClick(e, tagItem, chipControl[index+genreTags.length]['isRed'])} />
               );
               }) : null}
