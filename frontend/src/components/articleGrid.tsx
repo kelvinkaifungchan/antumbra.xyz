@@ -1,41 +1,10 @@
 import styles from './articleGrid.module.css'
+import style from '../pages/Home.module.css'
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { HorizontalLine } from "./horizontalLine";
 import { Chip } from "@mui/material";
-
-interface Tag {
-    id: number;
-    tag: string
-  }
-
-interface Contributor {
-id: number;
-name: string;
-bio: string;
-}
-
-interface Card {
-title: string,
-heroImage: string,
-subtitle: string,
-contributors: Array<Contributor>
-    }
-
-interface ArticleModule {
-    id: number,
-    type: string,
-    contributors: Array<Contributor>,
-    title: string,
-    subtitle: string,
-    heroImage: string,
-    tags: Array<Tag>,
-    }
-
-interface chipControlUnit {
-    chipName: string,
-    isRed: boolean
-    }
+import { Card, ArticleModule, chipControlUnit } from "../types"
 
 const genreTags = [
     "Essay",
@@ -169,7 +138,7 @@ export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {
                         <img className='w-100' style={{borderRadius:"20px"}} src={item.heroImage} />
                     </div>
                     <div className="pt-2" style={{zIndex:"-1"}}>
-                        <div style={{fontSize:"3rem", lineHeight:"3.5rem"}}>
+                        <div className={`${style.moduleTitle}`}>
                             {item.title}<br/>
                         </div>
                         <div className="pb-2" style={{fontSize: '1.2rem'}}>

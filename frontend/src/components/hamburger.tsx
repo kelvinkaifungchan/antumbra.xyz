@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import styles from './hamburger.module.css'
+import style from './hamburger.module.css'
+import styles from '../pages/Home.module.css'
 
 export const Hamburger = () => {
 
@@ -13,10 +14,10 @@ const handleToggle = () =>{
 return (
 <div>
     <div onClick={() => handleToggle()}>
-        <img className={`${styles.hamburger}`}
+        <img className={`${style.hamburger}`}
             src="https://aarchitecture.blob.core.windows.net/videos/hamburger-burger-food-junk-sandwich-beef-chicken-png-icon-free-588040.png" />
     </div>
-    <div className={`${styles.modal}`} onClick={handleToggle} style={toggle ? {width:"100%", opacity: "1", zIndex:"100"} : {width:"0%", opacity: "0", zIndex:"-10"}}>
+    <div className={`${style.modal} ${styles.fontTitle}`} onClick={handleToggle} style={toggle ? {width:"100%", opacity: "1", zIndex:"100"} : {width:"0%", opacity: "0", zIndex:"-10"}}>
         <div>
             <Link className="px-3" to="/">Home</Link><br/>
             <Link className="px-3" to="/callformedia">Call for Media</Link><br/>

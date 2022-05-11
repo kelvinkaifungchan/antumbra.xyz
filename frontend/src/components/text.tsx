@@ -1,12 +1,15 @@
-import { TitleBlock, TextBlock, BannerImageBlock, QuoteBlock, SidePanel } from "./articleBlocks";
+import { TitleBlock, TextBlock, BannerImageBlockCenter, QuoteBlock, SidePanel, ContributorBioBlock, BannerImageBlockStart, BannerImageBlockFill, TextBlockSparse } from "./articleBlocks";
 import React, { useEffect, useState } from "react";
 import { ArticleData } from "../types"
+import { HorizontalLine } from "./horizontalLine";
 
 export const Text = ({props} : {props: ArticleData}) => {
     const [article, setArticle] = useState<ArticleData | null>(null);
     useEffect(() => {
       setArticle(props)
     },[props])
+
+    console.log(article?.articleBlocks)
 
     return (
     <div className='px-3'>
@@ -19,10 +22,28 @@ export const Text = ({props} : {props: ArticleData}) => {
               <TextBlock attachmentLink={block.attachmentLink} attachmentCaption={block.attachmentCaption} text={block.text}/>
               </div>
             )
-          } else if (block.type === "bannerImage" && block.attachmentLink && block.attachmentCaption) {
+          } else if (block.type === "textSparse" && block.text) {
             return (
               <div key={index}>
-              <BannerImageBlock imageLink={block.attachmentLink} imageCaption={block.attachmentCaption} />
+              <TextBlockSparse attachmentLink={block.attachmentLink} attachmentCaption={block.attachmentCaption} text={block.text}/>
+              </div>
+            )
+           } else if (block.type === "bannerImageStart" && block.attachmentLink && block.attachmentCaption) {
+            return (
+              <div key={index}>
+              <BannerImageBlockStart imageLink={block.attachmentLink} imageCaption={block.attachmentCaption} />
+              </div>
+            )
+           } else if (block.type === "bannerImageCenter" && block.attachmentLink && block.attachmentCaption) {
+            return (
+              <div key={index}>
+              <BannerImageBlockCenter imageLink={block.attachmentLink} imageCaption={block.attachmentCaption} />
+              </div>
+            )
+           } else if (block.type === "bannerImageFill" && block.attachmentLink && block.attachmentCaption) {
+            return (
+              <div key={index}>
+              <BannerImageBlockFill imageLink={block.attachmentLink} imageCaption={block.attachmentCaption} />
               </div>
             )
            } else if (block.type === "quote" && block.text) {
@@ -35,6 +56,7 @@ export const Text = ({props} : {props: ArticleData}) => {
             return
           }
         }) : null}
+        {article && article.contributors ? <ContributorBioBlock contributors={article.contributors}/> : null}
     </div>
     )
     }

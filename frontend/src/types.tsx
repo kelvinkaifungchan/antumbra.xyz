@@ -1,6 +1,6 @@
 export interface ArticleData {
     id: number,
-    type: string
+    type: string,
     contributors: Array<Contributor>,
     title: string,
     subtitle: string,
@@ -11,6 +11,7 @@ export interface ArticleData {
     articleBlocks: Array<ArticleBlockData>
     carousel?: Array<CarouselImage>
 }
+
 export interface ArticleModule {
     id: number,
     type: string,
@@ -26,21 +27,33 @@ export interface ArticleBlockData {
     id: number;
     article_id: number;
     type: string;
-    attachmentLink?: string;
-    attachmentCaption?: string;
+    attachmentLink ? : string;
+    attachmentCaption ? : string;
     text: string;
 }
 
 export interface BannerImageData {
     imageLink: string,
-    imageCaption: string,
+        imageCaption: string,
 }
 
 export interface CarouselImage {
     id: number;
     article_id: number;
-    imageLink?: string;
-    imageCaption?: string;
+    imageLink ? : string;
+    imageCaption ? : string;
+}
+
+export interface Card {
+    title: string,
+    heroImage: string,
+    subtitle: string,
+    contributors: Array < Contributor >
+}
+
+export interface chipControlUnit {
+    chipName: string,
+    isRed: boolean
 }
 
 export interface Contributor {
@@ -64,16 +77,16 @@ export interface Tag {
 
 export interface TitleData {
     title: string,
-    tags: Array<Tag>,
-    contributors: Array<Contributor>,
-    text?: string,
-    pdf?: string
+    tags: Array < Tag > ,
+    contributors: Array < Contributor > ,
+    text ? : string,
+    pdf ? : string
 }
 
 export interface TextData {
     text: string,
-    attachmentLink?: string,
-    attachmentCaption?: string,
+    attachmentLink ? : string,
+    attachmentCaption ? : string,
 }
 
 export interface VideoData {

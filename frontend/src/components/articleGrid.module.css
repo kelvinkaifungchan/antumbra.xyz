@@ -38,3 +38,7 @@
     background-color: #c2bebeeb;
     /* background: linear-gradient(to right, #00000000, #c2bebeeb, #00000000) */
 }
+
+.articleTitle {
+    font-size: 2rem;
+}

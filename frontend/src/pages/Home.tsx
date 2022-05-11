@@ -33,7 +33,7 @@ const [scroll, setScroll] = useState(false);
     </div>
     {/* articles */}
     {articleList ? <ArticleGrid articles={articleList} /> : null}
-    <div className={styles.ticker}>
+    <div className={`${styles.ticker} ${styles.fontSubtitle}`}>
       <Ticker mode="chain" speed={5}>
         {({ index }) => (
         <>
@@ -44,7 +44,7 @@ const [scroll, setScroll] = useState(false);
           </div>
         </>
         )}
-    </Ticker>
+      </Ticker>
     </div>
     <Footer />
   </div> 
