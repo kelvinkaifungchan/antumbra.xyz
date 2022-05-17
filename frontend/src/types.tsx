@@ -34,7 +34,7 @@ export interface ArticleBlockData {
 
 export interface BannerImageData {
     imageLink: string,
-        imageCaption: string,
+    imageCaption: string,
 }
 
 export interface CarouselImage {

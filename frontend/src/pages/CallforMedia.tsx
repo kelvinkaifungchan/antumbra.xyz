@@ -9,7 +9,7 @@ return (
 <div className='container-fluid'>
     <NavBar />
     <Hamburger />
-    <div className={`row px-3 ${styles.fontSubtitle}`} style={{minHeight:"80vh"}}>
+    <div className={`row px-3 ${styles.fontSubtitle}`} style={{minHeight:"80vh", opacity:"0.8"}}>
         <div className='col-10 col-lg-8 py-5'>
             The Warm War is an intermediary space. It’s not quite the Cold War: the open hostility, espionage
             and nuclear dread that made up the power struggle between Federalism and Communism. Neither is it a

@@ -10,6 +10,7 @@ import { Video } from '../components/video'
 import { Image } from '../components/image'
 import { Hamburger } from '../components/hamburger';
 import { ArticleModuleSmall } from "../components/articleGrid";
+import { HorizontalLine } from "../components/horizontalLine";
 
 export const Article =({type}: {type:string} ) => {
     let navigate = useNavigate();
@@ -41,7 +42,7 @@ return (
         article && type === "text" ? <Text props={article}/> : article && type === "video" ? <Video props={article}/> : article ? <Image props={article}/> : null
     }
     </div>
-    {/* <HorizontalLine />
+    <HorizontalLine />
     <div className='row px-3' style={{fontSize: '2rem', opacity: '0.8', color:'#FF5C00'}}>
       <div className='col'>
         Read More
@@ -59,7 +60,7 @@ return (
             }):null}
         </div>
     </div>
-    <HorizontalLine /> */}
+    <HorizontalLine />
     <Footer />
 </div>
 )

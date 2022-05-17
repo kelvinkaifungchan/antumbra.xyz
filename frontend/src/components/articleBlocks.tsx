@@ -118,7 +118,7 @@ export const TextBlockRight: React.FC<TextData> = ({text}) => {
     <div className='row'>
         <div className='col-1 col-lg-6'>
         </div>
-        <div className='col-10 col-lg-6' style={{fontSize: '1.2rem', opacity: '0.8'}}>
+        <div className={`col-10 col-lg-6 ${styles.fontBody}`}>
             <div dangerouslySetInnerHTML={{__html: mark}}>
             </div>
         </div>
@@ -287,7 +287,7 @@ export const VideoBlock: React.FC<VideoData> = ({videoLink}) => {
 export const ContributorBioBlock = ({contributors}: {contributors: Contributor[]}) => {
     return (
     <>
-    <div className='row pt-5' style={{fontSize: '1.2rem', opacity: '0.8'}}>
+    <div className={`${styles.fontBody} row pt-5`}>
         <div className='col-1 col-lg-3'>
         </div>
         <div className='col-10 col-lg-6'>
@@ -296,7 +296,7 @@ export const ContributorBioBlock = ({contributors}: {contributors: Contributor[]
     </div>
     {contributors.map((contributor, i) => {
     return (
-    <div key={i} className='row pt-3' style={{fontSize: '1.2rem', opacity: '0.8'}}>
+    <div key={i} className={`${styles.fontBody} row pt-3`}>
         <div className='col-1 col-lg-3'>
         </div>
         <div className='col-10 col-lg-6'>
@@ -315,7 +315,7 @@ export const ContributorBioBlock = ({contributors}: {contributors: Contributor[]
 export const ContributorBioBlockRight = ({contributors}: {contributors: Contributor[]}) => {
     return (
     <>
-    <div className='row pt-5' style={{fontSize: '1.2rem', opacity: '0.8'}}>
+    <div className={`${styles.fontBody} row pt-5`}>
         <div className='col-1 col-lg-6'>
         </div>
         <div className='col-10 col-lg-6'>
@@ -324,7 +324,7 @@ export const ContributorBioBlockRight = ({contributors}: {contributors: Contribu
     </div>
     {contributors.map((contributor, i) => {
     return (
-    <div key={i} className='row pt-3' style={{fontSize: '1.2rem', opacity: '0.8'}}>
+    <div key={i} className={`${styles.fontBody} row pt-3`}>
         <div className='col-1 col-lg-6'>
         </div>
         <div className='col-10 col-lg-6'>
