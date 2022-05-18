@@ -1,19 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap');
+
+.ibmFont {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
 .header h1{
     font-size: 7rem;
     margin-top: -16vh;
 }
 
+.screenBig {
+    display: none
+}
+
 .ticker {
     width: 98.35%;
-    font-size: 2rem;
-    /* background-color: #c2bebee6; */
-    background-color: #c2bebeeb;
-    /* background: linear-gradient(to right, #00000000, #c2bebeeb, #00000000); */
+    background-color: #c2bebeb0;;
     padding: 10px;
     border-radius: 20px;
     position: fixed;
     bottom: 15px;
     z-index: 50;
+    display: none;
 }
 
 .ticker a {
@@ -45,4 +53,65 @@
     z-index: -200;
     filter: blur(15px);
     transition: 5s;
+}
+
+@media screen and (min-width: 768px) and (min-height: 450px) {
+    .screenBig {
+        display: block
+    }
+    .screenSmall {
+        display: none
+    }
+}
+
+.moduleTitle {
+    font-size: 2rem;
+}
+
+.fontTitle {
+    font-size: 2rem;
+}
+
+.fontSubtitle {
+    font-size: 1.5rem;
+}
+
+.fontBody {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+@media screen and (min-width: 700px) {
+    .fontTitle {
+        font-size: 3rem;
+    }
+
+    .fontSubtitle {
+        font-size: 1.75rem;
+    }
+
+    .fontBody {
+        font-size: 1.2rem;
+    }
+
+    .ticker {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .fontTitle {
+        font-size: 4rem;
+    }
+
+    .fontSubtitle {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .moduleTitle {
+        font-size: 3rem;
+        line-height: 3.5rem;
+    }
 }

@@ -1,4 +1,4 @@
-import { TitleBlockB, TextBlock, BannerImageBlock, VideoBlock, TextBlockRight } from "./articleBlocks";
+import { TitleBlockB, VideoBlock, TextBlockRight, ContributorBioBlockRight } from "./articleBlocks";
 import React, { useEffect, useState } from "react";
 
 interface Tag {
@@ -47,12 +47,6 @@ export const Video = ({props} : {props: Article}) => {
               <TextBlockRight text={block.text} />
               </div>
             )
-          } else if (block.type === "bannerImage" && block.attachmentLink && block.attachmentCaption) {
-            return (
-              <div key={index}>
-              <BannerImageBlock imageLink={block.attachmentLink} imageCaption={block.attachmentCaption} />
-              </div>
-            )
           } else if (block.type === "video" && block.attachmentLink) {
             return (
               <div key={index}>
@@ -69,6 +63,7 @@ export const Video = ({props} : {props: Article}) => {
             return
           }
         }) : null}
+        {article && article.contributors ? <ContributorBioBlockRight contributors={article.contributors}/> : null}
     </div>
     )
     }

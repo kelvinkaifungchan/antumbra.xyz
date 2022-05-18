@@ -1,9 +1,16 @@
 .image {
     opacity: 1;
     transition: 0.2s;
+    width: auto;
+    height: auto;
 }
 
-/* .image:hover {
-    opacity: 0.8;
-    cursor: pointer;
-} */
+
+@media screen and (min-width: 1200px) {
+    .image {
+        min-height: 60vh;
+        max-height: 60vh;
+        max-width: none;
+        min-width: none;
+    }
+}

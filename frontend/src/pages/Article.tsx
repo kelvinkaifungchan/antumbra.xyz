@@ -10,6 +10,7 @@ import { Video } from '../components/video'
 import { Image } from '../components/image'
 import { Hamburger } from '../components/hamburger';
 import { ArticleModuleSmall } from "../components/articleGrid";
+import { HorizontalLine } from "../components/horizontalLine";
 
 export const Article =({type}: {type:string} ) => {
     let navigate = useNavigate();
@@ -18,11 +19,11 @@ export const Article =({type}: {type:string} ) => {
     let params = useParams()
 
     useEffect(()=>{
-      axios.get(`http://localhost:8080/api/aarchitecture`)
+      axios.get(`http://api.antumbra.xyz/api/aarchitecture`)
       .then((response: AxiosResponse)=>{
         setArticleList(response.data)
       })
-      axios.get(`http://localhost:8080/api/aarchitecture/article/?articleId=${params.id}`)
+      axios.get(`http://api.antumbra.xyz/api/aarchitecture/article/?articleId=${params.id}`)
       .then((response: AxiosResponse)=>{
       setArticle(response.data)
       })

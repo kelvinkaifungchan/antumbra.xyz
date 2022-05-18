@@ -1,4 +1,4 @@
-import { TitleBlockB, TextBlockRight} from "./articleBlocks";
+import { TitleBlockB, TextBlockRight, ContributorBioBlockRight} from "./articleBlocks";
 import React, { useEffect, useState } from "react";
 import { CarouselModule } from "../components/carouselModule";
 import { ArticleData} from "../types"
@@ -25,6 +25,7 @@ export const Image = ({props} : {props: ArticleData}) => {
             return
           }
         }) : null}
+                {article && article.contributors ? <ContributorBioBlockRight contributors={article.contributors}/> : null}
     </div>
     )
     }

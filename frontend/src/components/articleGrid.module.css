@@ -35,6 +35,10 @@
     width: 98.35%;
     opacity: 1;
     z-index: 50;
-    background-color: #c2bebeeb;
+    background-color: #c2bebeb0;
     /* background: linear-gradient(to right, #00000000, #c2bebeeb, #00000000) */
+}
+
+.articleTitle {
+    font-size: 2rem;
 }

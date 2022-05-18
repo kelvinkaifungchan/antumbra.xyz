@@ -19,7 +19,7 @@ const [scroll, setScroll] = useState(false);
   window.addEventListener("scroll", () => {
     setScroll(window.scrollY > 40);
   })
-  axios.get(`http://localhost:8080/api/aarchitecture`)
+  axios.get(`http://api.antumbra.xyz/api/aarchitecture`)
   .then((response: AxiosResponse)=>{
   setArticleList(response.data)
   })
@@ -33,18 +33,18 @@ const [scroll, setScroll] = useState(false);
     </div>
     {/* articles */}
     {articleList ? <ArticleGrid articles={articleList} /> : null}
-    <div className={styles.ticker}>
+    <div className={`${styles.ticker} ${styles.fontSubtitle}`}>
       <Ticker mode="chain" speed={5}>
         {({ index }) => (
         <>
           <div style={{paddingLeft:'25px', paddingRight:'25px'}}>
             <Link to="/">
-            {articleList && articleList.length > 0 ? articleList[index%articleList.length].title : null}
+              {articleList && articleList.length > 0 ? articleList[index%articleList.length].title : null}
             </Link>
           </div>
         </>
         )}
-    </Ticker>
+      </Ticker>
     </div>
     <Footer />
   </div> 

@@ -2,14 +2,15 @@ import React from 'react';
 import { Footer } from '../components/footer';
 import { Hamburger } from '../components/hamburger';
 import { NavBar } from '../components/navbar';
+import styles from './Home.module.css'
 
 export const CallForMedia = () => {
 return (
 <div className='container-fluid'>
     <NavBar />
     <Hamburger />
-    <div className='row px-3' style={{fontSize: '1.2rem', minHeight:"83vh"}}>
-        <div className='col-8 py-5'>
+    <div className={`row px-3 ${styles.fontSubtitle}`} style={{minHeight:"80vh", opacity:"0.8"}}>
+        <div className='col-10 col-lg-8 py-5'>
             The Warm War is an intermediary space. It’s not quite the Cold War: the open hostility, espionage
             and nuclear dread that made up the power struggle between Federalism and Communism. Neither is it a
             ‘hot’ war: a carving of a boundary through total violence.

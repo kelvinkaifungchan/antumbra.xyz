@@ -32,7 +32,6 @@ class AArchitectureRouter {
         console.log("Requesting getting single article")
         return this.articleService
         .article(req.query.articleId)
-        //http://localhost:8080/api/aarchitecture/article/?articleId=1
         .then((data) => {
             return res.json(data)
         })

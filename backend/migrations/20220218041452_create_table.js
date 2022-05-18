@@ -19,7 +19,7 @@
       table.integer('article_id').unsigned().references('id').inTable('article');
       table.string("type");
       table.string("attachmentLink");
-      table.string("attachmentCaption");
+      table.string("attachmentCaption", 6000);
       table.string("text", 6000)
       table.timestamp("created_at").defaultTo(knex.fn.now());
     })
