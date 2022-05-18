@@ -19,7 +19,7 @@ const [scroll, setScroll] = useState(false);
   window.addEventListener("scroll", () => {
     setScroll(window.scrollY > 40);
   })
-  axios.get(`http://localhost:8080/api/aarchitecture`)
+  axios.get(`http://api.antumbra.xyz/api/aarchitecture`)
   .then((response: AxiosResponse)=>{
   setArticleList(response.data)
   })

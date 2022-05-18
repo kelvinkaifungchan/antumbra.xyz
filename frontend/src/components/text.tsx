@@ -1,15 +1,12 @@
 import { TitleBlock, TextBlock, BannerImageBlockCenter, QuoteBlock, SidePanel, ContributorBioBlock, BannerImageBlockStart, BannerImageBlockFill, TextBlockSparse } from "./articleBlocks";
 import React, { useEffect, useState } from "react";
 import { ArticleData } from "../types"
-import { HorizontalLine } from "./horizontalLine";
 
 export const Text = ({props} : {props: ArticleData}) => {
     const [article, setArticle] = useState<ArticleData | null>(null);
     useEffect(() => {
       setArticle(props)
     },[props])
-
-    console.log(article?.articleBlocks)
 
     return (
     <div className='px-3'>
@@ -53,7 +50,7 @@ export const Text = ({props} : {props: ArticleData}) => {
               </div>
             )
           } else {
-            return
+            return (null)
           }
         }) : null}
         {article && article.contributors ? <ContributorBioBlock contributors={article.contributors}/> : null}

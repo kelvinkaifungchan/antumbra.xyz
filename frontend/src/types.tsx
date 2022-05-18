@@ -51,7 +51,7 @@ export interface Card {
     contributors: Array < Contributor >
 }
 
-export interface chipControlUnit {
+export interface ChipControlUnit {
     chipName: string,
     isRed: boolean
 }

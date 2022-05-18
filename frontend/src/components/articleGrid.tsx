@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { HorizontalLine } from "./horizontalLine";
 import { Chip } from "@mui/material";
-import { Card, ArticleModule, chipControlUnit } from "../types"
+import { Card, ArticleModule, ChipControlUnit } from "../types"
 
 const genreTags = [
     "Essay",
@@ -30,8 +30,6 @@ const topicTags = [
     "Data",
     "Museums",
 ];
-
-var selectedTags: string[] = []
 
 export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {
     const [scroll, setScroll] = useState(false);
@@ -76,10 +74,9 @@ export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {
           setChipControl(targetTag);
           var selected = targetTag.filter(function (item:any) {
               return item.isRed === true
-          }).map((tag:chipControlUnit) => {
+          }).map((tag:ChipControlUnit) => {
               return tag.chipName
           })
-        console.log("selected", selected)
         var filter = articles.filter(function (article) {
         return article.tags.some(function(tag) {
             if (selected.length > 0) {
@@ -135,7 +132,7 @@ export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {
                 return (<div key={index} onClick={(e)=>{handleNav(e, item.id, item.type)}} className="col-lg-3 col-md-6 col-xs-12 py-3" style={{width:"100%", height:"auto", float:"left"}}>
                 <div className={`${styles.module}`} style={{height: "100%"}}>
                     <div className={styles.card} style={{zIndex:"1"}}>
-                        <img className='w-100' style={{borderRadius:"20px"}} src={item.heroImage} />
+                        <img className='w-100' alt={item.title} style={{borderRadius:"20px"}} src={item.heroImage} />
                     </div>
                     <div className="pt-2" style={{zIndex:"-1"}}>
                         <div className={`${style.moduleTitle}`}>

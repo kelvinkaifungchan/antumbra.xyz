@@ -19,11 +19,11 @@ export const Article =({type}: {type:string} ) => {
     let params = useParams()
 
     useEffect(()=>{
-      axios.get(`http://localhost:8080/api/aarchitecture`)
+      axios.get(`http://api.antumbra.xyz/api/aarchitecture`)
       .then((response: AxiosResponse)=>{
         setArticleList(response.data)
       })
-      axios.get(`http://localhost:8080/api/aarchitecture/article/?articleId=${params.id}`)
+      axios.get(`http://api.antumbra.xyz/api/aarchitecturearticle/?articleId=${params.id}`)
       .then((response: AxiosResponse)=>{
       setArticle(response.data)
       })
