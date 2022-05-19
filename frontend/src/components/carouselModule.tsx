@@ -36,7 +36,7 @@ export const CarouselModule = ({imageSource}: {imageSource:CarouselImage[]}) => 
     }
 
     return (
-    <div className='row py-4' style={{overflowX:"auto", whiteSpace:"nowrap"}}>
+    <div className='row py-4 d-flex align-content-center' style={{minHeight: "80vh", overflowX:"auto", whiteSpace:"nowrap"}}>
         {/* <div style={{background:"#ffffff0f", borderRadius:"20px"}}>
         <Carousel width="100%" autoPlay infiniteLoop dynamicHeight showStatus={false} showThumbs={false}
             showIndicators={false} onClickItem={(index)=> modalSwitcher(index)}
@@ -60,7 +60,7 @@ export const CarouselModule = ({imageSource}: {imageSource:CarouselImage[]}) => 
         <div>
             {imageSource.map((image, index) => {
                     return(
-                    <img key={index} style={{maxWidth:'100%', maxHeight:'80vh', minHeight:'80vh', width:'auto', height:'auto'}}
+                    <img key={index} style={{maxWidth:'100%', maxHeight:'80vh', width:'auto', height:'auto'}}
                     src={image.imageLink} />
                     )
             })}

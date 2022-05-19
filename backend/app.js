@@ -7,8 +7,11 @@ const knex = require('knex')(knexConfig)
 //Express
 const express = require("express");
 const cors = require('cors');
+const path = require('path');
+// const fs = require('fs');
 const app = express();
 const http = require('http').createServer(app);
+// const https = require('https');
 app.use(cors());
 
 // Services
@@ -31,3 +34,10 @@ app.use("/api/admin", new AdminRouter(aarchitectureService, articleService, brid
 http.listen(8080, () => {
   console.log("app listening on port 8080");
 });
+
+// const options = {
+//   key: fs.readFileSync(path.join(__dirname, 'cert', 'key.pem')),
+//   cert: fs.readFileSync(path.join(__dirname, 'cert', 'antumbra_xyz.crt')),
+//   ca: fs.readFileSync(path.join(__dirname, 'cert', 'antumbra_xyz.ca-bundle'))
+// }
+// https.createServer(options, app).listen(443, "antumbra.xyz");

@@ -8,7 +8,7 @@ export const TitleBlock: React.FC<TitleData> = ({title, tags, contributors, pdf}
     return (
         <>
             <div className="row py-5">
-                <div className='col-1 col-lg-3'>
+                <div className={`col-1 col-lg-3 ${styles.screenWide}`}>
                 </div>
                 <div className={`col-10 col-lg-6 ${styles.fontTitle}`} style={{textAlign:"left", color: "#FF5C00", letterSpacing:"-0.07rem"}}>
                     <div className='w-75'>
@@ -39,7 +39,7 @@ export const SidePanel: React.FC<TitleData> = ({title, tags, contributors, pdf})
         },[])
 
     return (
-        <div className="row py-5 w-100" style={scroll ? {position:"fixed", opacity:"1", transition:"0.5s", zIndex:"-1"} : {position:"fixed", opacity:"0", transition:"0.5s", zIndex:"-1"}}>
+        <div className={`${styles.screenWide} row py-5 w-100`} style={scroll ? {position:"fixed", opacity:"1", transition:"0.5s", zIndex:"-1"} : {position:"fixed", opacity:"0", transition:"0.5s", zIndex:"-1"}}>
             <div className='col-3' style={{color: "#FF5C00", fontSize: '1.2rem', width:"100%"}}>
                 Tag(s):<br />
                 {tags?tags.map((tag, index) => {
@@ -74,8 +74,8 @@ export const TitleBlockB: React.FC<TitleData> = ({title, tags, contributors}) =>
                  {title?title:null}
                 </div>
             </div>
-            <div className="col-12 col-lg-3">
-            <div style={{color: "#FF5C00", fontSize: '1.2rem'}}>
+            <div className={`col-6 col-lg-3 ${styles.fontSubtitle}`}>
+            <div style={{color: "#FF5C00"}}>
                 Tag(s):<br />
                 {tags?tags.map((tag, index) => {
                     return(
@@ -87,8 +87,8 @@ export const TitleBlockB: React.FC<TitleData> = ({title, tags, contributors}) =>
                 <br />
                 </div>
             </div>
-            <div className="col-3">
-            <div style={{color: "#FF5C00", fontSize: '1.2rem'}}>
+            <div className={`col-3 ${styles.fontSubtitle}`}>
+            <div style={{color: "#FF5C00"}}>
                 Contributor(s):
                     {contributors?contributors.map((contributor, index) => {
                         return(
@@ -116,9 +116,9 @@ export const TextBlockRight: React.FC<TextData> = ({text}) => {
 
     return (
     <div className='row'>
-        <div className='col-1 col-lg-6'>
+        <div className={`col-1 col-lg-6 ${styles.screenWide}`}>
         </div>
-        <div className={`col-10 col-lg-6 ${styles.fontBody}`}>
+        <div className={`col-12 col-lg-6 ${styles.fontBody}`}>
             <div dangerouslySetInnerHTML={{__html: mark}}>
             </div>
         </div>
@@ -138,9 +138,9 @@ export const TextBlock: React.FC<TextData> = ({text}) => {
 
     return (
     <div className='row'>
-        <div className='col-1 col-lg-3'>
+        <div className={`col-1 col-lg-3 ${styles.screenWide}`}>
         </div>
-        <div className={`col-10 col-lg-6 ${styles.fontBody}`}>
+        <div className={`col-12 col-lg-6 ${styles.fontBody}`}>
             <div dangerouslySetInnerHTML={{__html: mark}}>
             </div>
         </div>
@@ -159,10 +159,10 @@ export const TextBlockSparse: React.FC<TextData> = ({text}) => {
       })
     return (
         
-    <div className='row py-5 my-5' style={{height:"100vh", borderRadius:"20px", background:"#c2bebe10",}}>
+    <div className='row py-5 my-5' style={{minHeight:"100vh", borderRadius:"20px"}}>
         <div className='col-1 col-lg-3'>
         </div>
-        <div className='d-flex align-items-center col-10 col-lg-6' style={{fontSize: '1.2rem', letterSpacing:'-0.02rem', opacity: '0.8'}}>
+        <div className={`d-flex align-items-center col-10 col-lg-6 ${styles.fontBody}`} style={{opacity: '0.8'}}>
             <div dangerouslySetInnerHTML={{__html: mark}}>
             </div>
         </div>
@@ -173,7 +173,7 @@ export const TextBlockSparse: React.FC<TextData> = ({text}) => {
 export const BannerImageBlockStart: React.FC<BannerImageData> = ({imageLink, imageCaption}) => {
     return (
     <div className='row py-5' style={{fontSize: '1.2rem', opacity: '0.8'}}>
-        <div className='col-1 col-lg-3'>
+        <div className={`col-1 col-lg-3 ${styles.screenWide}`}>
         </div>
         <div className='col-10 col-lg-6 align-items-center'>
             <div className="d-flex justify-content-start">
@@ -191,9 +191,9 @@ export const BannerImageBlockStart: React.FC<BannerImageData> = ({imageLink, ima
 export const BannerImageBlockCenter: React.FC<BannerImageData> = ({imageLink, imageCaption}) => {
     return (
     <div className='row py-5' style={{fontSize: '1.2rem', opacity: '0.8'}}>
-        <div className='col-3'>
+        <div className={`col-3 ${styles.screenWide}`}>
         </div>
-        <div className='col-5 align-items-center'>
+        <div className='col-12 col-lg-5 align-items-center'>
             <div className="d-flex justify-content-center">
                 <img className={`${style.image}`} style={{minHeight:"60vh", maxHeight:"60vh", width:"auto", height:"auto"}} src={imageLink} alt={imageCaption} />
             </div>
@@ -201,28 +201,24 @@ export const BannerImageBlockCenter: React.FC<BannerImageData> = ({imageLink, im
                 {imageCaption}
             </div>
         </div>
-        <div className='col-4'>
-        </div>
     </div>
     )
 }
 
 export const BannerImageBlockFill: React.FC<BannerImageData> = ({imageLink, imageCaption}) => {
     return (
-    <div className='row py-5 my-5' style={{height:"100vh", borderRadius:"20px", fontSize: '1.2rem', background:"#c2bebe10", zIndex:"900"}}>
-        <div className='col-1 col-lg-3'>
+    <div className='row py-5 my-5' style={{minHeight:"100vh", borderRadius:"20px", fontSize: '1.2rem', background:"#c2bebe10", zIndex:"900"}}>
+        <div className={`col-lg-3 ${styles.screenWide}`}>
         </div>
         <div className='col-10 col-lg-6 d-flex align-items-center'>
             <div className="row">
             <div className="col-12 d-flex justify-content-center">
-                <img className={`${style.image}`} src={imageLink} alt={imageCaption} />
+                <img className={`${style.image}`} src={imageLink} alt={imageCaption} style={{width:"auto", height:"auto", maxWidth:"85vw"}}/>
             </div>
             <div className='col-12 d-flex justify-content-center pt-3 w-100' style={{fontSize: '0.8rem', opacity:"0.8"}}>
                 {imageCaption}
             </div>
             </div>
-        </div>
-        <div className='col-4'>
         </div>
     </div>
     )
@@ -231,8 +227,8 @@ export const BannerImageBlockFill: React.FC<BannerImageData> = ({imageLink, imag
 export const QuoteBlock: React.FC<TextData> = ({text}) => {
     return (
         <div className='row py-5 d-flex justify-content-center'>
-            <div className='col-4 d-flex justify-content-center'>
-                <div style={{fontSize:"1.2rem", opacity:"0.8"}}>
+            <div className='col-10 col-lg-6 d-flex justify-content-center'>
+                <div className={`${styles.fontBody}`} style={{opacity:"0.8"}}>
                     <i>
                         {text}
                     </i>
@@ -288,7 +284,7 @@ export const ContributorBioBlock = ({contributors}: {contributors: Contributor[]
     return (
     <>
     <div className={`${styles.fontBody} row pt-5`}>
-        <div className='col-1 col-lg-3'>
+        <div className={`col-1 col-lg-3 ${styles.screenWide}`}>
         </div>
         <div className='col-10 col-lg-6'>
             <i>Biographies</i>
@@ -297,7 +293,7 @@ export const ContributorBioBlock = ({contributors}: {contributors: Contributor[]
     {contributors.map((contributor, i) => {
     return (
     <div key={i} className={`${styles.fontBody} row pt-3`}>
-        <div className='col-1 col-lg-3'>
+        <div className={`col-1 col-lg-3 ${styles.screenWide}`}>
         </div>
         <div className='col-10 col-lg-6'>
             <i>{contributor.name}</i> {contributor.bio}
@@ -316,7 +312,7 @@ export const ContributorBioBlockRight = ({contributors}: {contributors: Contribu
     return (
     <>
     <div className={`${styles.fontBody} row pt-5`}>
-        <div className='col-1 col-lg-6'>
+        <div className={`col-1 col-lg-6 ${styles.screenWide}`}>
         </div>
         <div className='col-10 col-lg-6'>
             <i>Biographies</i>
@@ -325,7 +321,7 @@ export const ContributorBioBlockRight = ({contributors}: {contributors: Contribu
     {contributors.map((contributor, i) => {
     return (
     <div key={i} className={`${styles.fontBody} row pt-3`}>
-        <div className='col-1 col-lg-6'>
+        <div className={`col-1 col-lg-6 ${styles.screenWide}`}>
         </div>
         <div className='col-10 col-lg-6'>
             <i>{contributor.name}</i> {contributor.bio}

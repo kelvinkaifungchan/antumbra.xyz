@@ -10,25 +10,28 @@ const genreTags = [
     "Essay",
     "Photography",
     "Film",
-    "Interviews",
-    "Art",
+    "Interview",
+    "Event",
+    "Art"
     ];
     
 const topicTags = [
-    "Infrastucture",
-    "Architecture",
-    "Tech",
-    "Anthropocene",
+    "Big Data",
     "Surveillance",
-    "Archives",
+    "Privacy",
+    "Tech",
     "NFTs",
+    "AI",
+    "Techno-Optimism",
+    "Markets",
+    "Aesthetics",
     "Computation",
-    "Earth Systems",
-    "Robotics",
-    "Growth",
-    "Urbanisation",
-    "Data",
-    "Museums",
+    "Value",
+    "Automation",
+    "Alternative Imaginaries",
+    "Planning",
+    "Abandonment",
+    "Proximity",
 ];
 
 export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {

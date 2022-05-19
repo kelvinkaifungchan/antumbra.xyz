@@ -22,7 +22,7 @@ function App() {
             <Route path="/video/:id" element={<Article type="video"/>}/>
             <Route path="/archive" element={<Archive />}/>
             <Route path="/info" element={<Info />}/>
-            <Route path="/callformedia" element={<CallForMedia />}/>
+            <Route path="/network-scrape" element={<CallForMedia />}/>
           </Routes>
       </Router>
     </div>
