@@ -39,7 +39,7 @@ const [scroll, setScroll] = useState(false);
         {({ index }) => (
         <>
           <div style={{paddingLeft:'25px', paddingRight:'25px'}}>
-            <Link to="/">
+            <Link to={articleList ? `/${articleList[index%articleList.length].type}/${articleList[index%articleList.length].id}` : "/"}>
               {articleList && articleList.length > 0 ? articleList[index%articleList.length].title : null}
             </Link>
           </div>

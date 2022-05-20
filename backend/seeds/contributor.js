@@ -12,7 +12,7 @@ exports.seed = function (knex) {
         bio: "is an architectural designer and writer based in and around London. His work centres on urbanism, the architecture of healing and empowerment and the potential for language to be used to incite radical design action in response to the multi-crises facing our natural and built environments. Since graduating from the Bartlett School of Architecture in 2021, Mich has been writing, moving and working on personal projects before starting as a Design Intern at BCG in London in April.",
       }, {
         name: "Noah Gotlib",
-        bio: "is a designer, researcher, and architect in training currently based in Toronto. He received his M.Arch / AA Diploma from the Architectural Association in London in 2020.",
+        bio: "is a designer and researcher based in London. He works between Landscape architecture at VOGT London, and is an assistant tutor for Diploma Unit 4 at the Architectural Association. \n\nOriginally studying in Toronto, Canada, he received his M.Arch from the AA in 2020.",
       }, {
         name: "Lev Manovich",
         bio: "is a digital culture theorist, writer, and artist whose work has had a profound impact on the way we think about media and technology today. His books include Cultural Analytics, AI Aesthetics, Instagram and Contemporary Image, and The Language of New Media. He has been included in the list of '25 People Shaping the Future of Design' in 2013 and the list of '50 Most Interesting People Building the Future' in 2014. Recognized as one of the most influential voices in contemporary media theory, Dr. Manovich's work is essential reading for anyone interested in understanding the role of technology in contemporary society.",

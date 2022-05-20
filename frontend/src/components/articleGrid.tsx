@@ -104,6 +104,7 @@ export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {
 
     return (
         <>
+        {/* Tag Bar */}
         <div className={scroll ? `${styles.sticky} ${styles.tagBar}` : `relative ${styles.tagBar}`}>
         <div style={ scroll ? {opacity:"0"} : {opacity:"1"}}>
           <HorizontalLine />
@@ -131,6 +132,7 @@ export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {
         </div>
     </div>
         <div className="row px-3">
+            {/* Article Modules */}
             {articleList ? articleList.map((item, index) => {
                 return (<div key={index} onClick={(e)=>{handleNav(e, item.id, item.type)}} className="col-lg-3 col-md-6 col-xs-12 py-3" style={{width:"100%", height:"auto", float:"left"}}>
                 <div className={`${styles.module}`} style={{height: "100%"}}>

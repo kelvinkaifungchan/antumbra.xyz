@@ -10,8 +10,8 @@ export const Archive = () => {
     const [archive, setArchive] = useState<IssueData[] | null>(null);
 
     useEffect(()=>{
-        // axios.get(`http://api.antumbra.xyz/api/aarchitecture/archive`)
-        axios.get(`http://localhost:8080/api/aarchitecture/archive`)
+        axios.get(`http://api.antumbra.xyz/api/aarchitecture/archive`)
+        // axios.get(`http://localhost:8080/api/aarchitecture/archive`)
         .then((response: AxiosResponse)=>{
         setArchive(response.data)
         })

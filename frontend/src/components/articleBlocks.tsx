@@ -210,7 +210,7 @@ export const BannerImageBlockFill: React.FC<BannerImageData> = ({imageLink, imag
     <div className='row py-5 my-5' style={{minHeight:"100vh", borderRadius:"20px", fontSize: '1.2rem', background:"#c2bebe10", zIndex:"900"}}>
         <div className={`col-lg-3 ${styles.screenWide}`}>
         </div>
-        <div className='col-10 col-lg-6 d-flex align-items-center'>
+        <div className='col-12 col-lg-6 d-flex justify-content-center align-items-center'>
             <div className="row">
             <div className="col-12 d-flex justify-content-center">
                 <img className={`${style.image}`} src={imageLink} alt={imageCaption} style={{width:"auto", height:"auto", maxWidth:"85vw"}}/>
