@@ -3,7 +3,7 @@
 
 # dependencies
 /node_modules
-/cert
+/ssl
 /.pnp
 .pnp.js
 install 

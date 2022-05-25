@@ -8,11 +8,18 @@ const knex = require('knex')(knexConfig)
 const express = require("express");
 const cors = require('cors');
 const path = require('path');
-// const fs = require('fs');
+const fs = require('fs')
 const app = express();
-const http = require('http').createServer(app);
-// const https = require('https');
+// const http = require('http').createServer(app);
+const https = require('https');
 app.use(cors());
+
+const hostname = 'penumbra.lol';
+const httpsPort = 443;
+
+const httpsOptions = {
+  cert: fs.readFileSync()
+}
 
 // Services
 const AArchitectureService = require("./services/aarchitectureService")
@@ -28,16 +35,13 @@ const bridgeService = new BridgeService(knex)
 const AArchitectureRouter = require("./routers/aarchitectureRouter");
 app.use("/api/aarchitecture", new AArchitectureRouter(aarchitectureService, articleService, archiveService).router());
 const AdminRouter = require("./routers/adminRouter");
+const { fstat } = require("fs");
 app.use("/api/admin", new AdminRouter(aarchitectureService, articleService, bridgeService).router());
 
 //Setup Server
-http.listen(8080, () => {
-  console.log("app listening on port 8080");
-});
+// http.listen(8080, () => {
+//   console.log("app listening on port 8080");
+// });
+const httpsServer = https.createServer(httpsOptions, app)
 
-// const options = {
-//   key: fs.readFileSync(path.join(__dirname, 'cert', 'key.pem')),
-//   cert: fs.readFileSync(path.join(__dirname, 'cert', 'antumbra_xyz.crt')),
-//   ca: fs.readFileSync(path.join(__dirname, 'cert', 'antumbra_xyz.ca-bundle'))
-// }
-// https.createServer(options, app).listen(443, "antumbra.xyz");
+httpsServer.listen(httpsPort, hostname);

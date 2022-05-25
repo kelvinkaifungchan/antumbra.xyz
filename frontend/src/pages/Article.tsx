@@ -1,7 +1,7 @@
 import  { ArticleData, ArticleModule } from "../types"
 import axios, {AxiosResponse} from 'axios';
 import { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import { NavBar } from '../components/navbar';
 import { Footer } from '../components/footer'
@@ -9,8 +9,8 @@ import { Text } from '../components/text'
 import { Video } from '../components/video'
 import { Image } from '../components/image'
 import { Hamburger } from '../components/hamburger';
-// import { ArticleModuleSmall } from "../components/articleGrid";
-// import { HorizontalLine } from "../components/horizontalLine";
+import { ArticleModuleSmall } from "../components/articleGrid";
+import { HorizontalLine } from "../components/horizontalLine";
 
 export const Article =({type}: {type:string} ) => {
     // let navigate = useNavigate();
@@ -20,11 +20,12 @@ export const Article =({type}: {type:string} ) => {
 
     useEffect(()=>{
       // axios.get(`http://api.antumbra.xyz/api/aarchitecture`)
+      // axios.get(`http://localhost:8080/api/aarchitecture/`)
       // .then((response: AxiosResponse)=>{
       //   setArticleList(response.data)
       // })
-      // axios.get(`http://api.antumbra.xyz/api/aarchitecture/article/?articleId=${params.id}`)
-      axios.get(`http://localhost:8080/api/aarchitecture/article/?articleId=${params.id}`)
+      axios.get(`http://penumbra.lol/api/aarchitecture/article/?articleId=${params.id}`)
+      // axios.get(`http://localhost:8080/api/aarchitecture/article/?articleId=${params.id}`)
       .then((response: AxiosResponse)=>{
       setArticle(response.data)
       })
@@ -51,13 +52,16 @@ return (
     </div>
     <div className='row px-3' style={{fontSize: '1.2rem', opacity: '0.8', overflowX:"auto", whiteSpace:"nowrap"}}>
         <div className='col-12'>
-        {articleList && articleList.length > 0 ? articleList.slice(0, 4).map((item, index)=>{
-            return (
-            <div key={index} onClick={(e)=>{handleNav(e, item.id, item.type)}} className="col-lg-3 col-sm-6 col-xs-12 py-3" style={{width:"100%", height:"auto", float:"left"}}>
-              <ArticleModuleSmall contributors={item.contributors} title={item.title} heroImage={item.heroImage}
-                subtitle={item.subtitle} />
-            </div>
-            )
+        {articleList && articleList.length > 0 ? articleList.map((item, index)=>{
+            if (item.id === article?.id) { return null }
+            else {
+              return (
+                <div key={index} onClick={(e)=>{handleNav(e, item.id, item.type)}} className="col-lg-3 col-sm-6 col-xs-12 py-3" style={{width:"100%", height:"auto", float:"left"}}>
+                  <ArticleModuleSmall contributors={item.contributors} title={item.title} heroImage={item.heroImage}
+                    subtitle={item.subtitle} />
+                </div>
+                )
+            }
             }):null}
         </div>
     </div>

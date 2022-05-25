@@ -18,7 +18,7 @@ export const TitleBlock: React.FC<TitleData> = ({title, tags, contributors, pdf}
                         <br/>
                     {contributors?contributors.map((contributor, index) => {
                         return(
-                            <div key={index} className={`${styles.fontSubtitle}`}>
+                            <div key={index} className={`${styles.fontTitle2}`}>
                                 {contributor.name}<br />
                             </div>
                         )
@@ -41,7 +41,7 @@ export const SidePanel: React.FC<TitleData> = ({title, tags, contributors, pdf})
     return (
         <div className={`${styles.screenWide} row py-5 w-100`} style={scroll ? {position:"fixed", opacity:"1", transition:"0.5s", zIndex:"-1"} : {position:"fixed", opacity:"0", transition:"0.5s", zIndex:"-1"}}>
             <div className='col-3' style={{color: "#FF5C00", fontSize: '1.2rem', width:"100%"}}>
-                Tag(s):<br />
+                Tags:<br />
                 {tags?tags.map((tag, index) => {
                     return(
                         <div key={index}>
@@ -50,7 +50,7 @@ export const SidePanel: React.FC<TitleData> = ({title, tags, contributors, pdf})
                     )
                 }):null}<br />
                 
-                Contributor(s):
+                {contributors && contributors.length > 1 ? "Authors:" : "Author:"}
                 {contributors?contributors.map((contributor, index) => {
                     return(
                         <div key={index}>
@@ -76,7 +76,7 @@ export const TitleBlockB: React.FC<TitleData> = ({title, tags, contributors}) =>
             </div>
             <div className={`col-6 col-lg-3 ${styles.fontSubtitle}`}>
             <div style={{color: "#FF5C00"}}>
-                Tag(s):<br />
+                Tags:<br />
                 {tags?tags.map((tag, index) => {
                     return(
                         <div key={index}>
@@ -89,7 +89,7 @@ export const TitleBlockB: React.FC<TitleData> = ({title, tags, contributors}) =>
             </div>
             <div className={`col-3 ${styles.fontSubtitle}`}>
             <div style={{color: "#FF5C00"}}>
-                Contributor(s):
+                {contributors && contributors.length > 1 ? "Contributors:" : "Contributor:"}
                     {contributors?contributors.map((contributor, index) => {
                         return(
                             <div key={index}>

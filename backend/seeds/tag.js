@@ -26,7 +26,7 @@ exports.seed = function (knex) {
       },{
         tag: 'AI',
       },{
-        tag: 'Techno-Optitimism',
+        tag: 'Techno-Optimism',
       },{
         tag: 'Markets',
       },{

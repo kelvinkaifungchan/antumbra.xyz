@@ -23,7 +23,7 @@ exports.seed = function (knex) {
             title: "Does Photography Have A Future?",
             type: "text",
             subtitle: "More images are being produced, shared and seen today than ever in history. We are both constantly photographing and being photographed, with professional-level devices shrunk to a pocket size and seemingly infinite ‘cloud’ storage available at our constant disposal. The posing of the question, ‘Does photography have a future?’, may therefore seem premature or plainly absurd, given the extreme popularity of the photographic medium. ",
-            heroImage:"https://images-na.ssl-images-amazon.com/images/I/71aESuOBTtS.jpg",
+            heroImage:"https://aarchitecture.blob.core.windows.net/videos/Performing-Planetarity-Zylinska.jpg",
             datePublished: "May 2022"
         }, {
             title: "Crumbling Land",

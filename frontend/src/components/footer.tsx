@@ -13,7 +13,8 @@ return (
             <a href="/callformedia">Call for Media</a><br/>
             <a href="/info">Information</a><br/>
             <a href="mailto:contact@antumbra.xyz">Contribute</a><br/>
-            <a href="https://www.instagram.com/aarchitecture44/" target={"blank"}>Instagram</a><br/>
+            <a href="https://twitter.com/antumbraxyz" target={"blank"}>Twitter</a><br/>
+            <a href="https://www.instagram.com/antumbra.xyz/" target={"blank"}>Instagram</a><br/>
         </div>
     </div>
 </footer>
@@ -29,7 +30,8 @@ return (
         </div>
         <div className='col-12 col-md-4'>
             <a href="mailto:contact@antumbra.xyz">Participate</a><br/>
-            <a href="https://www.instagram.com/aarchitecture44/" target={"blank"}>Instagram</a><br/>
+            <a href="https://twitter.com/antumbraxyz" target={"blank"}>Twitter</a><br/>
+            <a href="https://www.instagram.com/antumbra.xyz/" target={"blank"}>Instagram</a><br/>
         </div>
     </div>
 </footer>

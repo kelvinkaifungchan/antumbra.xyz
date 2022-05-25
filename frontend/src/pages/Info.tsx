@@ -12,10 +12,10 @@ return (
         <div className='col-lg-8 col-12'>
             <div className='w-75'>
                 About Us:<br />
-                Antumbra.DAO is a decentralised autonomous broadcasting organisation founded within the Architectural Association, inspired by alternative routing of knowledge and governance. It is a space to gather, and to find chance encounter by proximity. Our community understands Information as a material condition, rejecting the digital/analogue distinction in favour of a synthetic attitudes of spatial enablement. 
+                Antumbra.DAO is a decentralised autonomous broadcasting organisation founded within the Architectural Association, inspired by alternative routing of knowledge and governance. It is a space to gather, and to find chance encounter by proximity. Our community understands information as a material condition, rejecting the digital/analogue distinction in favour of a synthetic attitudes of spatial enablement. 
                 <br /><br />
                 Publication:<br />
-                The Warmth network-scrape will be open until December 2022. We will be publishing contributions
+                Our network-scrape, <i>Warmth</i>, will be open until December 2022. We will be publishing contributions
                 from May 2022 on a rolling basis. Get in touch <a style={{color: '#FF5C00'}}
                     href="mailto: contact@antumbra.xyz">here</a> or send an email to
                 contact@antumbra.xyz

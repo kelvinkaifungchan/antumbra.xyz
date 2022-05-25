@@ -81,7 +81,9 @@
 .fontTitle {
     font-size: 2rem;
 }
-
+.fontTitle2 {
+    font-size: 1.2rem;
+}
 .fontSubtitle {
     font-size: 1.2rem;
 }
@@ -95,7 +97,9 @@
     .fontTitle {
         font-size: 3rem;
     }
-
+    .fontTitle2 {
+        font-size: 1.2rem;
+    }
     .fontSubtitle {
         font-size: 1.2rem;
     }
@@ -113,8 +117,11 @@
     .fontTitle {
         font-size: 4rem;
     }
+    .fontTitle2 {
+        font-size: 2rem;
+    }
     .fontSubtitle {
-        font-size: 1.5rem;
+        font-size: 1.35rem;
     }
 }
 
