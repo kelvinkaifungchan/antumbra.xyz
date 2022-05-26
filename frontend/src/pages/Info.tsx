@@ -9,29 +9,22 @@ return (
     <NavBar />
     <Hamburger />
     <div className='row p-3 d-flex align-items-center' style={{minHeight:'83vh',fontSize: '1.2rem', opacity: "0.8"}}>
-        <div className='col-lg-8 col-md-12'>
+        <div className='col-lg-8 col-12'>
             <div className='w-75'>
                 About Us:<br />
-                AArchitecture is the student-run magazine of the Architectural Association and welcomes
-                contributions from all professions and perspectives.<br /><br />
-                Format of Contributions:<br />
-                As we are transitioning from a print magazine into an online publication, we will be increasing
-                the range of contribution media beyond writing, to include photography, films, and artwork
-                amongst others.<br /><br />
-                At the end of the editorial cycle an anthology will be published, bringing together online
-                contributions to AArchitecture in physical form.
+                Antumbra.DAO is a decentralised autonomous broadcasting organisation founded within the Architectural Association, inspired by alternative routing of knowledge and governance. It is a space to gather, and to find chance encounter by proximity. Our community understands information as a material condition, rejecting the digital/analogue distinction in favour of a synthetic attitudes of spatial enablement. 
                 <br /><br />
-                Online Publication:<br />
-                The Warm War call for media will be open until June 2022. We will be publishing contributions
-                from April 2022 on a rolling basis. Get in touch <a style={{color: '#FF5C00'}}
-                    href="mailto: aarchitecture@aaschool.ac.uk">here</a> or send an email to
-                aarchitecture@aaschool.ac.uk
+                Publication:<br />
+                Our network-scrape, <i>Warmth</i>, will be open until December 2022. We will be publishing contributions
+                from May 2022 on a rolling basis. Get in touch <a style={{color: '#FF5C00'}}
+                    href="mailto: contact@antumbra.xyz">here</a> or send an email to
+                contact@antumbra.xyz
                 to contribute.<br /><br />
             </div>
         </div>
-        <div className='col-lg-4 col-md-12'>
+        <div className='col-lg-4 col-12'>
         <br />
-        <img src="https://aarchitecture.blob.core.windows.net/videos/220131-Info.gif" alt="Architectural Association" width="100%" height="auto"/>
+        <img src="https://aarchitecture.blob.core.windows.net/videos/220131-Info.gif" alt="WW Gif" width="100%" height="auto"/>
         </div>
     </div>
     {/* <HorizontalLine /> */}

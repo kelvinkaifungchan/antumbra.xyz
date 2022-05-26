@@ -10,59 +10,21 @@ isOpen: boolean
 }
 
 interface CarouselImage {
-    id: number;
-    article_id: number;
-    imageLink?: string;
-    imageCaption?: string;
-  }
+id: number;
+article_id: number;
+imageLink?: string;
+imageCaption?: string;
+}
 
 export const CarouselModule = ({imageSource}: {imageSource:CarouselImage[]}) => {
-    const [modalControl, setModalControl] = useState<any>(null);
-    const [switcher, flipSwitch] = useState(false);
-    useEffect(()=>{
-    const imageSourceControl = imageSource.map((imageSource)=>{
-        return {
-    imageLink: imageSource.imageLink,
-    imageCaption: imageSource.imageCaption,
-    isOpen: false
-    }
-    })
-    setModalControl(imageSourceControl);
-    },[])
-
-    const modalSwitcher = (index: number) => {
-    modalControl[index].isOpen = !modalControl[index].isOpen;
-    flipSwitch(!switcher)
-    }
-
     return (
-    <div className='row py-4' style={{overflowX:"auto", whiteSpace:"nowrap"}}>
-        {/* <div style={{background:"#ffffff0f", borderRadius:"20px"}}>
-        <Carousel width="100%" autoPlay infiniteLoop dynamicHeight showStatus={false} showThumbs={false}
-            showIndicators={false} onClickItem={(index)=> modalSwitcher(index)}
-            >
-            {modalControl?
-            modalControl.map((imageInfo: imageSourceState, i: number) => {
-            return(
-            <>
-                <img key={i} style={{maxWidth:'100%', maxHeight:'80vh', minHeight:'80vh', width:'auto', height:'auto'}}
-                    src={imageInfo.imageLink} />
-                <Modal centered fullscreen isOpen={imageInfo.isOpen} toggle={()=>modalSwitcher(i)}>
-                    <img key={i} style={{ width:'100%' }} src={imageInfo.imageLink} />
-                </Modal>
-            </>
-            )
-            }):
-            null
-            }
-        </Carousel>
-        </div> */}
+    <div className='row py-4 d-flex align-content-center' style={{minHeight: "80vh", overflowX:"auto", whiteSpace:"nowrap"}}>
         <div>
             {imageSource.map((image, index) => {
-                    return(
-                    <img key={index} style={{maxWidth:'100%', maxHeight:'80vh', minHeight:'80vh', width:'auto', height:'auto'}}
-                    src={image.imageLink} />
-                    )
+            return(
+            <img key={index} style={{maxWidth:'100%', maxHeight:'80vh', width:'auto', height:'auto'}}
+                src={image.imageLink} />
+            )
             })}
         </div>
     </div>

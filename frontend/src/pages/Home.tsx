@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios, {AxiosResponse} from 'axios';
 import { NavBar } from "../components/navbar";
 import { ArticleGrid } from "../components/articleGrid";
@@ -9,7 +8,7 @@ import styles from "./Home.module.css";
 import "./Home.module.css";
 import { Hamburger } from "../components/hamburger";
 import { Link } from "react-router-dom";
-import { ArticleModule, Tag, Contributor } from "../types"
+import { ArticleModule } from "../types"
 
 export const Home = () => {
 const [articleList, setArticleList] = useState<ArticleModule[] | null>(null);
@@ -19,8 +18,10 @@ const [scroll, setScroll] = useState(false);
   window.addEventListener("scroll", () => {
     setScroll(window.scrollY > 40);
   })
-  axios.get(`http://api.antumbra.xyz/api/aarchitecture`)
+  axios.get(`http://penumbra.lol/api/aarchitecture`)
+  // axios.get(`http://localhost:8080/api/aarchitecture`)
   .then((response: AxiosResponse)=>{
+    console.log(response.data)
   setArticleList(response.data)
   })
   },[])
@@ -38,7 +39,7 @@ const [scroll, setScroll] = useState(false);
         {({ index }) => (
         <>
           <div style={{paddingLeft:'25px', paddingRight:'25px'}}>
-            <Link to="/">
+            <Link to={articleList ? `/${articleList[index%articleList.length].type}/${articleList[index%articleList.length].id}` : "/"}>
               {articleList && articleList.length > 0 ? articleList[index%articleList.length].title : null}
             </Link>
           </div>
