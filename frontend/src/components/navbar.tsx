@@ -8,7 +8,7 @@ return (
     <nav className={`px-3 pt-3 ${styles.screenSmall}`}>
         <div className="d-flex justify-content-between" style={{color: "#FF5C00", fontSize: "1.2rem"}}>
             <div>
-                <Link to="/">Antumbra.DAO</Link>
+                <Link to="/">Antumbra.xyz</Link>
             </div>
             <div>
                 <Link to="/network-scrape">Warmth</Link>
@@ -18,7 +18,7 @@ return (
     <nav className={`px-3 pt-3 ${styles.screenBig}`}>
         <div className="d-flex justify-content-between" style={{color: "#FF5C00", fontSize: "1.2rem"}}>
             <div>
-                <Link to="/">Antumbra.DAO</Link>
+                <Link to="/">Antumbra.xyz</Link>
             </div>
             <div className={styles.ibmFont} style={{color: "#FFFFFF", letterSpacing:"0.2rem", opacity:"0.8"}}>
                 INTERFACE

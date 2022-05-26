@@ -17,7 +17,7 @@ exports.seed = function (knex) {
             title: "Even An AI Could Do That",
             type: "text",
             subtitle: "An excerpt taken from Artificial Aesthetics. A critical guide to AI, media and design by Lev Manovich and Emanuele Arielli",
-            heroImage:"http://manovich.net/content/04-projects/165-artificial-aesthetics/top.jpg",
+            heroImage:"https://antumbra-media.s3.eu-west-2.amazonaws.com/220526_LevManovich_AIAesthetics.jpeg",
             datePublished: "May 2022"
         }, {
             title: "Does Photography Have A Future?",
