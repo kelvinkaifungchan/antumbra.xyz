@@ -77,9 +77,6 @@ exports.seed = function (knex) {
         tag_id: 12,
       },{
         article_id: 2,
-        tag_id: 13,
-      },{
-        article_id: 2,
         tag_id: 14,
       },{
         article_id: 3,

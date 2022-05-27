@@ -38,10 +38,13 @@ const [scroll, setScroll] = useState(false);
       <Ticker mode="chain" speed={5}>
         {({ index }) => (
         <>
-          <div style={{paddingLeft:'25px', paddingRight:'25px'}}>
+          {/* <div style={{paddingLeft:'25px', paddingRight:'25px'}}>
             <Link to={articleList ? `/${articleList[index%articleList.length].type}/${articleList[index%articleList.length].id}` : "/"}>
               {articleList && articleList.length > 0 ? articleList[index%articleList.length].title : null}
             </Link>
+          </div> */}
+          <div style={{color: "#00021A", marginLeft:"2rem"}}>
+            First Antumbra.xyz community gathering on Friday 27th May @ 6:30pm BST. Join us on zoom, <a href="https://aaschool.zoom.us/j/86018793078?pwd=cUhydnRseTVPcy9XRzVvb1BNSktDQT09" target="_blank">here</a>.
           </div>
         </>
         )}

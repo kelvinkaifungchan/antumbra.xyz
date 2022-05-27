@@ -10,7 +10,7 @@ return (
         Antumbra.xyz is a decentralised autonomous broadcasting organisation inspired by alternative routing of knowledge and governance.
         </div>
         <div className='col-12 col-lg-3' style={{fontSize:'1rem'}}>
-            <a href="/callformedia">Call for Media</a><br/>
+            <a href="/callformedia">Network-Scrape</a><br/>
             <a href="/info">Information</a><br/>
             <a href="mailto:contact@antumbra.xyz">Contribute</a><br/>
             <a href="https://twitter.com/antumbraxyz" target={"blank"}>Twitter</a><br/>
@@ -26,7 +26,6 @@ return (
         <div className='col-12 col-md-4'>
         <Link className="px-3" to="/network-scrape">Network-Scrape</Link><br/>
             <Link className="px-3" to="/info">Information</Link><br/>
-            <Link className="px-3" to="/">Disclaimer</Link><br/>
         </div>
         <div className='col-12 col-md-4'>
             <a href="mailto:contact@antumbra.xyz">Participate</a><br/>

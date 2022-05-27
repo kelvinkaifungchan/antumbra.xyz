@@ -26,7 +26,7 @@ return (
         </div>
         <div className='col-lg-4 col-12'>
         <br />
-        <img src="https://aarchitecture.blob.core.windows.net/videos/220131-Info.gif" alt="WW Gif" width="100%" height="auto"/>
+        <img src="https://antumbra-media.s3.eu-west-2.amazonaws.com/220526_pigs.gif" alt="Antumbra Promo" width="100%" height="auto"/>
         </div>
     </div>
     {/* <HorizontalLine /> */}

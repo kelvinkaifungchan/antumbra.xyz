@@ -3,7 +3,7 @@ exports.seed = function (knex) {
   .then(async()=>{
       return knex("contributor").insert([{
           name: "Ye Ha Kim",
-          bio: "is an architectural designer and a 3D Generalist, who has worked within the film and game industry. He is interested in the application of real-time technologies data visualisation to identify issues related to climate change within the built environment. He has ran workshops with students at the Bartlett School of Architecture exploring these ideas.",
+          bio: "is an architectural designer and a 3D Generalist, who has worked within the film and game industry. He is interested in the application of real-time technologies in data visualisation to identify issues related to climate change within the built environment. He has ran workshops with students at the Bartlett School of Architecture exploring these ideas.",
       }, {
         name: "Simon Denny",
         bio: "is an artist working with installation, sculpture, print and video. He makes exhibitions that unpack the social and political implications of the technology industry and the rise of social media, startup culture, blockchain and cryptocurrency.",
@@ -20,8 +20,8 @@ exports.seed = function (knex) {
         name: "Emanuele Arielli",
         bio: "teaches aesthetics at the IUAV University in Venice, Italy. His research interests include the connection between aesthetics, communication and media theory, both from a philosophical and a psychological point of view.",
       }, {
-        name: "Joanna Zylinksa",
-        bio: "is a writer, lecturer, artist and curator, working in the areas of digital technologies and new media, ethics, photography and art. She is Professor of Media Philosophy + Critical Digital Practice in the Department of Digital Humanities at King's College London. She is also a member of Creative AI Lab, a collaboration between King's and Serpentine Galleries. Prior to joining King's in 2021, she worked for many years at Goldsmiths, University of London, including as Co-Head of its Department of Media, Communications and Cultural Studies. She has held visiting positions as Guest Professor at Shandong University in China, Winton Chair Visiting Scholar at the University of Minnesota, US, and Beaverbrook Visiting Scholar at McGill University in Canada.",
+        name: "Joanna Zylinska",
+        bio: "is a writer, lecturer, artist and curator, working in the areas of digital technologies and new media, ethics, photography and art. She is Professor of Media Philosophy + Critical Digital Practice in the Department of Digital Humanities at King's College London. She is also a member of Creative AI Lab, a collaboration between King's and Serpentine Galleries. Zylinska is the author of eight books including *Nonhuman Photography* (MIT Press, 2017), *The End of Man: A Feminist Counterapocalypse* (University of Minnesota Press, 2018, open access) and most recently *AI Art: Machine Visions and Warped Dreams* (Open Humanities Press, 2020, open access).",
       }]);
   })
   .then(()=>{
