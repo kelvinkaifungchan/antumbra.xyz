@@ -25,7 +25,7 @@ return (
         </div>
         <div className='col-12 col-md-4'>
         <Link className="px-3" to="/network-scrape">Network-Scrape</Link><br/>
-            <Link className="px-3" to="/info">Information</Link><br/>
+        <Link className="px-3" to="/info">Information</Link><br/>
         </div>
         <div className='col-12 col-md-4'>
             <a href="mailto:contact@antumbra.xyz">Participate</a><br/>

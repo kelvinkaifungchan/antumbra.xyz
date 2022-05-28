@@ -44,7 +44,7 @@ const [scroll, setScroll] = useState(false);
             </Link>
           </div> */}
           <div style={{color: "#00021A", marginLeft:"2rem"}}>
-            First Antumbra.xyz community gathering on Friday 27th May @ 6:30pm BST. Join us on zoom, <a href="https://aaschool.zoom.us/j/86018793078?pwd=cUhydnRseTVPcy9XRzVvb1BNSktDQT09" target="_blank">here</a>.
+            Join us on <a href="https://discord.gg/prUkA94H" target="_blank">discord</a> to stay up to date with events and announcements.
           </div>
         </>
         )}
