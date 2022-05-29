@@ -18,7 +18,7 @@ const [scroll, setScroll] = useState(false);
   window.addEventListener("scroll", () => {
     setScroll(window.scrollY > 40);
   })
-  axios.get(`http://penumbra.lol/api/aarchitecture`)
+  axios.get(`https://penumbra.lol/api/aarchitecture`)
   // axios.get(`http://localhost:8080/api/aarchitecture`)
   .then((response: AxiosResponse)=>{
     console.log(response.data)
@@ -38,10 +38,13 @@ const [scroll, setScroll] = useState(false);
       <Ticker mode="chain" speed={5}>
         {({ index }) => (
         <>
-          <div style={{paddingLeft:'25px', paddingRight:'25px'}}>
+          {/* <div style={{paddingLeft:'25px', paddingRight:'25px'}}>
             <Link to={articleList ? `/${articleList[index%articleList.length].type}/${articleList[index%articleList.length].id}` : "/"}>
               {articleList && articleList.length > 0 ? articleList[index%articleList.length].title : null}
             </Link>
+          </div> */}
+          <div style={{color: "#00021A", marginLeft:"2rem"}}>
+            Join us on <a href="https://discord.gg/prUkA94H" target="_blank">discord</a> to stay up to date with events and announcements.
           </div>
         </>
         )}

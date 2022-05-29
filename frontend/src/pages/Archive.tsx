@@ -10,7 +10,7 @@ export const Archive = () => {
     const [archive, setArchive] = useState<IssueData[] | null>(null);
 
     useEffect(()=>{
-        axios.get(`http://penumbra.lol/api/aarchitecture/archive`)
+        axios.get(`https://penumbra.lol/api/aarchitecture/archive`)
         // axios.get(`http://localhost:8080/api/aarchitecture/archive`)
         .then((response: AxiosResponse)=>{
         setArchive(response.data)
@@ -25,7 +25,6 @@ return (
         <div className='col w-100'>
             <table className='w-100' style={{color: '#FF5C00'}}>
                 <tbody>
-                {/* Placeholder; needs to be mapped from database*/}
                 {archive?.map((issue,index)=> {
                     return(
                         <Issue key={index} id={issue.id} issue={issue.issue} title={issue.title} date={issue.date} link={issue.link}/>

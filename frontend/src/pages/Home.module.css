@@ -29,7 +29,7 @@
 }
 
 .ticker a {
-    color: #00021A;
+    color: #d9ff00;
 }
 
 .banner {
@@ -76,6 +76,8 @@
 
 .moduleTitle {
     font-size: 2rem;
+    line-height: 2.8rem!important;
+    letter-spacing: -0.15rem !important;
 }
 
 .fontTitle {

@@ -24,7 +24,7 @@ export const Article =({type}: {type:string} ) => {
       // .then((response: AxiosResponse)=>{
       //   setArticleList(response.data)
       // })
-      axios.get(`http://penumbra.lol/api/aarchitecture/article/?articleId=${params.id}`)
+      axios.get(`https://penumbra.lol/api/aarchitecture/article/?articleId=${params.id}`)
       // axios.get(`http://localhost:8080/api/aarchitecture/article/?articleId=${params.id}`)
       .then((response: AxiosResponse)=>{
       setArticle(response.data)
