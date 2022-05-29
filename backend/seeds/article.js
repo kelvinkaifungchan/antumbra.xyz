@@ -29,7 +29,7 @@ exports.seed = function (knex) {
             title: "Crumbling Land",
             type: "video",
             subtitle: "The project explores the intentional abandonment of the Jeffersonian Grid, proposing that existing trends of abandonment and divestment can be strategically utilized for climate change adaptation.",
-            heroImage:"https://testingbucketwebdev.s3.ap-southeast-1.amazonaws.com/SMALL_Rewilding_3.jpg",
+            heroImage:"https://antumbra-media.s3.eu-west-2.amazonaws.com/SMALL_Rewilding_3.jpg",
             datePublished: "May 2022"
         }, {
             title: "Tate Realisms",
