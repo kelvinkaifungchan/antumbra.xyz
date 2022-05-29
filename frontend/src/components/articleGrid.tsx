@@ -40,7 +40,8 @@ export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {
     const [chipControl, setChipControl] = useState<any>(null);
 
     useEffect(() => {
-        setArticleList(articles)
+        const result = shuffle(articles)
+        setArticleList(result)
         window.addEventListener("scroll", () => {
             setScroll(window.scrollY > 40);
           })
@@ -63,6 +64,23 @@ export const ArticleGrid =({articles} : {articles:ArticleModule[]}) => {
     let navigate = useNavigate();
     const handleNav = (e: any, id: number, type:string) => {
         navigate(`/${type}/${id}`);
+    }
+
+    // Randomise article order
+    const shuffle = (input: any[]) => {
+        let currentIndex = input.length;
+        let randomIndex;
+    while (currentIndex != 0) {
+
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [input[currentIndex], input[randomIndex]] = [
+      input[randomIndex], input[currentIndex]];
+  }
+
+  return input;
     }
     
     const toggle = async (tagItem: string, isRed: boolean) => {

@@ -19,13 +19,11 @@ export const Article =({type}: {type:string} ) => {
     let params = useParams()
 
     useEffect(()=>{
-      // axios.get(`http://api.antumbra.xyz/api/aarchitecture`)
-      // axios.get(`http://localhost:8080/api/aarchitecture/`)
+      // axios.get(`https://penumbra.lol/api/aarchitecture`)
       // .then((response: AxiosResponse)=>{
       //   setArticleList(response.data)
       // })
       axios.get(`https://penumbra.lol/api/aarchitecture/article/?articleId=${params.id}`)
-      // axios.get(`http://localhost:8080/api/aarchitecture/article/?articleId=${params.id}`)
       .then((response: AxiosResponse)=>{
       setArticle(response.data)
       })
@@ -34,7 +32,6 @@ export const Article =({type}: {type:string} ) => {
     // const handleNav = (e: any, id: number, type:string) => {
     //   navigate(`/${type}/${id}`);
     //   }
-
 return (
 <div className='container-fluid'>
     <NavBar />
@@ -51,19 +48,14 @@ return (
       </div>
     </div>
     <div className='row px-3' style={{fontSize: '1.2rem', opacity: '0.8', overflowX:"auto", whiteSpace:"nowrap"}}>
-        <div className='col-12'>
-        {articleList && articleList.length > 0 ? articleList.map((item, index)=>{
-            if (item.id === article?.id) { return null }
-            else {
+        {articleList && articleList.length > 0 ? articleList.slice(0,4).map((item, index)=>{
               return (
                 <div key={index} onClick={(e)=>{handleNav(e, item.id, item.type)}} className="col-lg-3 col-sm-6 col-xs-12 py-3" style={{width:"100%", height:"auto", float:"left"}}>
                   <ArticleModuleSmall contributors={item.contributors} title={item.title} heroImage={item.heroImage}
                     subtitle={item.subtitle} />
                 </div>
                 )
-            }
             }):null}
-        </div>
     </div>
     <HorizontalLine /> */}
     <Footer />
